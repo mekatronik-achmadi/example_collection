@@ -13,8 +13,6 @@
 ### ATMega
 - No Arduino source-code
 - Only Eagle or KiCAD as PCB design
-	+ KiCAD only Pro, Sch, and PCB files
-	+ Eagle only Sch and Brd files
 - Only C, CPP, or Makefile as sources
 - Simulation only Simulide or open-sources sims
 
@@ -35,8 +33,6 @@
 ### ESP8266
 - No Arduino source-code
 - Only Eagle or KiCAD as PCB design
-	+ KiCAD only Pro, Sch, and PCB files
-	+ Eagle only Sch and Brd files
 - Only C, CPP, or Makefile as sources
 - Non ESP-RTOS must in a dedicated folder
 
