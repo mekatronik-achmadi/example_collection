@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data IoT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+  </head>
+  <body>
+    <header>
+      <h1>Ph and TDs Sensors</h1>
+    </header>
+    <section id="app">
+      <h2>Data Sensor</h2>
+      <table>
+          <thead>
+              <tr>
+                  <th><p>Date</p></th>
+                  <th><p>Ph</p></th>
+                  <th><p>NTC</p></th>
+                  <th><p>T</p></th>
+                  <th><p>TDS</p></th>
+              </tr>
+          </thead>
+          <tbody id="body-table">
+              
+          </tbody>
+      </table>
+      <button id="reset">RESET</button>
+    </section>
+  </body>
+  <script src="{{ url_for('static', filename='jquery-3.5.1.min.js') }}"></script>
+  <script>
+    (function worker() {
+    $.get('/data', function(data) {
+        $("#body-table").html("");
+
+        data.forEach(element => {
+            $("#body-table").append('<tr>'+
+                '<td><h4>'+element[0]+'</h4></td>'+
+                '<td><h4>'+element[1]+'</h4></td>'+
+                '<td><h4>'+element[2]+'</h4></td>'+
+                '<td><h4>'+element[3]+'</h4></td>'+
+                '<td><h4>'+element[4]+'</h4></td>'+
+            '</tr>')
+        });
+        setTimeout(worker, 5000);
+    });
+    })();
+
+    $( "#reset" ).click(function() {
+        $.get('/reset', function(data) {
+            location.reload()
+        })
+    });
+  </script>
+</html>
+
