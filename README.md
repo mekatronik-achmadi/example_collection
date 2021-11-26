@@ -22,10 +22,15 @@
 - adc_lcd_uart
 - atmega_tacho
 - AVRCppBook
+- car_control
 - cerdas_cermat
 - input_capture
+- m128_adc_hmi_mmc
 - m128_fatfs_qt
-- 
+- rpm_lcd
+- sonic_range
+- tacho
+- voltmeter
 
 
 
