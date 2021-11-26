@@ -37,10 +37,13 @@
 - Non ESP-RTOS must in a dedicated folder
 
 #### List Examples
+- blink_console
 - Non ESP-RTOS
 	+ blink_led0
 	+ blink_led1
 	+ blink_led2
+	+ iot_doorwatch
+	+ iot_phtdsmeter
 	+ mqtt_both
 	+ mqtt_test
 	+ template_c_sdk
