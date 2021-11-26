@@ -1,0 +1,13 @@
+Folder-folder berisi file pendukung buku berjudul:
+"PEMROGRAMAN MIKROKONTROLER AVR ATMEL BERORIENTASI OBYEK"
+
+Sebelum menggunakan isi folde Kode_program, silahkan 
+install dahulu software-software yang terdapat dalam folder Tools dengan urutan, sbb:
+1. WinAVR
+2. AVR Studio
+3. Code::Blocks
+Sebelum menggunakan Code::Blocks, pastikan bahwa Anda telah mengonfigurasi compiler seperti yang dijelaskan dalam buku.
+
+Salam,
+Sidik Nurcahyo 
+<sidiknur@yahoo.com>

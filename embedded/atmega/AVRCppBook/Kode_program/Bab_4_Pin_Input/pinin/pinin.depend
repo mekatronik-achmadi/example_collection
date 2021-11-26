@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1191263748 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_4_pin_input\pinin\main.cpp
+	<avr/io.h>
+
+1344309320 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_4_pin_input\pinin\main.cpp
+	<avr/io.h>
+	"pinin.h"
+	"LED.h"
+
+1344308928 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_4_pin_input\pinin\pinin.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_4_pin_input\pinin\pinout.h
+
+1343916894 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_4_pin_input\pinin\led.h
+	"pinout.h"
+

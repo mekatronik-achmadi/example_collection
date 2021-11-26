@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1344377366 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_5_port_output\sevenseg_74595\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"sevenseg_74595.h"
+
+1344522870 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_5_port_output\sevenseg_74595\sevenseg_74595.h
+	<stdlib.h>
+	"sevenseg.h"
+	"_74595.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_5_port_output\sevenseg_74595\pinout.h
+
+1343957458 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_5_port_output\sevenseg_74595\sevenseg.h
+
+1344517376 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_5_port_output\sevenseg_74595\_74595.h
+	"pinout.h"
+

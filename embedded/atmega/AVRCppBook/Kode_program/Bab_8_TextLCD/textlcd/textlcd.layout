@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="493" topLine="10" />
+	</File>
+	<File name="pinout.h" open="1" top="0" tabpos="3">
+		<Cursor position="530" topLine="0" />
+	</File>
+	<File name="textlcd.h" open="1" top="0" tabpos="2">
+		<Cursor position="824" topLine="75" />
+	</File>
+	<File name="textlcd_config.h" open="1" top="0" tabpos="4">
+		<Cursor position="19" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

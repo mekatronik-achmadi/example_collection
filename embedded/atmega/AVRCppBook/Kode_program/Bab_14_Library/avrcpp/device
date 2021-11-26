@@ -1,0 +1,33 @@
+//id:device,avrcpp,sidiknur@yahoo.com
+//23-8-2012
+//Atmega8
+
+#include <avr/io.h>
+
+#ifndef DEVICE_H
+#define DEVICE_H
+
+#include "_74165.h"
+#include "_74595.h"
+#include "adc.h"
+#include "kendali_onoff.h"
+#include "kendali_onoff7seg3dgt.h"
+#include "kendali_onoffLCD.h"
+#include "keypad3x4.h"
+#include "lcd_serial.h"
+#include "lcd_serial_slave.h"
+#include "led.h"
+#include "pinin.h"
+#include "pinout.h"
+#include "portin.h"
+#include "portout.h"
+#include "sevenseg.h"
+#include "sevenseg_7448.h"
+#include "sevenseg_74595.h"
+#include "sevenseg_direct.h"
+#include "textlcd.h"
+#include "tombol.h"
+#include "uart.h"
+#include "uart_soft.h"
+
+#endif /*DEVICE_H*/

@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1343993548 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_keypad\keypad\main.cpp
+	<avr/io.h>
+	"keypad3x4.h"
+	"portout.h"
+
+1343993824 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_keypad\keypad\keypad3x4.h
+	"pinin.h"
+	"pinout.h"
+
+1343916104 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_keypad\keypad\pinin.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_keypad\keypad\pinout.h
+
+1343951824 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_keypad\keypad\portout.h
+	"pinout.h"
+
+1344564462 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\main.cpp
+	<avr/io.h>
+	"keypad3x4.h"
+	"portout.h"
+	"tombol.h"
+
+1344699834 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\keypad3x4.h
+	"pinin.h"
+	"pinout.h"
+
+1343916104 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\pinin.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\pinout.h
+
+1343951824 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\portout.h
+	"pinout.h"
+
+1344361786 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_keypad\keypad\tombol.h
+	"pinin.h"
+

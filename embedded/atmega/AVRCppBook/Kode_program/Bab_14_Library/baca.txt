@@ -1,0 +1,14 @@
+Catatan:
+--------
+Sebelum mencoba program-program aplikasi dalam folder ini
+install dahulu library "avrcpp" dengan cara men-double click file "install_lib"
+
+Library "avrcpp" bebas Anda gunakan selama Anda mematuhi ketentuan utama dari lisensi WinAVR(AVR-GCC), yaitu semua program yang dibuat menggunakan WinAVR
+harus bersifat open-source, artinya tidak ada source code program yang  disembunyikan seperti halnya library "avrcpp" yang sedang Anda coba ini.
+
+Jika suatu saat hendak meng-uninstall library tersebut lakukan 
+dengan cara men-double click file "remove_lib"
+
+jika ada masalah atau pertanyaan silahkan baca buku berjudul 
+"Pemrograman AVR Atmel Berorientasi Obyek" karya Sidik Nurcahyo
+atau kirim email ke: sidiknur@yahoo.com

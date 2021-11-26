@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1344189604 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_10_uart_hard_soft\uart\main.cpp
+	<avr/io.h>
+	"uart.h"
+
+1344189856 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_10_uart_hard_soft\uart\uart.h
+

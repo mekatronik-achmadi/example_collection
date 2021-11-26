@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TA_HMI</class>
+ <widget class="QMainWindow" name="TA_HMI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>154</width>
+    <height>215</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HMI</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QComboBox" name="cmbPort">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>COM0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM7</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM8</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>COM9</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnOpen">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnStart">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="txtCommData">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="barDataView">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>22</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>1024</number>
+    </property>
+    <property name="value">
+     <number>10</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>154</width>
+     <height>19</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

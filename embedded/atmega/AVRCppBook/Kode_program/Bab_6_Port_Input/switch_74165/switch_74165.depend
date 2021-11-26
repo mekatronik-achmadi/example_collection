@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1345693192 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"_74165.h"
+	"_74595.h"
+	"portout.h"
+
+1345697842 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\_74165.h
+	"pinin.h"
+
+1343916104 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\pinin.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\pinout.h
+
+1344517376 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\_74595.h
+	"pinout.h"
+
+1344366550 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_port_input\switch_74165\portout.h
+	"pinout.h"
+

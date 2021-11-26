@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1343915206 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_3_pin_output\pinout_lanjut\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"led.h"
+
+1343915180 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_3_pin_output\pinout_lanjut\led.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_3_pin_output\pinout_lanjut\pinout.h
+
+1343915308 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_3_pin_output\pinout_lanjut\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"led.h"
+
+1343941200 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_3_pin_output\pinout_lanjut\led.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_3_pin_output\pinout_lanjut\pinout.h
+

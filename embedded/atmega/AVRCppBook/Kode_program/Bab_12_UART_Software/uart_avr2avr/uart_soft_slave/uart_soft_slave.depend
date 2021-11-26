@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1344909126 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_11_uart_software\uart_avr2avr\uart_soft_slave\main.cpp
+	<avr/io.h>
+	"../adc.h"
+	"../uart_soft.h"
+
+1344798256 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_11_uart_software\uart_avr2avr\adc.h
+
+1344908982 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_11_uart_software\uart_avr2avr\uart_soft.h
+	<util/delay.h>
+	"pinout.h"
+	"pinin.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_11_uart_software\uart_avr2avr\pinout.h
+
+1344168366 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_11_uart_software\uart_avr2avr\pinin.h
+	"pinout.h"
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="keypad3x4.h" open="1" top="0" tabpos="1">
+		<Cursor position="300" topLine="3" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="362" topLine="13" />
+	</File>
+	<File name="pinin.h" open="1" top="0" tabpos="3">
+		<Cursor position="599" topLine="18" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="led.h" open="1" top="0" tabpos="4">
+		<Cursor position="485" topLine="7" />
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="167" topLine="0" />
+	</File>
+	<File name="pinin.h" open="1" top="0" tabpos="1">
+		<Cursor position="454" topLine="18" />
+	</File>
+	<File name="pinout.h" open="1" top="0" tabpos="2">
+		<Cursor position="767" topLine="18" />
+	</File>
+	<File name="tombol.h" open="1" top="0" tabpos="5">
+		<Cursor position="298" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

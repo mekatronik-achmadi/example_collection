@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1343965322 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_10_kendali_on_off\kendali_onoff\main.cpp
+	<avr/io.h>
+	"kendali_onoff.h"
+
+1343965384 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_10_kendali_on_off\kendali_onoff\kendali_onoff.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_10_kendali_on_off\kendali_onoff\pinout.h
+
+1344863728 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"kendali_onoff7seg3dgt.h"
+	"kendali_onoffLCD.h"
+
+1344857532 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\kendali_onoff.h
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\pinout.h
+
+1344031674 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\adc.h
+
+1343941200 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\led.h
+	"pinout.h"
+
+1343960952 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\sevenseg_74595.h
+	<stdlib.h>
+	"pinout.h"
+	"sevenseg.h"
+
+1343957458 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\sevenseg.h
+
+1344168366 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\pinin.h
+	"pinout.h"
+
+1344002378 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\textlcd.h
+	<util/delay.h>
+	"pinout.h"
+
+1344857554 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\kendali_onoff7seg3dgt.h
+	"adc.h"
+	"led.h"
+	"sevenseg_74595.h"
+	"tombol.h"
+	"kendali_onoff.h"
+
+1344863568 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\kendali_onofflcd.h
+	"adc.h"
+	"textlcd.h"
+	<string.h>
+	"kendali_onoff.h"
+
+1344361786 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_9_kendali_on_off\kendali_onoff\tombol.h
+	"pinin.h"
+

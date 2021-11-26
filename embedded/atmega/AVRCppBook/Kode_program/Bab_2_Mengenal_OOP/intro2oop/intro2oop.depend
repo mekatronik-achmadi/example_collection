@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1343909482 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_2_mengenal_oop\intro2oop\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"pinout.h"
+
+1343909504 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\bab_2_mengenal_oop\intro2oop\pinout.h
+
+1343994054 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_2_mengenal_oop\intro2oop\main.cpp
+	<avr/io.h>
+	<util/delay.h>
+	"pinout.h"
+
+1344305600 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_2_mengenal_oop\intro2oop\pinout.h
+

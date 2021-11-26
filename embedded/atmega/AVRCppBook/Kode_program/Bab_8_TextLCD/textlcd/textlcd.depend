@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1344001532 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_textlcd\textlcd\main.cpp
+	<avr/io.h>
+	<stdlib.h>
+	"textlcd.h"
+
+1344002070 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_textlcd\textlcd\textlcd.h
+	<util/delay.h>
+	"pinout.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_6_textlcd\textlcd\pinout.h
+
+1344002504 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_textlcd\textlcd\main.cpp
+	<avr/io.h>
+	<stdlib.h>
+	"textlcd.h"
+
+1344779738 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_textlcd\textlcd\textlcd.h
+	<util/delay.h>
+	"pinout.h"
+	"textlcd_config.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_textlcd\textlcd\pinout.h
+
+1344779738 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_7_textlcd\textlcd\textlcd_config.h
+

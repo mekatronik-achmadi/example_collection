@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1344916390 source:d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\lcd_serial_slave\main.cpp
+	<avr/io.h>
+	"../lcd_serial_slave.h"
+
+1344954710 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\lcd_serial_slave.h
+	"textlcd.h"
+	"uart.h"
+
+1344915888 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\textlcd.h
+	<util/delay.h>
+	"pinout.h"
+	"textlcd_config.h"
+
+1343914810 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\pinout.h
+
+1344779772 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\textlcd_config.h
+
+1344189856 d:\kuliah_mikroprosesor_2\buku_avrcpp\cd_original_avrcpp\kode_program\bab_12_textlcdserial\lcd_serial\uart.h
+
