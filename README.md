@@ -10,5 +10,13 @@
 
 ## Embedded
 
+### ATMega
+- No Arduino source-code
+- Only C, CPP, or Makefile as sources
+
+#### List Examples
+- adc_lcd_uart
+- 
+
 
 
