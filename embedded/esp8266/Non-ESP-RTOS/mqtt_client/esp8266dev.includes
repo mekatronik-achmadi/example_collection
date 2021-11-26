@@ -1,0 +1,12 @@
+.
+user
+/opt/esp-open-sdk/ESP8266_NONOS_SDK-2.1.0-18-g61248df/include
+/opt/esp-open-sdk/ESP8266_NONOS_SDK-2.1.0-18-g61248df/driver_lib/include
+/opt/esp-open-sdk/ESP8266_NONOS_SDK-2.1.0-18-g61248df/third_party/include
+/opt/esp-open-sdk/xtensa-lx106-elf/include
+/opt/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/include
+/opt/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/include/include
+/opt/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/sysroot/usr/include
+mqtt/include
+mqtt
+include

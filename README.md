@@ -32,5 +32,23 @@
 - tacho
 - voltmeter
 
+### ESP8266
+- No Arduino source-code
+- Only Eagle or KiCAD as PCB design
+	+ KiCAD only Pro, Sch, and PCB files
+	+ Eagle only Sch and Brd files
+- Only C, CPP, or Makefile as sources
+- Non ESP-RTOS must in a dedicated folder
+
+#### List Examples
+- Non ESP-RTOS
+	+ blink_led0
+	+ blink_led1
+	+ blink_led2
+	+ mqtt_client
+	+ template_c_sdk
+	+ web_client
+	+ web_server
+	+ web_test
 
 
