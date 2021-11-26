@@ -1,0 +1,3 @@
+# Example Collection
+
+## General Rules
