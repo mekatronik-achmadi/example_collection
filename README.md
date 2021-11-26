@@ -46,6 +46,7 @@
 	+ blink_led1
 	+ blink_led2
 	+ mqtt_client
+	+ mqtt_both
 	+ template_c_sdk
 	+ web_client
 	+ web_server
