@@ -34,6 +34,7 @@
 - No Arduino source-code
 - Only Eagle or KiCAD as PCB design
 - Only C, CPP, or Makefile as sources
+- Only sources without library packages
 - Non ESP-RTOS must in a dedicated folder
 
 #### List Examples
@@ -51,4 +52,12 @@
 	+ web_server
 	+ web_test
 
+### STM32
+- No Arduino source-code
+- Only Eagle or KiCAD as PCB design
+- Only C, CPP, or Makefile as sources
+- Non RTOS must in a dedicated folder
+- Only sources without library packages
 
+#### List Examples
+- 
