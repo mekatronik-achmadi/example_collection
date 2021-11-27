@@ -23,6 +23,7 @@
 - car_control
 - cerdas_cermat
 - input_capture
+- las_orbit
 - m128_adc_hmi_mmc
 - m128_fatfs_qt
 - rpm_lcd
@@ -62,3 +63,4 @@
 #### List Examples
 - f103rb_powermeter
 - f103rb_joulemeter
+- f103rb_powerlogger
