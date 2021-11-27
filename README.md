@@ -60,4 +60,5 @@
 - Only sources without library packages
 
 #### List Examples
+- f103rb_powermeter
 - 
