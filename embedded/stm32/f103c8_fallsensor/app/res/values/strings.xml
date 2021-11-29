@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FALLNOTIF</string>
+    <string name="btnReq">Test Request</string>
+    <string name="btnNotif">Test Notify</string>
+    <string name="btnStart">Test Start</string>
+    <string name="copyright">written by: Zainudin S.T.@2018</string>
+</resources>
