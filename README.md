@@ -64,3 +64,6 @@
 - f103rb_powermeter
 - f103rb_joulemeter
 - f103rb_powerlogger
+- f103c8_fallsensor
+- lib_alphalcd
+- lib_wakeup
