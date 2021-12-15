@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="atmega" />
+		<Option makefile_is_custom="1" />
+		<Option compiler="avr-gcc" />
+		<Build>
+			<Target title="all">
+				<Option compiler="avr-gcc" />
+				<MakeCommands>
+					<Build command="make all" />
+					<CompileFile command="make" />
+					<Clean command="make clean" />
+					<AskRebuildNeeded command="make all" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="Makefile" />
+	</Project>
+</CodeBlocks_project_file>
