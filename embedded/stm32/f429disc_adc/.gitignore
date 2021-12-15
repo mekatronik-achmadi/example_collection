@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+_minted*
+build/
+.dep/
+compile_commands.json
+.cache
