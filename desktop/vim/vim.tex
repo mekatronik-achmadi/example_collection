@@ -1,0 +1,301 @@
+\documentclass[table,dvipsnames]{beamer}
+\mode<presentation>{
+	\usetheme{Madrid}
+	\setbeamercolor{title}{fg=Black,bg=Blue!15}
+	\setbeamercolor{frametitle}{fg=Black,bg=Blue!15}
+	\setbeamercolor{block title}{fg=Black,bg=Blue!15}
+	\setbeamercolor{block}{fg=Black,bg=Blue!10}
+}
+
+%\usepackage{default}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{keystroke}
+\usepackage{menukeys}
+\usepackage[
+type={CC},
+modifier={by-sa},
+version={4.0},
+]{doclicense}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\title[Vim Cheatsheet]{Vim Summary Cheatsheet}
+\author{}
+\date{}
+
+\begin{document}
+    \section{Start}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Document License}
+		\begin{exampleblock}{}
+			\doclicenseThis
+		\end{exampleblock}
+
+		\begin{exampleblock}{}
+			You are free to:
+			\begin{itemize}
+				\item Share: copy and redistribute the material in any medium or format
+				\item Adapt: remix, transform, and build upon the material
+				for any purpose, even commercially.
+			\end{itemize}
+		\end{exampleblock}
+
+		\begin{exampleblock}{}
+			Under the following terms:
+			\begin{itemize}
+				\item Attribution: you must give appropriate credit and indicate changes.
+				\item ShareAlike: remix, transform, or build upon the material must under the same license as the original.
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+
+    \section{Vimtutor Summary}
+    \begin{frame}
+        \frametitle{Vimtutor: Lesson-1}
+        \begin{exampleblock}{}
+            \textbf{h}($\leftarrow$) \textbf{j}($\downarrow$)
+            \textbf{k}($\uparrow$) \textbf{l}($\rightarrow$)
+            = \textbf{h} and \textbf{l} in most left and right, \textbf{j} like down arrow.
+        \end{exampleblock}
+
+        \begin{exampleblock}{}
+            \textbf{vim FILENAME} \keys{\return} = open a file from shell
+        \end{exampleblock}
+    
+    	\begin{exampleblock}{}
+    		\Esc [\textbf{cmd}\textbar \textbf{:cmd}] \keys{\return} = exit to NORMAL mode then input a command
+    	\end{exampleblock}
+
+        \begin{exampleblock}{}
+            \textbf{:q!} = ignore changes and quit\\
+    		\textbf{:wq} = write changes and quit
+    	\end{exampleblock}
+    
+    	\begin{exampleblock}{}
+    		\textbf{x} = delete a character at the cursor
+    	\end{exampleblock}
+    
+    	\begin{exampleblock}{}
+    		\textbf{i} = INSERT mode at the cursor
+    	\end{exampleblock}
+    
+    	\begin{exampleblock}{}
+    		\textbf{A} = INSERT mode at end of line
+    	\end{exampleblock}
+    \end{frame}
+
+	\begin{frame}
+		\frametitle{Vimtutor: Lesson-2}
+		\begin{exampleblock}{}
+			\textbf{dw} = delete from cursor to next word
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{d\$} = delete from cursor to end of line
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{dd} = delete whole line
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			[number] motion = \textbf{2w} = move cursor two words
+		\end{exampleblock}	
+	
+		\begin{exampleblock}{}
+			operator [number] motion = \textbf{d2w} = delete two words
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{0} = move cursor to start of line
+		\end{exampleblock}	
+	
+		\begin{exampleblock}{}
+			\textbf{u} = undo last action\\
+			\textbf{U} = undo all actions on whole line\\
+			\keys{\ctrl}+\textbf{r} = redo last undo action
+		\end{exampleblock}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Vimtutor: Lesson-3}
+		\begin{exampleblock}{}
+			\textbf{p} = put deleted text after cursor
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{r} [char] = replace the character on cursor
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{c} [motion] = change characters until motion\\
+			\textbf{cw} = change characters until next word\\
+			\textbf{ce} = change characters until end of word\\
+			\textbf{c\$} = change characters until end of line
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{c}[number]motion = change characters until counted motion\\
+			\textbf{c2w} = change characters until 2 of next word\\
+			\textbf{c2e} = change characters until 2 of end of word
+		\end{exampleblock}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Vimtutor: Lesson-4}
+		\begin{exampleblock}{}
+			\textbf{G} = move to end line of file\\
+			\textbf{gg} = move to start line of file\\
+			X\textbf{G} = move to line X number of file
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{/}foo = search foo forward\\
+			\textbf{?}foo = search foo backward\\
+			\textbf{n} = go to next search occurence\\
+			\textbf{N} = go to previous search occurence
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{\%} = highlight matching bracket\\
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{:s/foo/bar} = substitute first foo to bar in line\\
+			\textbf{:s/foo/bar/g} = substitute all foo to bar in line\\
+			\textbf{:\%s/foo/bar/g} = substitute all foo to bar in file
+		\end{exampleblock}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Vimtutor: Lesson-5}
+		\begin{exampleblock}{}
+			\textbf{:!cmd} = run external command
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{:w} [FILENAME] = write all text to FILENAME
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\Esc v [motion] \textbf{:w} [FILENAME] \\
+			= write visually selected text to FILENAME
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{:r} FILENAME = read a FILENAME and put it's text at cursor\\
+			\textbf{:r} !cmd = read a command output and put it's text at cursor
+		\end{exampleblock}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Vimtutor: Lesson-6}
+		\begin{exampleblock}{}
+			\textbf{o} = open line below cursor and start INSERT mode\\
+			\textbf{O} = open line above cursor and start INSERT mode
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{a} = start INSERT mode at after cursor\\
+			\textbf{A} = start INSERT mode at end of line
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\Esc v [motion] = visually selected text\\
+			\textbf{y} = yank (copy) the selected text\\
+			\textbf{p} = put copied text at cursor
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{R} = replace characters until exit to NORMAL mode (\Esc)
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\Esc \textbf{:q} = Quit Vim
+		\end{exampleblock}
+	\end{frame}
+
+	\section{Vim Commands}
+	\begin{frame}
+		\frametitle{Commands-1}
+	
+		\begin{exampleblock}{}
+			\Esc \textbf{:q} = Quit Vim\\
+			\Esc \textbf{q:} = Command History
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{gt} = switch to next tab\\
+			\textbf{gT} = switch to previous tab
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{:NERDTree} = Open File List window\\
+			\keys{\return} = Open File or Toggle Fold Directory\\
+			\textbf{r} = refresh file list\\
+			\textbf{t} = open file in new tab\\
+			\textbf{I} = toggle show hidden files\\
+			\textbf{q} = close file list window
+		\end{exampleblock}
+
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Commands-2}
+		\begin{exampleblock}{}
+			\textbf{:TagbarToggle} = open/close tag list window
+		\end{exampleblock}
+		
+		\begin{exampleblock}{}
+			\keys{\ctrl}+\textbf{w} \keys{\ctrl}+\textbf{w} = switch window\\
+			\keys{\ctrl}+\textbf{w} \textbf{l} = switch window right\\
+			\keys{\ctrl}+\textbf{w} \textbf{h} = switch window left
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\keys{\ctrl}+\textbf{w} \textbf{$<$} = decrease window size\\
+			\keys{\ctrl}+\textbf{w} \textbf{$>$} = increase window size\\
+			\textbf{30} \keys{\ctrl}+\textbf{w} \textbf{$|$} = set window size at 30
+		\end{exampleblock}
+		
+		\begin{exampleblock}{}
+			\textbf{:cmd} \keys{\ctrl}+\textbf{d} = autocomplete a command\\
+			\textbf{:cmd} \keys{\tab} = autocomplete a command
+		\end{exampleblock}
+	
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Commands-3}
+		\begin{exampleblock}{}
+			\textbf{:\%retab} = replace all tab with 4 spaces in file
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\keys{$\backslash$} = default leader key
+		\end{exampleblock}
+		
+		\begin{exampleblock}{}
+			\Esc v = select text to comment\\
+			\keys{$\backslash$}\textbf{cc} = comment line\\
+			\keys{$\backslash$}\textbf{cn} = nested comment block\\
+			\keys{$\backslash$}\textbf{c}[\textbf{space}] = toggle comment block
+		\end{exampleblock}
+	
+		\begin{exampleblock}{}
+			\textbf{ds} [char] = delete surrounding character\\
+			\textbf{dst} = delete surrounding tag\\
+			\textbf{cs} [old] [new] = change surrounding old to new\\
+			\textbf{ys} [motion] char = add surrounding char from cursor to motion
+		\end{exampleblock}
+	\end{frame}
+
+\end{document}

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+rm -f nontext.txt
+find . -type f -not -path "./.git/*" | perl -lne 'print if -B' | tee nontext.txt
