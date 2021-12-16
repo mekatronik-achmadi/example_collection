@@ -1,0 +1,9 @@
+echo "
+TEMPLATE = app
+TARGET = base
+INCLUDEPATH += .
+QT = core gui
+SOURCES += base.cpp
+"> base.pro
+qmake-qt4 base.pro
+make

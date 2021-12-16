@@ -1,0 +1,8 @@
+./
+/usr/avr/include
+/usr/share/arduino/hardware/archlinux-arduino/avr/cores/arduino
+/usr/share/arduino/hardware/archlinux-arduino/avr/libraries/EEPROM/src
+/usr/share/arduino/hardware/archlinux-arduino/avr/libraries/HID/src
+/usr/share/arduino/hardware/archlinux-arduino/avr/libraries/SoftwareSerial/src
+/usr/share/arduino/hardware/archlinux-arduino/avr/libraries/SPI/src
+/usr/share/arduino/hardware/archlinux-arduino/avr/libraries/Wire/src

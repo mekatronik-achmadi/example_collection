@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>qdata</class>
+ <widget class="QMainWindow" name="qdata">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>755</width>
+    <height>326</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>qdata</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTableWidget" name="tblData">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>721</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnData">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>230</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View Data</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lneData">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>230</y>
+      <width>113</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblColumn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>230</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Column</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblRow">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>230</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Row</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDBase">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>230</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DataBase</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>755</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

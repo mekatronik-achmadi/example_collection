@@ -1,0 +1,12 @@
+echo "
+TEMPLATE = app
+TARGET = hello
+INCLUDEPATH += .
+QT += core gui
+SOURCES += hello.cpp
+HEADERS += hello.h
+FORMS += hello.ui
+"> hello.pro
+/usr/lib/x86_64-linux-gnu/qt4/bin/uic hello.ui -o ui_hello.h
+qmake-qt4 hello.pro
+make
