@@ -1,0 +1,6 @@
+.
+/opt/ugfxlib
+/opt/stm32chlib/chibios30/os/rt/include
+/opt/stm32chlib/chibios30/os/hal/include
+disp
+board

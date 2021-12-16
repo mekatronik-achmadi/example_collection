@@ -1,0 +1,1 @@
+#include "rsc/logo.h"
