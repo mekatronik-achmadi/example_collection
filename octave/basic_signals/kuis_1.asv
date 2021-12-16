@@ -1,0 +1,7 @@
+close all;
+clear all;
+clc;
+
+t=-10:0.01:10;
+y=sawtooth(t);
+axis(([-10 10 0 5]);

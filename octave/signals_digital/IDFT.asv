@@ -1,0 +1,48 @@
+close all
+clear
+clc
+
+fs=1000;
+n=0:1/fs:1;
+x=sin(2*pi*60*n)+sin(2*pi*20*n);
+figure
+subplot(3,1,1)
+plot(n,x)
+
+N=2^nextpow2(length(x));
+m=(-N/2):(N/2)-1;
+w=2*pi*m*fs/N;
+X=x*exp(-1i*n'*w);
+subplot(3,1,2)
+plot (w/(2*pi),abs(X))
+xlim([-80 80])
+
+y=(1/N)*X*exp(1i*w'*n);
+y=real(y);
+subplot(3,1,3)
+plot(n,y)
+
+error=max(abs(y-x));
+
+filterku=w/(2*pi)>-40 & w/(2*pi)<40;
+figure
+subplot(3,1,1)
+plot(w/(2*pi), filterku)
+xlim([-80 80])
+ylim ([0 1.25])
+ynew=(1/N)*(X.*filterku)*exp(1i*w'*n);
+ynew=real(ynew);
+subplot(3,1,2)
+plot(n,ynew)
+
+Nnew= 2^nextpow2(length(ynew));
+mnew= (-Nnew/2):(Nnew/2)-1;
+wnew= 2*pi*mnew*fs/Nnew;
+Ynew=ynew*exp(-1i*Nnew'*wnew);
+suplot(3,1,3);
+plot(wnew/(2*pi),abs(Ynew));
+xlim([-80 80]);
+
+filtery=w/(2*pi)>-10 & w/(2*pi)<10 |w/(2*pi)>-30 & w/(2*pi)<30;
+figure
+plot(w/(2*pi), filtery)
