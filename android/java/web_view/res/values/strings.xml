@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WebView</string>
+    <string name="txtURL"></string>
+    <string name="btnGo">Go URL</string>
+    <string name="btnBack">Previous URL</string>
+    <string name="btnNext">Next URL</string>
+    <string name="btnStop">Stop Load</string>
+    <string name="btnReload">Re-Load</string>
+    <string name="btnHome">GoTo Google</string>
+    <string name="check_connection">Please check internet connection</string>
+</resources>

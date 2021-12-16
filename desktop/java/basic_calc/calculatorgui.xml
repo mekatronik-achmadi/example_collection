@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calculatorgui" default="all">
+  
+  
+  <property file="calculatorgui.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module CalculatorGUI -->
+  
+  <dirname property="module.calculatorgui.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.calculatorgui" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.calculatorgui" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.calculatorgui" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.calculatorgui" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="calculatorgui.output.dir" value="${module.calculatorgui.basedir}/out/production/CalculatorGUI"/>
+  <property name="calculatorgui.testoutput.dir" value="${module.calculatorgui.basedir}/out/test/CalculatorGUI"/>
+  
+  <path id="calculatorgui.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="calculatorgui.module.production.classpath">
+    <path refid="${module.jdk.classpath.calculatorgui}"/>
+  </path>
+  
+  <path id="calculatorgui.runtime.production.module.classpath">
+    <pathelement location="${calculatorgui.output.dir}"/>
+  </path>
+  
+  <path id="calculatorgui.module.classpath">
+    <path refid="${module.jdk.classpath.calculatorgui}"/>
+    <pathelement location="${calculatorgui.output.dir}"/>
+  </path>
+  
+  <path id="calculatorgui.runtime.module.classpath">
+    <pathelement location="${calculatorgui.testoutput.dir}"/>
+    <pathelement location="${calculatorgui.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.calculatorgui">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.calculatorgui">
+    <patternset refid="excluded.from.module.calculatorgui"/>
+  </patternset>
+  
+  <path id="calculatorgui.module.sourcepath">
+    <dirset dir="${module.calculatorgui.basedir}">
+      <include name="src/java"/>
+    </dirset>
+  </path>
+  
+  <path id="calculatorgui.module.test.sourcepath">
+    <dirset dir="${module.calculatorgui.basedir}">
+      <include name="src/test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.calculatorgui" depends="compile.module.calculatorgui.production,compile.module.calculatorgui.tests" description="Compile module CalculatorGUI"/>
+  
+  <target name="compile.module.calculatorgui.production" depends="register.custom.compilers" description="Compile module CalculatorGUI; production classes">
+    <mkdir dir="${calculatorgui.output.dir}"/>
+    <javac2 destdir="${calculatorgui.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.calculatorgui}/javac">
+      <compilerarg line="${compiler.args.calculatorgui}"/>
+      <bootclasspath refid="calculatorgui.module.bootclasspath"/>
+      <classpath refid="calculatorgui.module.production.classpath"/>
+      <src refid="calculatorgui.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.calculatorgui"/>
+    </javac2>
+    
+    <copy todir="${calculatorgui.output.dir}">
+      <fileset dir="${module.calculatorgui.basedir}/src/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.calculatorgui.tests" depends="register.custom.compilers,compile.module.calculatorgui.production" description="compile module CalculatorGUI; test classes" unless="skip.tests">
+    <mkdir dir="${calculatorgui.testoutput.dir}"/>
+    <javac2 destdir="${calculatorgui.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.calculatorgui}/javac">
+      <compilerarg line="${compiler.args.calculatorgui}"/>
+      <bootclasspath refid="calculatorgui.module.bootclasspath"/>
+      <classpath refid="calculatorgui.module.classpath"/>
+      <src refid="calculatorgui.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.calculatorgui"/>
+    </javac2>
+    
+    <copy todir="${calculatorgui.testoutput.dir}">
+      <fileset dir="${module.calculatorgui.basedir}/src/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.calculatorgui" description="cleanup module">
+    <delete dir="${calculatorgui.output.dir}"/>
+    <delete dir="${calculatorgui.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.calculatorgui" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.calculatorgui" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

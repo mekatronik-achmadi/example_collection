@@ -1,0 +1,11 @@
+#!/bin/bash
+rm -f *~
+
+cp dist/lib/* AVR8_Burn-O-Mat/lib
+cp dist/AVR8_Burn_O_Mat.jar AVR8_Burn-O-Mat
+cp AVR8_Burn_O_Mat_Config.xml AVR8_Burn-O-Mat
+cp AVR8_Burn-O-Mat.png AVR8_Burn-O-Mat
+
+rm AVR8_Burn-O-Mat_?_?_?.zip
+
+zip -r -9 AVR8_Burn-O-Mat_2_1_2.zip AVR8_Burn-O-Mat

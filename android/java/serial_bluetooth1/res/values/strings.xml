@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SerialBT</string>
+    <string name="btnConnect">Connect</string>
+    <string name="btnClear">Clear</string>
+    <string name="btnQuit">Quit</string>
+    <string name="btnSend">Send</string>
+    <string name="btnScan">Scan</string>
+    <string name="lstAddress">Select Device</string>
+</resources>

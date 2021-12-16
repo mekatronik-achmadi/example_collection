@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">webConsole</string>
+    <string name="txtOut"></string>
+    <string name="btnTest">Test</string>
+    <string name="btnSerial">Serial</string>
+</resources>

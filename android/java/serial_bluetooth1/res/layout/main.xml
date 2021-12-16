@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:weightSum="100">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:weightSum="100">
+
+        <Spinner android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="70"
+                 android:id="@+id/lstAddress"
+                 android:prompt="@string/lstAddress"
+                 android:spinnerMode="dropdown"/>
+
+        <Button
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:id="@+id/btnScan"
+                android:text="@string/btnScan"/>
+    </LinearLayout>
+
+    <View
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="#90909090"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+    />
+
+    <View
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="#90909090"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+    />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:weightSum="100">
+
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:id="@+id/txtSend"
+            android:inputType="text"
+            android:gravity="left"/>
+
+    <Button
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="30"
+            android:id="@+id/btnSend"
+            android:text="@string/btnSend"/>
+
+    </LinearLayout>
+
+    <View
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="#90909090"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+    />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:weightSum="100">
+
+        <Button
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/btnConnect"
+                android:text="@string/btnConnect"/>
+
+        <Button
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/btnClear"
+                android:text="@string/btnClear"/>
+
+        <Button
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="33"
+                android:id="@+id/btnQuit"
+                android:text="@string/btnQuit"/>
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="69"
+            android:id="@+id/txtConsole"
+            android:scrollbars="vertical"
+            android:gravity="top"/>
+
+    <View
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="#90909090"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+    />
+
+</LinearLayout>
+
