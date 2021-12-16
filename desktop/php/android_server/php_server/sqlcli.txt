@@ -1,0 +1,10 @@
+create database androiddb;
+
+use androiddb;
+
+create table employee(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(32) NOT NULL,
+designation VARCHAR(32) NOT NULL,
+salary VARCHAR(32) NOT NULL
+);

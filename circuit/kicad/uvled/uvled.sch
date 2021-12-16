@@ -1,0 +1,341 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 7874 5906
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:USB_B_Micro J1
+U 1 1 60B09487
+P 2850 2500
+F 0 "J1" H 2907 2967 50  0000 C CNN
+F 1 "USB_B_Micro" H 2907 2876 50  0000 C CNN
+F 2 "user:MicroUSB" H 3000 2450 50  0001 C CNN
+F 3 "~" H 3000 2450 50  0001 C CNN
+	1    2850 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 2300 3400 2300
+$Comp
+L power:VCC #PWR02
+U 1 1 60B0A1CE
+P 3400 2300
+F 0 "#PWR02" H 3400 2150 50  0001 C CNN
+F 1 "VCC" H 3415 2473 50  0000 C CNN
+F 2 "" H 3400 2300 50  0001 C CNN
+F 3 "" H 3400 2300 50  0001 C CNN
+	1    3400 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 60B0A755
+P 2950 2900
+F 0 "#PWR01" H 2950 2650 50  0001 C CNN
+F 1 "GND" H 2955 2727 50  0000 C CNN
+F 2 "" H 2950 2900 50  0001 C CNN
+F 3 "" H 2950 2900 50  0001 C CNN
+	1    2950 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2900 2850 2900
+Wire Wire Line
+	2750 2900 2850 2900
+Connection ~ 2850 2900
+$Comp
+L Device:R R-LIMIT1
+U 1 1 60B0B997
+P 5100 1750
+F 0 "R-LIMIT1" V 4893 1750 50  0000 C CNN
+F 1 "10K" V 4984 1750 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 5030 1750 50  0001 C CNN
+F 3 "~" H 5100 1750 50  0001 C CNN
+	1    5100 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R-LIMIT2
+U 1 1 60B0C30D
+P 5100 1850
+F 0 "R-LIMIT2" V 4893 1850 50  0000 C CNN
+F 1 "10K" V 4984 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 5030 1850 50  0001 C CNN
+F 3 "~" H 5100 1850 50  0001 C CNN
+	1    5100 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R-LIMIT3
+U 1 1 60B0C775
+P 5100 1950
+F 0 "R-LIMIT3" V 4893 1950 50  0000 C CNN
+F 1 "10K" V 4984 1950 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 5030 1950 50  0001 C CNN
+F 3 "~" H 5100 1950 50  0001 C CNN
+	1    5100 1950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R-LIMIT4
+U 1 1 60B0CAEA
+P 5100 2050
+F 0 "R-LIMIT4" V 4893 2050 50  0000 C CNN
+F 1 "10K" V 4984 2050 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 5030 2050 50  0001 C CNN
+F 3 "~" H 5100 2050 50  0001 C CNN
+	1    5100 2050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 1750 5300 1850
+Wire Wire Line
+	5300 2050 5250 2050
+Wire Wire Line
+	5250 1950 5300 1950
+Connection ~ 5300 1950
+Wire Wire Line
+	5300 1950 5300 2050
+Wire Wire Line
+	5250 1750 5300 1750
+Wire Wire Line
+	5250 1850 5300 1850
+Connection ~ 5300 1850
+Wire Wire Line
+	5300 1850 5300 1950
+Wire Wire Line
+	4950 1750 4850 1750
+Wire Wire Line
+	4850 1750 4850 1850
+Wire Wire Line
+	4850 2050 4950 2050
+Wire Wire Line
+	4950 1950 4850 1950
+Connection ~ 4850 1950
+Wire Wire Line
+	4850 1950 4850 2050
+Wire Wire Line
+	4950 1850 4850 1850
+Connection ~ 4850 1850
+Wire Wire Line
+	4850 1850 4850 1950
+$Comp
+L power:VCC #PWR03
+U 1 1 60B1AD2D
+P 4750 1750
+F 0 "#PWR03" H 4750 1600 50  0001 C CNN
+F 1 "VCC" H 4765 1923 50  0000 C CNN
+F 2 "" H 4750 1750 50  0001 C CNN
+F 3 "" H 4750 1750 50  0001 C CNN
+	1    4750 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 1750 4850 1750
+Connection ~ 4850 1750
+$Comp
+L Connector:Conn_01x02_Male J-CURRENT1
+U 1 1 60B20ECB
+P 5600 1650
+F 0 "J-CURRENT1" V 5662 1694 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 5753 1694 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5600 1650 50  0001 C CNN
+F 3 "~" H 5600 1650 50  0001 C CNN
+	1    5600 1650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5500 1850 5300 1850
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 60B2A739
+P 5900 1950
+F 0 "J3" H 5872 1832 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 5872 1923 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5900 1950 50  0001 C CNN
+F 3 "~" H 5900 1950 50  0001 C CNN
+	1    5900 1950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5700 1850 5600 1850
+$Comp
+L power:GND #PWR05
+U 1 1 60B2DB77
+P 5600 1950
+F 0 "#PWR05" H 5600 1700 50  0001 C CNN
+F 1 "GND" H 5605 1777 50  0000 C CNN
+F 2 "" H 5600 1950 50  0001 C CNN
+F 3 "" H 5600 1950 50  0001 C CNN
+	1    5600 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 1950 5600 1950
+Text Label 5650 1850 0    50   ~ 0
+VLED
+$Comp
+L Connector:Conn_01x02_Male J2
+U 1 1 60B2FC7D
+P 5300 3050
+F 0 "J2" H 5272 3024 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 5272 2933 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5300 3050 50  0001 C CNN
+F 3 "~" H 5300 3050 50  0001 C CNN
+	1    5300 3050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3050 5000 3050
+$Comp
+L power:GND #PWR04
+U 1 1 60B34435
+P 5050 3650
+F 0 "#PWR04" H 5050 3400 50  0001 C CNN
+F 1 "GND" H 5055 3477 50  0000 C CNN
+F 2 "" H 5050 3650 50  0001 C CNN
+F 3 "" H 5050 3650 50  0001 C CNN
+	1    5050 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R-GND1
+U 1 1 60B355F4
+P 4850 3450
+F 0 "R-GND1" H 4920 3496 50  0000 L CNN
+F 1 "0" H 4920 3405 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 4780 3450 50  0001 C CNN
+F 3 "~" H 4850 3450 50  0001 C CNN
+	1    4850 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 3250 4850 3300
+Wire Wire Line
+	5100 3150 5100 3650
+Wire Wire Line
+	5100 3650 5050 3650
+Wire Wire Line
+	4850 3600 4850 3650
+Wire Wire Line
+	4850 3650 5050 3650
+Connection ~ 5050 3650
+Wire Wire Line
+	4700 3050 4700 3650
+Wire Wire Line
+	4700 3650 4850 3650
+Connection ~ 4850 3650
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 60B1340C
+P 2750 1150
+F 0 "H1" H 2850 1196 50  0000 L CNN
+F 1 "MountingHole" H 2850 1105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 2750 1150 50  0001 C CNN
+F 3 "~" H 2750 1150 50  0001 C CNN
+	1    2750 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 60B140BA
+P 3000 1150
+F 0 "H3" H 3100 1196 50  0000 L CNN
+F 1 "MountingHole" H 3100 1105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 3000 1150 50  0001 C CNN
+F 3 "~" H 3000 1150 50  0001 C CNN
+	1    3000 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 60B14BC6
+P 2750 1400
+F 0 "H2" H 2850 1446 50  0000 L CNN
+F 1 "MountingHole" H 2850 1355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 2750 1400 50  0001 C CNN
+F 3 "~" H 2750 1400 50  0001 C CNN
+	1    2750 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 60B14D1A
+P 3000 1400
+F 0 "H4" H 3100 1446 50  0000 L CNN
+F 1 "MountingHole" H 3100 1355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 3000 1400 50  0001 C CNN
+F 3 "~" H 3000 1400 50  0001 C CNN
+	1    3000 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H5
+U 1 1 60B17683
+P 4900 1050
+F 0 "H5" H 5000 1096 50  0000 L CNN
+F 1 "MountingHole" H 5000 1005 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 4900 1050 50  0001 C CNN
+F 3 "~" H 4900 1050 50  0001 C CNN
+	1    4900 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H7
+U 1 1 60B177EF
+P 5150 1050
+F 0 "H7" H 5250 1096 50  0000 L CNN
+F 1 "MountingHole" H 5250 1005 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 5150 1050 50  0001 C CNN
+F 3 "~" H 5150 1050 50  0001 C CNN
+	1    5150 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H6
+U 1 1 60B177F9
+P 4900 1300
+F 0 "H6" H 5000 1346 50  0000 L CNN
+F 1 "MountingHole" H 5000 1255 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 4900 1300 50  0001 C CNN
+F 3 "~" H 4900 1300 50  0001 C CNN
+	1    4900 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H8
+U 1 1 60B17803
+P 5150 1300
+F 0 "H8" H 5250 1346 50  0000 L CNN
+F 1 "MountingHole" H 5250 1255 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.1mm" H 5150 1300 50  0001 C CNN
+F 3 "~" H 5150 1300 50  0001 C CNN
+	1    5150 1300
+	1    0    0    -1  
+$EndComp
+Text Label 5050 3050 0    50   ~ 0
+VLED
+$Comp
+L Device:LED_PAD D1
+U 1 1 60B2A5A9
+P 4850 3050
+F 0 "D1" H 4850 3330 50  0000 C CNN
+F 1 "LED_PAD" H 4850 3239 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-39-3" H 4850 3050 50  0001 C CNN
+F 3 "~" H 4850 3050 50  0001 C CNN
+	1    4850 3050
+	-1   0    0    -1  
+$EndComp
+Text Notes 4400 2700 0    50   ~ 0
+LED TERBALIK SESUAI DATASHEET
+$EndSCHEMATC

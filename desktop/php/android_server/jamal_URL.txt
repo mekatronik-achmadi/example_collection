@@ -1,0 +1,3 @@
+https://www.simplifiedcoding.net/android-mysql-tutorial-to-perform-basic-crud-operation/
+https://www.yourictmagazine.com/howtos/575-how-to-develop-a-hello-world-android-application-using-intellij-idea.html
+
