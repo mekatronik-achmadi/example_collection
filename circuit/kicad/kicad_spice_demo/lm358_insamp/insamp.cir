@@ -1,0 +1,40 @@
+* /home/achmadi/development/Projects/my_example/circuit/kicad_spice_demo/lm358_insamp/insamp.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Wed 29 Aug 2018 05:21:38 PM WIB
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+.include lm358.mod
+
+* Sheet Name: /
+XU1  Net-_R1-Pad1_ Net-_R1-Pad2_ v_1 v_m v_p LM358		
+XU3  v_out Net-_R3-Pad1_ Net-_R4-Pad1_ v_m v_p LM358		
+R1  Net-_R1-Pad1_ Net-_R1-Pad2_ 10k		
+Rgain1  Net-_R1-Pad2_ Net-_R2-Pad1_ 1k		
+R2  Net-_R2-Pad1_ Net-_R2-Pad2_ 10k		
+R3  Net-_R3-Pad1_ Net-_R1-Pad1_ 10k		
+R4  Net-_R4-Pad1_ Net-_R2-Pad2_ 10k		
+R5  v_out Net-_R3-Pad1_ 10k		
+R6  0 Net-_R4-Pad1_ 10k		
+VM1  v_m 0 -5		
+VP1  v_p 0 5		
+V1  v_1 0 sin(0 1m 500)		
+V2  v_2 0 sin(0 2m 500)		
+XU2  Net-_R2-Pad2_ Net-_R2-Pad1_ v_2 v_m v_p LM358		
+
+* .ac dec 10 100 1000k
+.tran 100u 10m
+* .dc V1 -0.5 0.5 0.1
+
+* dc 0V ac 1V
+* sin(0 1m 500)
+
+.control
+set color0=rgb:f/f/f
+set color1=rgb:0/0/0
+
+run
+plot v(v_2), v(v_1), v(v_out)
+.endc
+
+.end

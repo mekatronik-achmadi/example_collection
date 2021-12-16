@@ -1,0 +1,370 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:pspice
+EELAYER 25 0
+EELAYER END
+$Descr User 7874 7874
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L LM358 U1
+U 1 1 5B8236DE
+P 1500 1350
+F 0 "U1" H 1500 1550 50  0000 L CNN
+F 1 "LM358" H 1500 1150 50  0000 L CNN
+F 2 "" H 1500 1350 50  0001 C CNN
+F 3 "" H 1500 1350 50  0001 C CNN
+	1    1500 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L LM358 U3
+U 1 1 5B82383E
+P 3000 2150
+F 0 "U3" H 3000 2350 50  0000 L CNN
+F 1 "LM358" H 3000 1950 50  0000 L CNN
+F 2 "" H 3000 2150 50  0001 C CNN
+F 3 "" H 3000 2150 50  0001 C CNN
+	1    3000 2150
+	1    0    0    1   
+$EndComp
+$Comp
+L R R1
+U 1 1 5B8238C6
+P 1950 1550
+F 0 "R1" V 2030 1550 50  0000 C CNN
+F 1 "10k" V 1950 1550 50  0000 C CNN
+F 2 "" V 1880 1550 50  0001 C CNN
+F 3 "" H 1950 1550 50  0001 C CNN
+	1    1950 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L R Rgain1
+U 1 1 5B823A07
+P 1950 2150
+F 0 "Rgain1" V 2030 2150 50  0000 C CNN
+F 1 "1k" V 1950 2150 50  0000 C CNN
+F 2 "" V 1880 2150 50  0001 C CNN
+F 3 "" H 1950 2150 50  0001 C CNN
+	1    1950 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 5B823A64
+P 1950 2850
+F 0 "R2" V 2030 2850 50  0000 C CNN
+F 1 "10k" V 1950 2850 50  0000 C CNN
+F 2 "" V 1880 2850 50  0001 C CNN
+F 3 "" H 1950 2850 50  0001 C CNN
+	1    1950 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1850 3150 2200 3150
+Wire Wire Line
+	1950 3150 1950 3000
+Wire Wire Line
+	1950 2300 1950 2700
+Wire Wire Line
+	1950 1700 1950 2000
+Wire Wire Line
+	1800 1350 2200 1350
+Wire Wire Line
+	1950 1350 1950 1400
+Wire Wire Line
+	1200 1450 1200 1900
+Wire Wire Line
+	1200 1900 1950 1900
+Connection ~ 1950 1900
+Wire Wire Line
+	1250 3050 1250 2500
+Wire Wire Line
+	1250 2500 1950 2500
+Connection ~ 1950 2500
+$Comp
+L R R3
+U 1 1 5B823DBE
+P 2350 1350
+F 0 "R3" V 2430 1350 50  0000 C CNN
+F 1 "10k" V 2350 1350 50  0000 C CNN
+F 2 "" V 2280 1350 50  0001 C CNN
+F 3 "" H 2350 1350 50  0001 C CNN
+	1    2350 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L R R4
+U 1 1 5B823E26
+P 2350 3150
+F 0 "R4" V 2430 3150 50  0000 C CNN
+F 1 "10k" V 2350 3150 50  0000 C CNN
+F 2 "" V 2280 3150 50  0001 C CNN
+F 3 "" H 2350 3150 50  0001 C CNN
+	1    2350 3150
+	0    1    1    0   
+$EndComp
+Connection ~ 1950 1350
+Connection ~ 1950 3150
+$Comp
+L R R5
+U 1 1 5B823F3A
+P 3250 1350
+F 0 "R5" V 3330 1350 50  0000 C CNN
+F 1 "10k" V 3250 1350 50  0000 C CNN
+F 2 "" V 3180 1350 50  0001 C CNN
+F 3 "" H 3250 1350 50  0001 C CNN
+	1    3250 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L R R6
+U 1 1 5B823FA0
+P 3250 3150
+F 0 "R6" V 3330 3150 50  0000 C CNN
+F 1 "10k" V 3250 3150 50  0000 C CNN
+F 2 "" V 3180 3150 50  0001 C CNN
+F 3 "" H 3250 3150 50  0001 C CNN
+	1    3250 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2500 1350 3100 1350
+Wire Wire Line
+	2600 2050 2700 2050
+Wire Wire Line
+	2600 1350 2600 2050
+Connection ~ 2600 1350
+Wire Wire Line
+	2500 3150 3100 3150
+Wire Wire Line
+	3400 1350 3500 1350
+Wire Wire Line
+	3500 1350 3500 2150
+Wire Wire Line
+	3300 2150 4050 2150
+Wire Wire Line
+	2700 2250 2600 2250
+Wire Wire Line
+	2600 2250 2600 3150
+Connection ~ 2600 3150
+$Comp
+L 0 #GND01
+U 1 1 5B82410C
+P 3500 3300
+F 0 "#GND01" H 3500 3200 50  0001 C CNN
+F 1 "0" H 3500 3230 50  0000 C CNN
+F 2 "" H 3500 3300 50  0001 C CNN
+F 3 "" H 3500 3300 50  0001 C CNN
+	1    3500 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 3150 3500 3150
+Wire Wire Line
+	3500 3150 3500 3300
+Text GLabel 3950 1950 0    60   Input ~ 0
+v_out
+Wire Wire Line
+	4050 2150 4050 1950
+Wire Wire Line
+	4050 1950 3950 1950
+Connection ~ 3500 2150
+Text GLabel 1100 1250 0    60   Input ~ 0
+v_1
+Text GLabel 1100 3250 0    60   Input ~ 0
+v_2
+Wire Wire Line
+	1100 1250 1200 1250
+Wire Wire Line
+	1100 3250 1250 3250
+Text GLabel 1100 1000 0    60   Input ~ 0
+v_p
+Wire Wire Line
+	1400 1000 1400 1050
+Wire Wire Line
+	1400 1000 1100 1000
+Text GLabel 2450 2500 0    60   Input ~ 0
+v_p
+Text GLabel 1100 3500 0    60   Input ~ 0
+v_p
+Wire Wire Line
+	1100 3500 1450 3500
+Wire Wire Line
+	1450 3500 1450 3450
+Text GLabel 2450 1750 0    60   Input ~ 0
+v_m
+Text GLabel 1100 1700 0    60   Input ~ 0
+v_m
+Wire Wire Line
+	1100 1700 1400 1700
+Wire Wire Line
+	1400 1700 1400 1650
+Text GLabel 1100 2800 0    60   Input ~ 0
+v_m
+Wire Wire Line
+	1100 2800 1450 2800
+Wire Wire Line
+	1450 2800 1450 2850
+$Comp
+L VSOURCE VM1
+U 1 1 5B824F8F
+P 1350 4600
+F 0 "VM1" H 1350 4500 50  0000 C CNN
+F 1 "-5" H 1350 4700 50  0000 C CNN
+F 2 "" H 1350 4600 50  0001 C CNN
+F 3 "" H 1350 4600 50  0001 C CNN
+	1    1350 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSOURCE VP1
+U 1 1 5B824FF1
+P 2300 4600
+F 0 "VP1" H 2300 4500 50  0000 C CNN
+F 1 "5" H 2300 4700 50  0000 C CNN
+F 2 "" H 2300 4600 50  0001 C CNN
+F 3 "" H 2300 4600 50  0001 C CNN
+	1    2300 4600
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 3800 0    60   Input ~ 0
+v_p
+Text GLabel 1250 3800 0    60   Input ~ 0
+v_m
+Wire Wire Line
+	2200 3800 2300 3800
+Wire Wire Line
+	2300 3800 2300 3900
+Wire Wire Line
+	1250 3800 1350 3800
+Wire Wire Line
+	1350 3800 1350 3900
+$Comp
+L 0 #GND02
+U 1 1 5B8253FC
+P 1800 5450
+F 0 "#GND02" H 1800 5350 50  0001 C CNN
+F 1 "0" H 1800 5380 50  0000 C CNN
+F 2 "" H 1800 5450 50  0001 C CNN
+F 3 "" H 1800 5450 50  0001 C CNN
+	1    1800 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 5300 2300 5300
+Wire Wire Line
+	1800 5300 1800 5450
+Connection ~ 1800 5300
+$Comp
+L VSOURCE V1
+U 1 1 5B826012
+P 3550 4600
+F 0 "V1" H 3550 4500 50  0000 C CNN
+F 1 "sin(0 1m 500)" H 3550 4700 50  0000 C CNN
+F 2 "" H 3550 4600 50  0001 C CNN
+F 3 "" H 3550 4600 50  0001 C CNN
+	1    3550 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L VSOURCE V2
+U 1 1 5B826018
+P 4500 4600
+F 0 "V2" H 4500 4500 50  0000 C CNN
+F 1 "sin(0 2m 500)" H 4500 4700 50  0000 C CNN
+F 2 "" H 4500 4600 50  0001 C CNN
+F 3 "" H 4500 4600 50  0001 C CNN
+	1    4500 4600
+	1    0    0    -1  
+$EndComp
+Text GLabel 4400 3800 0    60   Input ~ 0
+v_2
+Text GLabel 3450 3800 0    60   Input ~ 0
+v_1
+Wire Wire Line
+	4400 3800 4500 3800
+Wire Wire Line
+	4500 3800 4500 3900
+Wire Wire Line
+	3450 3800 3550 3800
+Wire Wire Line
+	3550 3800 3550 3900
+$Comp
+L 0 #GND03
+U 1 1 5B826024
+P 4000 5450
+F 0 "#GND03" H 4000 5350 50  0001 C CNN
+F 1 "0" H 4000 5380 50  0000 C CNN
+F 2 "" H 4000 5450 50  0001 C CNN
+F 3 "" H 4000 5450 50  0001 C CNN
+	1    4000 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 5300 4500 5300
+Wire Wire Line
+	4000 5300 4000 5450
+Connection ~ 4000 5300
+Text Notes 4900 1700 0    60   ~ 0
+-PSPICE\n\n.include lm358.mod
+Text Notes 4850 3250 0    60   ~ 0
++PSPICE\n\n* .ac dec 10 100 1000k\n.tran 100u 10m\n* .dc V1 -0.5 0.5 0.1\n\n* dc 0V ac 1V\n* sin(0 1m 500)\n\n.control\nset color0=rgb:f/f/f\nset color1=rgb:0/0/0\n\nrun\nplot v(v_2), v(v_1), v(v_out)\n.endc
+Wire Wire Line
+	2450 2500 2900 2500
+Wire Wire Line
+	2900 2500 2900 2450
+Wire Wire Line
+	2450 1750 2900 1750
+Wire Wire Line
+	2900 1750 2900 1850
+$Comp
+L LM358 U2
+U 1 1 5B827D85
+P 1550 3150
+F 0 "U2" H 1550 3350 50  0000 L CNN
+F 1 "LM358" H 1550 2950 50  0000 L CNN
+F 2 "" H 1550 3150 50  0001 C CNN
+F 3 "" H 1550 3150 50  0001 C CNN
+	1    1550 3150
+	1    0    0    1   
+$EndComp
+$EndSCHEMATC

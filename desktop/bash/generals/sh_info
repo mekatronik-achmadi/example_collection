@@ -1,0 +1,30 @@
+#!/bin/sh
+
+clear
+
+cat << !
+ _____ _               _     _
+|_   _(_)_ __  _   _  | |   (_)_ __  _   ___  __
+  | | | | '_ \| | | | | |   | | '_ \| | | \ \/ /
+  | | | | | | | |_| | | |___| | | | | |_| |>  <
+  |_| |_|_| |_|\__, | |_____|_|_| |_|\__,_/_/\_\_
+               |___/
+!
+
+echo ""
+echo "Kernel Info: "
+echo "Name     : $(uname -s)"
+echo "Release  : $(uname -r)"
+echo "Version  : $(uname -v)"
+echo "System   : $(uname -o)"
+echo "Machine  : $(uname -m)"
+echo "Hostname : $(uname -n)"
+
+echo ""
+echo "Shell Info:"
+echo "Type     : $SHELL"
+echo "User     : $USER"
+echo "Console  : $(tty)"
+
+echo ""
+df -h -T

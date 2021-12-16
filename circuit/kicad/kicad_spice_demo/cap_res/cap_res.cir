@@ -1,0 +1,33 @@
+* /home/achmadi/development/Projects/my_example/circuit/kicad_spice_demo/cap_res/cap_res.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Wed 29 Aug 2018 05:16:03 PM WIB
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+V1  v_0 0 dc 0v ac 1v		
+C1  v_1 0 1u		
+C2  v_2 0 100n		
+R1  v_1 v_0 10k		
+R2  v_2 v_1 1k		
+
+** vsource options **
+* dc 0v ac 1v
+* pulse (0 5 1u 1u 1u 1 1)
+
+** choose analysis **
+* .op
+* .dc v_0 1V 10V .01V
+* .dc temp -40 100 1
+* .ac dec 10 1 100k
+* .tran .1ns 100ns
+* .tran 1u 100m
+
+.control
+run
+plot v(v_0), v(v_1), v(v_2)
+* plot phase(v(v_2)), mag(v(v_2)), abs(v(v_2)), db(v(v_2))
+.endc
+
+.end

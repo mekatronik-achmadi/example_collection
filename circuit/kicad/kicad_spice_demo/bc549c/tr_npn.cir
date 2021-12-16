@@ -1,0 +1,34 @@
+* /home/achmadi/Arduino/kicad_spice_demo/bc549c/tr_npn.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Sat 25 Aug 2018 09:24:45 AM WIB
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+Cin1  Net-_Cin1-Pad1_ v_in 10u		
+Q1  Net-_Cout1-Pad2_ Net-_Cin1-Pad1_ 0 npn_bc549c		
+R2  Net-_Cin1-Pad1_ 0 10k		
+R1  vcc Net-_Cin1-Pad1_ 68k		
+R3  vcc Net-_Cout1-Pad2_ 10k		
+Cout1  v_out Net-_Cout1-Pad2_ 10u		
+Rload1  v_out 0 100k		
+V_AC1  v_in 0 sin(0 1m 500)		
+V_DC1  vcc 0 dc 5V		
+
+.model npn_bc549c npn ( IS=7.59E-15 VAF=73.4 BF=480
++ IKF=0.0962 NE=1.2665
++ ISE=3.278E-15 IKR=0.03 ISC=2.00E-13
++ NC=1.2 NR=1 BR=5 RC=0.25 CJC=6.33E-12
++ FC=0.5 MJC=0.33 VJC=0.65 CJE=1.25E-11
++ MJE=0.55 VJE=0.65 TF=4.26E-10
++ ITF=0.6 VTF=3 XTF=20 RB=100
++ IRB=0.0001 RBM=10 RE=0.5 TR=1.50E-07)
+
+* .ac dec 10 10 1000k
+.tran 100u 10m
+
+* dc 0V ac 1V
+* sin(0 1m 500)
+
+.end
