@@ -1,0 +1,1 @@
+get image here: https://github.com/informramiz/opencv-face-recognition-python/tree/master/training-data/s2
