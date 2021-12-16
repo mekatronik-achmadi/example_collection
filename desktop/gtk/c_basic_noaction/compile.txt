@@ -1,0 +1,6 @@
+gcc -Wall -g -o test main.c $(pkg-config gtk+-2.0 libglade-2.0 --cflags --libs)
+gcc -Wall -g -o test main.c $(pkg-config --cflags --libs gtk+-2.0 gmodule-2.0)
+gcc -Wall -g -o test main.c $(pkg-config --cflags --libs libglade-2.0)
+gcc -Wall -g -o test main.c $(pkg-config --cflags --libs gtk+-3.0)
+gcc -Wall -g -o test main.c -rdynamic $(pkg-config --cflags --libs gtk+-3.0)
+

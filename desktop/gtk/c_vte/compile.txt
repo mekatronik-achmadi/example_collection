@@ -1,0 +1,1 @@
+gcc -v -v -Wall -o gtkvterm main.c $(pkg-config --cflags --libs gtk+-2.0 vte)
