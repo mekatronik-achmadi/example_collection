@@ -49,12 +49,18 @@ char txt_value[32];
 /*
  * Green LED blinker thread, times are in milliseconds.
  */
-static THD_WORKING_AREA(waGui, 512);
+static THD_WORKING_AREA(waGui, 1024);
 static THD_FUNCTION(thdGui, arg) {
 
   (void)arg;
   chRegSetThreadName("blinker");
   while (true) {
+#if UPDATE_DATA_AUTO
+    /* data updating with gui */
+#else
+    dataUpdate();
+#endif
+
     guiLoop();
     chThdSleepMilliseconds(10);
   }
@@ -119,7 +125,7 @@ void guiLoop(void){
   chsnprintf(txt_value,32,"v=%6.3f ",volt);
   gwinPrintf(gc, txt_value);
 
-  chThdSleepMilliseconds(100);
+  chThdSleepMilliseconds(1000);
 
   gwinClear(gh);
   gwinClear(gc);

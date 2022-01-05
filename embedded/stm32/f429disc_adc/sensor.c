@@ -53,7 +53,7 @@ static THD_FUNCTION(thdAdc,arg) {
   while (true) {
     adcStartConversion(&ADCD1, &adcgrpcfg, samples, ADC_GRP_BUF_DEPTH);
     sensorADC();
-    chThdSleepMicroseconds(1000);
+    chThdSleepMilliseconds(100);
   }
 }
 

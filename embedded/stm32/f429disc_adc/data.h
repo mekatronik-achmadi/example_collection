@@ -21,6 +21,19 @@
  */
 #define VOLT_CALIB 0.00081
 
+/**
+ * @brief Data Update with GUI or Auto
+ */
+#define UPDATE_DATA_AUTO FALSE
+
+/**
+ * @brief Initialization data
+ */
 void dataInit(void);
+
+/**
+ * @brief Updating data
+ */
+void dataUpdate(void);
 
 #endif

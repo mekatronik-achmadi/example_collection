@@ -55,6 +55,7 @@ static void dataShifting(void){
 #endif
 }
 
+#if UPDATE_DATA_AUTO
 static THD_WORKING_AREA(waData, 256);
 static THD_FUNCTION(thdData, arg) {
 
@@ -62,21 +63,28 @@ static THD_FUNCTION(thdData, arg) {
 
     chRegSetThreadName("data update");
     while (true) {
-        dataShifting();
-
-#if LEFT_TO_RIGHT
-        vdata[N_DATA-1].y = DATA_SCALE * senTemp;
-#else
-        vdata[0].y = DATA_SCALE * dV;
-#endif
-
-        chprintf((BaseSequentialStream *)&SDU1, "%i\r\n",dV);
-
+        dataUpdate();
         chThdSleepMilliseconds(100);
     }
 }
+#endif
 
 void dataInit(void){
     dataZeroing();
+
+#if UPDATE_DATA_AUTO
     chThdCreateStatic(waData, sizeof(waData), NORMALPRIO, thdData, NULL);
+#endif
+}
+
+void dataUpdate(void){
+    dataShifting();
+
+#if LEFT_TO_RIGHT
+    vdata[N_DATA-1].y = DATA_SCALE * senTemp;
+#else
+    vdata[0].y = DATA_SCALE * dV;
+#endif
+
+    chprintf((BaseSequentialStream *)&SDU1, "%i\r\n",dV);
 }
