@@ -1,0 +1,483 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 7874 5906
+encoding utf-8
+Sheet 1 1
+Title "Mini PV Tester Board"
+Date "2022-01-11"
+Rev "0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x02_Male J-PV1
+U 1 1 61DD54FE
+P 1950 1200
+F 0 "J-PV1" V 2012 1244 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 2103 1244 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 1950 1200 50  0001 C CNN
+F 3 "~" H 1950 1200 50  0001 C CNN
+	1    1950 1200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-VOLT1
+U 1 1 61DD62FE
+P 2300 1050
+F 0 "J-VOLT1" V 2362 1094 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 2453 1094 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2300 1050 50  0001 C CNN
+F 3 "~" H 2300 1050 50  0001 C CNN
+	1    2300 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2300 1250 2200 1250
+Wire Wire Line
+	1950 1400 2200 1400
+Wire Wire Line
+	2200 1400 2200 1250
+Connection ~ 2200 1250
+Wire Wire Line
+	1950 1400 1950 1550
+Connection ~ 1950 1400
+Text Label 1950 1550 0    50   ~ 0
+PV1
+$Comp
+L power:GND #PWR02
+U 1 1 61DD7994
+P 1850 1600
+F 0 "#PWR02" H 1850 1350 50  0001 C CNN
+F 1 "GND" H 1855 1427 50  0000 C CNN
+F 2 "" H 1850 1600 50  0001 C CNN
+F 3 "" H 1850 1600 50  0001 C CNN
+	1    1850 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1850 1400 1850 1600
+$Comp
+L Connector:Conn_01x02_Male J-PV2
+U 1 1 61DDA6AB
+P 3200 1200
+F 0 "J-PV2" V 3262 1244 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 3353 1244 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 3200 1200 50  0001 C CNN
+F 3 "~" H 3200 1200 50  0001 C CNN
+	1    3200 1200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-VOLT2
+U 1 1 61DDA6B1
+P 3550 1050
+F 0 "J-VOLT2" V 3612 1094 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 3703 1094 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3550 1050 50  0001 C CNN
+F 3 "~" H 3550 1050 50  0001 C CNN
+	1    3550 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3550 1250 3450 1250
+Wire Wire Line
+	3200 1400 3450 1400
+Wire Wire Line
+	3450 1400 3450 1250
+Connection ~ 3450 1250
+Wire Wire Line
+	3200 1400 3200 1550
+Connection ~ 3200 1400
+Text Label 3200 1550 0    50   ~ 0
+PV2
+Wire Wire Line
+	3100 1400 3100 1600
+$Comp
+L power:GND #PWR03
+U 1 1 61DDA6BE
+P 3100 1600
+F 0 "#PWR03" H 3100 1350 50  0001 C CNN
+F 1 "GND" H 3105 1427 50  0000 C CNN
+F 2 "" H 3100 1600 50  0001 C CNN
+F 3 "" H 3100 1600 50  0001 C CNN
+	1    3100 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-PV3
+U 1 1 61DDCC36
+P 4500 1200
+F 0 "J-PV3" V 4562 1244 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 4653 1244 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 4500 1200 50  0001 C CNN
+F 3 "~" H 4500 1200 50  0001 C CNN
+	1    4500 1200
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-VOLT3
+U 1 1 61DDCC3C
+P 4850 1050
+F 0 "J-VOLT3" V 4912 1094 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 5003 1094 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4850 1050 50  0001 C CNN
+F 3 "~" H 4850 1050 50  0001 C CNN
+	1    4850 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4850 1250 4750 1250
+Wire Wire Line
+	4500 1400 4750 1400
+Wire Wire Line
+	4750 1400 4750 1250
+Connection ~ 4750 1250
+Wire Wire Line
+	4500 1400 4500 1550
+Connection ~ 4500 1400
+Text Label 4500 1550 0    50   ~ 0
+PV3
+$Comp
+L power:GND #PWR04
+U 1 1 61DDCC49
+P 4400 1600
+F 0 "#PWR04" H 4400 1350 50  0001 C CNN
+F 1 "GND" H 4405 1427 50  0000 C CNN
+F 2 "" H 4400 1600 50  0001 C CNN
+F 3 "" H 4400 1600 50  0001 C CNN
+	1    4400 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 1400 4400 1600
+Text Label 6300 2150 1    50   ~ 0
+PV4
+Text Label 6200 2150 1    50   ~ 0
+PV3
+Text Label 6100 2150 1    50   ~ 0
+PV2
+Text Label 6000 2150 1    50   ~ 0
+PV1
+Wire Wire Line
+	5550 1450 5550 1650
+$Comp
+L power:GND #PWR05
+U 1 1 61DDE12F
+P 5550 1650
+F 0 "#PWR05" H 5550 1400 50  0001 C CNN
+F 1 "GND" H 5555 1477 50  0000 C CNN
+F 2 "" H 5550 1650 50  0001 C CNN
+F 3 "" H 5550 1650 50  0001 C CNN
+	1    5550 1650
+	1    0    0    -1  
+$EndComp
+Text Label 5650 1600 0    50   ~ 0
+PV4
+Connection ~ 5650 1450
+Wire Wire Line
+	5650 1450 5650 1600
+Connection ~ 5900 1300
+Wire Wire Line
+	5900 1450 5900 1300
+Wire Wire Line
+	5650 1450 5900 1450
+Wire Wire Line
+	6000 1300 5900 1300
+$Comp
+L Connector:Conn_01x02_Male J-VOLT4
+U 1 1 61DDE122
+P 6000 1100
+F 0 "J-VOLT4" V 6062 1144 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 6153 1144 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6000 1100 50  0001 C CNN
+F 3 "~" H 6000 1100 50  0001 C CNN
+	1    6000 1100
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-PV4
+U 1 1 61DDE11C
+P 5650 1250
+F 0 "J-PV4" V 5712 1294 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 5803 1294 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 5650 1250 50  0001 C CNN
+F 3 "~" H 5650 1250 50  0001 C CNN
+	1    5650 1250
+	0    1    1    0   
+$EndComp
+Text Label 3200 3450 0    50   ~ 0
+LOAD_GND
+Wire Wire Line
+	3200 3300 3200 3450
+Wire Wire Line
+	3200 2900 3200 3000
+Text Label 3200 2450 0    50   ~ 0
+LOAD_LED
+Wire Wire Line
+	3200 2600 3200 2450
+$Comp
+L Device:R R-LED1
+U 1 1 61DFE245
+P 3200 2750
+F 0 "R-LED1" H 3270 2796 50  0000 L CNN
+F 1 "330" H 3270 2705 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3130 2750 50  0001 C CNN
+F 3 "~" H 3200 2750 50  0001 C CNN
+	1    3200 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D1
+U 1 1 61DFD254
+P 3200 3150
+F 0 "D1" V 3239 3032 50  0000 R CNN
+F 1 "LED" V 3148 3032 50  0000 R CNN
+F 2 "LED_THT:LED_D5.0mm" H 3200 3150 50  0001 C CNN
+F 3 "~" H 3200 3150 50  0001 C CNN
+	1    3200 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-LOADMOTOR1
+U 1 1 61DD7836
+P 3900 2400
+F 0 "J-LOADMOTOR1" V 4054 2212 50  0000 R CNN
+F 1 "Conn_01x02_Male" V 3963 2212 50  0000 R CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 3900 2400 50  0001 C CNN
+F 3 "~" H 3900 2400 50  0001 C CNN
+	1    3900 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 2400 4300 2400
+Wire Wire Line
+	4100 2500 4300 2500
+Text Label 4300 2500 0    50   ~ 0
+LOAD_MOTOR
+Text Label 4300 2400 0    50   ~ 0
+LOAD_GND
+Text Label 5800 3200 0    50   ~ 0
+LOAD_MOTOR
+Wire Wire Line
+	6050 3200 5800 3200
+Text Label 6450 3200 0    50   ~ 0
+LOAD_LED
+Wire Wire Line
+	6250 3200 6450 3200
+$Comp
+L Connector:Conn_01x03_Male J-SELECT1
+U 1 1 61DDCD8A
+P 6150 3400
+F 0 "J-SELECT1" V 6304 3212 50  0000 R CNN
+F 1 "Conn_01x03_Male" V 6213 3212 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6150 3400 50  0001 C CNN
+F 3 "~" H 6150 3400 50  0001 C CNN
+	1    6150 3400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6150 3000 6100 3000
+Connection ~ 6150 3000
+Wire Wire Line
+	6150 3000 6150 3200
+Wire Wire Line
+	6200 3000 6150 3000
+Connection ~ 6200 3000
+Wire Wire Line
+	6200 2900 6200 3000
+Wire Wire Line
+	6100 3000 6000 3000
+Connection ~ 6100 3000
+Wire Wire Line
+	6100 2900 6100 3000
+Wire Wire Line
+	6000 3000 6000 2900
+Wire Wire Line
+	6300 3000 6200 3000
+Wire Wire Line
+	6300 2900 6300 3000
+Wire Wire Line
+	6300 2300 6300 2150
+Wire Wire Line
+	6200 2300 6200 2150
+Wire Wire Line
+	6100 2300 6100 2150
+Wire Wire Line
+	6000 2300 6000 2150
+$Comp
+L Switch:SW_DIP_x04 SW1
+U 1 1 61DE052B
+P 6100 2600
+F 0 "SW1" V 6054 2930 50  0000 L CNN
+F 1 "SW_DIP_x04" V 6145 2930 50  0000 L CNN
+F 2 "Button_Switch_THT:SW_DIP_SPSTx04_Slide_9.78x12.34mm_W7.62mm_P2.54mm" H 6100 2600 50  0001 C CNN
+F 3 "~" H 6100 2600 50  0001 C CNN
+	1    6100 2600
+	0    1    1    0   
+$EndComp
+Text Label 5100 2700 0    50   ~ 0
+LOAD_GND
+Wire Wire Line
+	5100 2450 5100 2700
+$Comp
+L power:GND #PWR01
+U 1 1 61DD8DA9
+P 5250 2350
+F 0 "#PWR01" H 5250 2100 50  0001 C CNN
+F 1 "GND" H 5255 2177 50  0000 C CNN
+F 2 "" H 5250 2350 50  0001 C CNN
+F 3 "" H 5250 2350 50  0001 C CNN
+	1    5250 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 2350 5250 2350
+$Comp
+L Connector:Conn_01x02_Male J-AMP1
+U 1 1 61DD4CA8
+P 4900 2350
+F 0 "J-AMP1" H 5008 2531 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 5008 2440 50  0000 C CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 4900 2350 50  0001 C CNN
+F 3 "~" H 4900 2350 50  0001 C CNN
+	1    4900 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:USB_B J-USB1
+U 1 1 61E0F928
+P 2050 2700
+F 0 "J-USB1" H 2107 3167 50  0000 C CNN
+F 1 "USB_B" H 2107 3076 50  0000 C CNN
+F 2 "Connector_USB:USB_B_Lumberg_2411_02_Horizontal" H 2200 2650 50  0001 C CNN
+F 3 " ~" H 2200 2650 50  0001 C CNN
+	1    2050 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-VUSB1
+U 1 1 61E1085B
+P 2700 2600
+F 0 "J-VUSB1" H 2672 2482 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 2672 2573 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2700 2600 50  0001 C CNN
+F 3 "~" H 2700 2600 50  0001 C CNN
+	1    2700 2600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2500 2500 2450 2500
+Wire Wire Line
+	2500 2600 2500 3100
+Wire Wire Line
+	2500 3100 2450 3100
+Wire Wire Line
+	1950 3100 2050 3100
+Connection ~ 2050 3100
+Wire Wire Line
+	2450 2350 2450 2500
+Connection ~ 2450 2500
+Wire Wire Line
+	2450 2500 2350 2500
+$Comp
+L power:VCC #PWR09
+U 1 1 61E19F4F
+P 2450 2350
+F 0 "#PWR09" H 2450 2200 50  0001 C CNN
+F 1 "VCC" H 2465 2523 50  0000 C CNN
+F 2 "" H 2450 2350 50  0001 C CNN
+F 3 "" H 2450 2350 50  0001 C CNN
+	1    2450 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VEE #PWR010
+U 1 1 61E1ADDE
+P 2450 3200
+F 0 "#PWR010" H 2450 3050 50  0001 C CNN
+F 1 "VEE" H 2465 3373 50  0000 C CNN
+F 2 "" H 2450 3200 50  0001 C CNN
+F 3 "" H 2450 3200 50  0001 C CNN
+	1    2450 3200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2450 3200 2450 3100
+Connection ~ 2450 3100
+Wire Wire Line
+	2450 3100 2050 3100
+$Comp
+L Connector:Conn_01x02_Male J-VEE1
+U 1 1 61E29F60
+P 2400 3900
+F 0 "J-VEE1" H 2372 3782 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 2372 3873 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2400 3900 50  0001 C CNN
+F 3 "~" H 2400 3900 50  0001 C CNN
+	1    2400 3900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J-VCC1
+U 1 1 61E2ADD6
+P 1800 3800
+F 0 "J-VCC1" H 1908 3981 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 1908 3890 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1800 3800 50  0001 C CNN
+F 3 "~" H 1800 3800 50  0001 C CNN
+	1    1800 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 3800 2000 3650
+Wire Wire Line
+	2200 3900 2200 4050
+Wire Wire Line
+	2200 3800 2200 3650
+$Comp
+L power:VCC #PWR06
+U 1 1 61E2FF20
+P 2000 3650
+F 0 "#PWR06" H 2000 3500 50  0001 C CNN
+F 1 "VCC" H 2015 3823 50  0000 C CNN
+F 2 "" H 2000 3650 50  0001 C CNN
+F 3 "" H 2000 3650 50  0001 C CNN
+	1    2000 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 3000 6450 3000
+Connection ~ 6300 3000
+Text Label 6450 3000 0    50   ~ 0
+LOAD_VCC
+Wire Wire Line
+	2000 3900 2000 4250
+Text Label 2000 4250 0    50   ~ 0
+LOAD_VCC
+$Comp
+L power:VEE #PWR07
+U 1 1 61E372E4
+P 2200 3650
+F 0 "#PWR07" H 2200 3500 50  0001 C CNN
+F 1 "VEE" H 2215 3823 50  0000 C CNN
+F 2 "" H 2200 3650 50  0001 C CNN
+F 3 "" H 2200 3650 50  0001 C CNN
+	1    2200 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 61E376E7
+P 2200 4050
+F 0 "#PWR08" H 2200 3800 50  0001 C CNN
+F 1 "GND" H 2205 3877 50  0000 C CNN
+F 2 "" H 2200 4050 50  0001 C CNN
+F 3 "" H 2200 4050 50  0001 C CNN
+	1    2200 4050
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
