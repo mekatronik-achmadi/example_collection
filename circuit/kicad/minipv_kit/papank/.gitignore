@@ -1,3 +1,5 @@
+*.zip
 *.net
 *.kicad_pcb-bak
 *.sch-bak
+/gerber/
