@@ -15,6 +15,7 @@
 #include "esp_console.h"
 #include "esp_log.h"
 #include "esp_dsp.h"
+#include "esp_err.h"
 
 #include "my_i2smic.h"
 
@@ -22,7 +23,11 @@
 #define I2S_CH                  I2S_NUM_0
 #define SAMPLES_NUM             (1024)
 
+static const char *TAG = "MIC_FFT";
+
 static int16_t i2s_readraw_buff[SAMPLES_NUM];
+
+float y_cf[SAMPLES_NUM*2];
 
 static void micZero(void){
     for(int i=0 ; i< SAMPLES_NUM ; i++){
@@ -30,13 +35,15 @@ static void micZero(void){
     }
 }
 
-static void micRaw(void){
+static int micRaw(void){
     esp_err_t errMic;
     size_t bytesread;
 
     errMic= i2s_read(I2S_CH, (char *)i2s_readraw_buff, sizeof(i2s_readraw_buff), &bytesread, (100 / portTICK_RATE_MS));
 
     if(errMic != ESP_OK) printf("I2S read error\r\n");
+
+    return errMic;
 }
 
 static void micGet(void){
@@ -82,20 +89,68 @@ static int micMaxFunc(int argc, char **argv){
 static void micRegister(void){
     const esp_console_cmd_t get = {
         .command = "get",
-        .help = "Test data Mic (once)",
+        .help = "Test data Mic",
         .hint = NULL,
         .func = &micGetFunc,
     };
 
     const esp_console_cmd_t max = {
         .command = "max",
-        .help = "Test Max Mic (once)",
+        .help = "Test Max Mic",
         .hint = NULL,
         .func = &micMaxFunc,
     };
 
     esp_console_cmd_register(&get);
     esp_console_cmd_register(&max);
+}
+
+static void fftInit(void){
+    esp_err_t errfft;
+
+    ESP_LOGI(TAG, "FFT Initialization");
+    errfft = dsps_fft2r_init_fc32(NULL, 4096);
+    if(errfft != ESP_OK){
+        ESP_LOGE(TAG, "FFT Init Error: %i",errfft);
+    }
+
+    return;
+}
+
+static void fftProcess(float * data, int length){
+    dsps_fft2r_fc32_ansi(data, length);
+    dsps_bit_rev_fc32(data,length);
+    dsps_cplx2reC_fc32_ansi(data, length);
+    dsps_view_spectrum(data, length/2,30,100);
+}
+
+static int micFftFunc(int argc, char **argv){
+    esp_err_t errMic;
+
+    micZero();
+    errMic = micRaw();
+
+    if(errMic == ESP_OK){
+        for(int i=0; i<SAMPLES_NUM; i++){
+            y_cf[i*2 + 0] = i2s_readraw_buff[i];
+            y_cf[i*2 + 1] = 0;
+        }
+
+        fftProcess(y_cf, SAMPLES_NUM);
+    }
+
+    return 0;
+}
+
+static void fftRegister(void){
+    const esp_console_cmd_t fft = {
+        .command = "fft",
+        .help = "Test FFT Mic",
+        .hint = NULL,
+        .func = &micFftFunc,
+    };
+
+    esp_console_cmd_register(&fft);
 }
 
 void i2smicInit(void){
@@ -130,5 +185,7 @@ void i2smicInit(void){
         printf("I2S clock set error\r\n");
     }
 
+    fftInit();
+    fftRegister();
     micRegister();
 }
