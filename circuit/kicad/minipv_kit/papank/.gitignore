@@ -3,3 +3,5 @@
 *.kicad_pcb-bak
 *.sch-bak
 /gerber/
+/bom/
+fp-info-cache
