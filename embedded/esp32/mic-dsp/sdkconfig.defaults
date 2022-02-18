@@ -1,0 +1,2 @@
+# disable outdated sertificate bundle
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_CMN=y
