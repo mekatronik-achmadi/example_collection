@@ -1,7 +1,7 @@
 /**
  * @file my_cmd.c
  * @brief Console commands source
- * 
+ *
  * @addtogroup Console
  * @{
  */
@@ -40,7 +40,7 @@ static void register_restart(void);
 
 /**
  * @brief Register console commands
- * 
+ *
  */
 void registerCommands(void)
 {
@@ -52,10 +52,10 @@ void registerCommands(void)
 
 /**
  * @brief Get the system version
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 static int get_version(int argc, char **argv)
 {
@@ -77,7 +77,7 @@ static int get_version(int argc, char **argv)
 
 /**
  * @brief Register system version command
- * 
+ *
  */
 static void register_version(void)
 {
@@ -92,10 +92,10 @@ static void register_version(void)
 
 /**
  * @brief Restart system
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 static int restart(int argc, char **argv)
 {
@@ -105,7 +105,7 @@ static int restart(int argc, char **argv)
 
 /**
  * @brief Register restart command
- * 
+ *
  */
 static void register_restart(void)
 {
@@ -120,10 +120,10 @@ static void register_restart(void)
 
 /**
  * @brief Prints available heap memory
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 static int free_mem(int argc, char **argv)
 {
@@ -133,7 +133,7 @@ static int free_mem(int argc, char **argv)
 
 /**
  * @brief Register heap memory command
- * 
+ *
  */
 static void register_free(void)
 {
@@ -148,21 +148,21 @@ static void register_free(void)
 
 /**
  * @brief Prints minimum heap size
- * 
- * @param argc 
- * @param argv 
- * @return int 
+ *
+ * @param argc
+ * @param argv
+ * @return int
  */
 static int heap_size(int argc, char **argv)
 {
-    uint32_t heap_size = heap_caps_get_minimum_free_size(MALLOC_CAP_DEFAULT);
-    printf("min heap size: %u\n", heap_size);
+    uint32_t heapSize = heap_caps_get_minimum_free_size(MALLOC_CAP_DEFAULT);
+    printf("min heap size: %u\n", heapSize);
     return 0;
 }
 
 /**
  * @brief Print heap size command
- * 
+ *
  */
 static void register_heap(void)
 {
