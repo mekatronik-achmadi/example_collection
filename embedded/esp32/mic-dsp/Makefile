@@ -1,5 +1,5 @@
 ## Makefile for ESP32 using ESP-IDF
 
-PROJECT_NAME := blink_console
+PROJECT_NAME := mic_fft
 
 include $(IDF_PATH)/make/project.mk

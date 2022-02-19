@@ -1,4 +1,13 @@
 /**
+ * @file my_i2smic.c
+ * @brief I2S Mic driver
+ * 
+ * @addtogroup I2S_FFT
+ * @{
+ */
+
+
+/**
  * example in use: https://github.com/pedrominatel/esp32-projects/blob/master/demo/sound_spectrum/main/i2s_spectrum_example_main.c
  */
 
@@ -19,22 +28,57 @@
 
 #include "my_i2smic.h"
 
+/**
+ * @brief Audio Sample rate
+ * 
+ */
 #define AUDIO_SAMPLE_RATE       (16000)
+
+/**
+ * @brief I2S Channel Port 
+ * 
+ */
 #define I2S_CH                  I2S_NUM_0
+
+/**
+ * @brief Sample Number
+ * 
+ */
 #define SAMPLES_NUM             (1024)
 
+/**
+ * @brief Tag Mic FFT
+ * 
+ */
 static const char *TAG = "MIC_FFT";
 
+/**
+ * @brief I2S read buffer array
+ * 
+ */
 static int16_t i2s_readraw_buff[SAMPLES_NUM];
 
+/**
+ * @brief Complex vector for FFT
+ * 
+ */
 float y_cf[SAMPLES_NUM*2];
 
+/**
+ * @brief Zero-ing the array buffer
+ * 
+ */
 static void micZero(void){
     for(int i=0 ; i< SAMPLES_NUM ; i++){
             i2s_readraw_buff[i] = 0;
     }
 }
 
+/**
+ * @brief Get raw data and saved to array buffer
+ * 
+ * @return int Non-zero if error happen
+ */
 static int micRaw(void){
     esp_err_t errMic;
     size_t bytesread;
@@ -46,6 +90,10 @@ static int micRaw(void){
     return errMic;
 }
 
+/**
+ * @brief Print read buffer array
+ * 
+ */
 static void micGet(void){
     micZero();
     micRaw();
@@ -55,6 +103,11 @@ static void micGet(void){
     }
 }
 
+/**
+ * @brief Get Max dB
+ * 
+ * @return uint16_t 
+ */
 static uint16_t micMax(void){
     uint16_t valMax = 0;
     uint16_t valAbs = 0;
@@ -70,6 +123,13 @@ static uint16_t micMax(void){
     return valMax;
 }
 
+/**
+ * @brief Print read buffer array command
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 static int micGetFunc(int argc, char **argv){
     micGet();
     printf("0\r\n");
@@ -77,6 +137,13 @@ static int micGetFunc(int argc, char **argv){
     return 0;
 }
 
+/**
+ * @brief Get Max dB buffer array command
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 static int micMaxFunc(int argc, char **argv){
     uint16_t maxVal = 0;
 
@@ -86,6 +153,10 @@ static int micMaxFunc(int argc, char **argv){
     return 0;
 }
 
+/**
+ * @brief Register Mic commands
+ * 
+ */
 static void micRegister(void){
     const esp_console_cmd_t get = {
         .command = "get",
@@ -105,11 +176,15 @@ static void micRegister(void){
     esp_console_cmd_register(&max);
 }
 
+/**
+ * @brief FFT Initialization
+ * 
+ */
 static void fftInit(void){
     esp_err_t errfft;
 
     ESP_LOGI(TAG, "FFT Initialization");
-    errfft = dsps_fft2r_init_fc32(NULL, 4096);
+    errfft = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
     if(errfft != ESP_OK){
         ESP_LOGE(TAG, "FFT Init Error: %i",errfft);
     }
@@ -117,6 +192,12 @@ static void fftInit(void){
     return;
 }
 
+/**
+ * @brief FFT Process dan Show in Console
+ * 
+ * @param data 
+ * @param length 
+ */
 static void fftProcess(float * data, int length){
     dsps_fft2r_fc32_ansi(data, length);
     dsps_bit_rev_fc32(data,length);
@@ -124,6 +205,13 @@ static void fftProcess(float * data, int length){
     dsps_view_spectrum(data, length/2,30,100);
 }
 
+/**
+ * @brief FFT test command
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 static int micFftFunc(int argc, char **argv){
     esp_err_t errMic;
 
@@ -142,6 +230,10 @@ static int micFftFunc(int argc, char **argv){
     return 0;
 }
 
+/**
+ * @brief Register FFT test command
+ * 
+ */
 static void fftRegister(void){
     const esp_console_cmd_t fft = {
         .command = "fft",
@@ -153,6 +245,10 @@ static void fftRegister(void){
     esp_console_cmd_register(&fft);
 }
 
+/**
+ * @brief I2S driver and Mic/FFT initialization
+ * 
+ */
 void i2smicInit(void){
 
     i2s_config_t micConf = {
@@ -189,3 +285,5 @@ void i2smicInit(void){
     fftRegister();
     micRegister();
 }
+
+/** @} */

@@ -1,3 +1,11 @@
+/**
+ * @file my_nvs.c
+ * @brief NVS source
+ * 
+ * @addtogroup Main
+ * @{
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +20,10 @@
 
 #include "my_nvs.h"
 
+/**
+ * @brief NVS Initialization
+ * 
+ */
 void nvsInit(void){
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
@@ -20,3 +32,5 @@ void nvsInit(void){
     }
     ESP_ERROR_CHECK(ret);
 }
+
+/** @} */
