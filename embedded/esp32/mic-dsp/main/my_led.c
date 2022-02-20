@@ -1,7 +1,7 @@
 /**
  * @file my_led.c
  * @brief LED source
- * 
+ *
  * @addtogroup GPIO
  * @{
  */
@@ -19,8 +19,8 @@
 
 /**
  * @brief LED Blink Task
- * 
- * @param pvParameter 
+ *
+ * @param pvParameter
  */
 static void ledTask(void *pvParameter){
     while (1) {
@@ -34,7 +34,7 @@ static void ledTask(void *pvParameter){
 
 /**
  * @brief LED Initialization
- * 
+ *
  */
 void ledInit(void){
     gpio_reset_pin(BLINK_GPIO);
