@@ -1,0 +1,167 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 7874 4331
+encoding utf-8
+Sheet 1 1
+Title "nRF24 Breakout Board"
+Date "2022-02-23"
+Rev "1.0"
+Comp "ITS"
+Comment1 "by Achmadi"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L nnRF24:nnRF24 U1
+U 1 1 621671FF
+P 2900 1600
+F 0 "U1" H 2900 2015 50  0000 C CNN
+F 1 "nnRF24" H 2900 1924 50  0000 C CNN
+F 2 "nnRF24:nnRF24" H 2900 2050 50  0001 C CNN
+F 3 "" H 2900 2050 50  0001 C CNN
+	1    2900 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 6216AD4E
+P 4000 1450
+F 0 "#PWR02" H 4000 1200 50  0001 C CNN
+F 1 "GND" H 4005 1277 50  0000 C CNN
+F 2 "" H 4000 1450 50  0001 C CNN
+F 3 "" H 4000 1450 50  0001 C CNN
+	1    4000 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 1550 3650 1550
+Wire Wire Line
+	3500 1650 3650 1650
+Wire Wire Line
+	3500 1750 3650 1750
+Wire Wire Line
+	3500 1450 4000 1450
+Text Label 3650 1550 0    50   ~ 0
+CE
+Text Label 3650 1650 0    50   ~ 0
+SCK
+Text Label 3650 1750 0    50   ~ 0
+MISO
+Wire Wire Line
+	2300 1450 2150 1450
+Wire Wire Line
+	2300 1550 2150 1550
+Wire Wire Line
+	2300 1650 2150 1650
+Text Label 2150 1450 2    50   ~ 0
+IRQ
+Text Label 2150 1550 2    50   ~ 0
+MOSI
+Text Label 2150 1650 2    50   ~ 0
+CSN
+$Comp
+L power:VCC #PWR01
+U 1 1 6216D519
+P 1900 1750
+F 0 "#PWR01" H 1900 1600 50  0001 C CNN
+F 1 "VCC" H 1915 1923 50  0000 C CNN
+F 2 "" H 1900 1750 50  0001 C CNN
+F 3 "" H 1900 1750 50  0001 C CNN
+	1    1900 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 1750 2150 1750
+$Comp
+L power:GND #PWR03
+U 1 1 6217176C
+P 5300 1300
+F 0 "#PWR03" H 5300 1050 50  0001 C CNN
+F 1 "GND" H 5305 1127 50  0000 C CNN
+F 2 "" H 5300 1300 50  0001 C CNN
+F 3 "" H 5300 1300 50  0001 C CNN
+	1    5300 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x08_Male J1
+U 1 1 6216465A
+P 4500 1600
+F 0 "J1" H 4608 2081 50  0000 C CNN
+F 1 "Conn_01x08_Male" H 4608 1990 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 4500 1600 50  0001 C CNN
+F 3 "~" H 4500 1600 50  0001 C CNN
+	1    4500 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1300 5300 1300
+Wire Wire Line
+	4700 1400 4900 1400
+Wire Wire Line
+	4700 1500 4900 1500
+Wire Wire Line
+	4700 1600 4900 1600
+Wire Wire Line
+	4700 1700 4900 1700
+Wire Wire Line
+	4700 1800 4900 1800
+Wire Wire Line
+	4700 1900 4900 1900
+$Comp
+L power:VCC #PWR04
+U 1 1 621733D4
+P 5300 2000
+F 0 "#PWR04" H 5300 1850 50  0001 C CNN
+F 1 "VCC" H 5315 2173 50  0000 C CNN
+F 2 "" H 5300 2000 50  0001 C CNN
+F 3 "" H 5300 2000 50  0001 C CNN
+	1    5300 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 2000 4700 2000
+Text Label 4900 1400 0    50   ~ 0
+CE
+Text Label 4900 1500 0    50   ~ 0
+SCK
+Text Label 4900 1600 0    50   ~ 0
+MISO
+Text Label 4900 1700 0    50   ~ 0
+IRQ
+Text Label 4900 1800 0    50   ~ 0
+MOSI
+Text Label 4900 1900 0    50   ~ 0
+CSN
+$Comp
+L Device:CP C1
+U 1 1 6218497F
+P 2150 1950
+F 0 "C1" H 2268 1996 50  0000 L CNN
+F 1 "100nF" H 2268 1905 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 2188 1800 50  0001 C CNN
+F 3 "~" H 2150 1950 50  0001 C CNN
+	1    2150 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 62186065
+P 2150 2200
+F 0 "#PWR0101" H 2150 1950 50  0001 C CNN
+F 1 "GND" H 2155 2027 50  0000 C CNN
+F 2 "" H 2150 2200 50  0001 C CNN
+F 3 "" H 2150 2200 50  0001 C CNN
+	1    2150 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 1800 2150 1750
+Connection ~ 2150 1750
+Wire Wire Line
+	2150 1750 1900 1750
+Wire Wire Line
+	2150 2100 2150 2200
+$EndSCHEMATC
