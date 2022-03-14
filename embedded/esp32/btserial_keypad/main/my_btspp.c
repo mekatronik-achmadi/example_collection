@@ -1,3 +1,11 @@
+/**
+ * @file my_btspp.c
+ * @brief Bluetooth Serial Acceptor code
+ *
+ * @addtogroup Bluetooth
+ * @{
+ */
+
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
@@ -20,15 +28,32 @@
 
 #include "my_btspp.h"
 
+/**
+ * @brief Serial Port Protocol Mode Callback
+ *
+ */
 static const esp_spp_mode_t esp_spp_mode = ESP_SPP_MODE_CB;
 
+/**
+ * @brief  Serial Port Protocol Security Mask
+ *
+ */
 static const esp_spp_sec_t sec_mask = ESP_SPP_SEC_AUTHENTICATE;
+
+/**
+ * @brief  Serial Port Protocol as Bluetooth Slave (Acceptor)
+ *
+ */
 static const esp_spp_role_t role_slave = ESP_SPP_ROLE_SLAVE;
 
 #if (SPP_SHOW_MODE == SPP_SHOW_SPEED)
 static long data_num = 0;
 static struct timeval time_new, time_old;
 
+/**
+ * @brief Get Speed response
+ *
+ */
 static void print_speed(void){
     float time_old_s = time_old.tv_sec + time_old.tv_usec / 1000000.0;
     float time_new_s = time_new.tv_sec + time_new.tv_usec / 1000000.0;
@@ -44,6 +69,12 @@ static void print_speed(void){
 }
 #endif
 
+/**
+ * @brief  Serial Port Protocol event callback
+ *
+ * @param event
+ * @param param
+ */
 static void esp_spp_cb(esp_spp_cb_event_t event, esp_spp_cb_param_t *param){
     switch (event) {
 
@@ -117,6 +148,12 @@ static void esp_spp_cb(esp_spp_cb_event_t event, esp_spp_cb_param_t *param){
     }
 }
 
+/**
+ * @brief Generic Access Profile event callback
+ *
+ * @param event
+ * @param param
+ */
 void esp_bt_gap_cb(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *param){
     switch (event) {
         case ESP_BT_GAP_AUTH_CMPL_EVT:{
@@ -175,6 +212,10 @@ void esp_bt_gap_cb(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *param){
     return;
 }
 
+/**
+ * @brief Bluetooth Serial Port Protocol initialization
+ *
+ */
 void btsppInit(void){
     esp_err_t btret;
 
@@ -232,3 +273,5 @@ void btsppInit(void){
     esp_bt_pin_code_t pin_code;
     esp_bt_gap_set_pin(pin_type, 0, pin_code);
 }
+
+/** @} */

@@ -1,3 +1,11 @@
+/**
+ * @file my_btspp.h
+ * @brief Bluetooth Serial Acceptor header
+ *
+ * @addtogroup Bluetooth
+ * @{
+ */
+
 #ifndef _MY_BTSPP_H_
 #define _MY_BTSPP_H_
 
@@ -17,3 +25,5 @@
 void btsppInit(void);
 
 #endif
+
+/** @} */
