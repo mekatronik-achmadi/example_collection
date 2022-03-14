@@ -12,6 +12,7 @@
 #include "my_cmd.h"
 #include "my_shell.h"
 #include "my_btspp.h"
+#include "ssd1306i2c.h"
 #include "myconfig.h"
 
 /**
@@ -20,13 +21,14 @@
  */
 void app_main(void){
     nvsInit();
-    ledInit();
     btsppInit();
+    start_ssd1306();
     shellInit();
+    ledInit();
 
     while(1){
         int loop = shellLoop();
-        if(loop==1)break;
+        if(loop==1)printf("Empty Command\r\n");
     }
 }
 
