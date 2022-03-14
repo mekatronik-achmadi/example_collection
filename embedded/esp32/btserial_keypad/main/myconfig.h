@@ -13,7 +13,7 @@
 #define BLINK_DELAY 100
 
 #define CONFIG_ESP_CONSOLE_UART_NUM 0
-#define UART_USE_PROMPT 1
+#define UART_USE_PROMPT 0
 
 #endif
 

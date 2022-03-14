@@ -7,6 +7,7 @@
  */
 
 
+#include "input.h"
 #include "my_nvs.h"
 #include "my_led.h"
 #include "my_cmd.h"
@@ -24,6 +25,7 @@ void app_main(void){
     btsppInit();
     start_ssd1306();
     shellInit();
+    start_Inputs();
     ledInit();
 
     while(1){
