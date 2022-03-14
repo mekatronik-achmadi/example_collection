@@ -947,6 +947,7 @@ void start_ssd1306(void){
     vTaskDelay(500 / portTICK_RATE_MS);
 
     register_oled();
+    test_olcd_demo();
 }
 
 /** @} */

@@ -1,7 +1,7 @@
 /**
  * @file lcd_draw.h
  * @brief Basic LCD Draw header
- * 
+ *
  * @addtogroup LCD
  * @{
  */
@@ -13,6 +13,7 @@ void test_olcd_img(void);
 void test_olcd_flip(void);
 void test_olcd_text(void);
 void test_olcd_loop(void);
+void test_olcd_demo(void);
 void register_oled(void);
 
 #endif // LCD_DRAW_H

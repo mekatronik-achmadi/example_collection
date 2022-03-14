@@ -242,4 +242,55 @@ static void register_oled_text(){
     ESP_ERROR_CHECK( esp_console_cmd_register(&oled_text_cmd) );
 }
 
+/**
+ * @brief Demo text spaces
+ * @details Show 20X5 font text occupy
+ *
+ */
+void test_olcd_demo(void){
+    char strBuff[22];
+
+    ssd1306_clear_screen(&oled_dev);
+    ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
+
+    sprintf(strBuff, "0123456789ABCDEFGHIJ");
+
+    ssd1306_draw_string(&oled_dev,
+                        lcdbuff,
+                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        0, 4, strBuff,
+                        OLED_COLOR_WHITE,
+                        OLED_COLOR_BLACK);
+
+    ssd1306_draw_string(&oled_dev,
+                        lcdbuff,
+                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        0, 15, strBuff, // ymin = 4 + |7| + |4|
+                        OLED_COLOR_WHITE,
+                        OLED_COLOR_BLACK);
+
+    ssd1306_draw_string(&oled_dev,
+                        lcdbuff,
+                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        0, 26, strBuff, // ymin = 15 + |7| + |4|
+                        OLED_COLOR_WHITE,
+                        OLED_COLOR_BLACK);
+
+    ssd1306_draw_string(&oled_dev,
+                        lcdbuff,
+                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        0, 37, strBuff, // ymin = 16 + |7| + |4|
+                        OLED_COLOR_WHITE,
+                        OLED_COLOR_BLACK);
+
+    ssd1306_draw_string(&oled_dev,
+                        lcdbuff,
+                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        0, 48, strBuff, // ymin = 37 + |7| + |4|
+                        OLED_COLOR_WHITE,
+                        OLED_COLOR_BLACK);
+
+    ssd1306_load_frame_buffer(&oled_dev,lcdbuff);
+}
+
 /** @} */

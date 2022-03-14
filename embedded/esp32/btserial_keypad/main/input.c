@@ -11,6 +11,8 @@
 
 extern ssd1306_t oled_dev;
 
+char inputBuffer[102];
+
 static uint8_t lcdbuff[DISPLAY_WIDTH * DISPLAY_HEIGHT / 8];
 
 static void register_lcdClear(void);
@@ -38,20 +40,44 @@ static void register_lcdClear(void)
     esp_console_cmd_register(&cmd);
 }
 
+static void input_log_char(char* strbuff ){
+    uint16_t datLen;
+
+    printf("%s\r\n",strbuff);
+
+    datLen = strlen(strbuff);
+    printf("len %i\r\n",datLen);
+}
+
 void start_Inputs(void){
     registerInputs();
 }
 
-void bt_log_char(uint8_t* spp_data_ind){
-    static char strBuffer[32];
+void bt_Inputs(uint8_t *spp_data_ind){
+    char strBuffer[16];
+    uint16_t chkLen;
+
+    if(strlen(inputBuffer)==0){
+        ssd1306_clear_screen(&oled_dev);
+    }
 
     sprintf(strBuffer, "%s", spp_data_ind);
-    strBuffer[strcspn(strBuffer, "\r\n")] = 0; /* remove 0d (CR) and 0a (LF) */
+    strBuffer[strcspn(strBuffer, "\r\n")] = 0;  /* remove 0d (CR) and 0a (LF) */
 
-    printf("%s\r\n",strBuffer);
-    if(strcmp(strBuffer, "OK")==0){
-        printf("OK\r\n");
+    input_log_char(strBuffer);
+
+    if(strcmp(strBuffer, "lcdclr")==0){
+        ssd1306_clear_screen(&oled_dev);
     }else {
-        printf("NOT OK\r\n");
+        chkLen = strlen(inputBuffer) + strlen(strBuffer);
+        if(chkLen <= 100){
+            strcat(inputBuffer,strBuffer);
+
+            ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
+            ssd1306_load_frame_buffer(&oled_dev,lcdbuff);
+        }
+        printf("%s\r\n",inputBuffer);
     }
+
+
 }
