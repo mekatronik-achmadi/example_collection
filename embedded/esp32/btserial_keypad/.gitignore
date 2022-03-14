@@ -1,0 +1,8 @@
+/build/
+/compile_commands.json
+/.cache/
+*.cxxflags
+*.cflags
+*.config
+*.autosave
+*.creator.user
