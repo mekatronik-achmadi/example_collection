@@ -591,7 +591,7 @@ int ssd1306_set_charge_pump_enabled(const ssd1306_t *dev, bool enabled);
  * @brief Start SSD1306 LCD routine
  *
  */
-void start_ssd1306(void);
+void ssd1306Init(void);
 
 #endif // SSD1306I2C_H
 

@@ -244,49 +244,35 @@ static void register_oled_text(){
 
 /**
  * @brief Demo text spaces
- * @details Show 20X5 font text occupy
+ * @details Show 15X3 font text occupy
  *
  */
 void test_olcd_demo(void){
-    char strBuff[22];
+    char strBuff[LCD_BUFFER_LEN];
 
     ssd1306_clear_screen(&oled_dev);
     ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
 
-    sprintf(strBuff, "0123456789ABCDEFGHIJ");
+    sprintf(strBuff, "0123456789ABCDEF");
 
     ssd1306_draw_string(&oled_dev,
                         lcdbuff,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                        font_builtin_fonts[FONT_FACE_TERMINUS_BOLD_8X14_ISO8859_1],
                         0, 4, strBuff,
                         OLED_COLOR_WHITE,
                         OLED_COLOR_BLACK);
 
     ssd1306_draw_string(&oled_dev,
                         lcdbuff,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
-                        0, 15, strBuff, // ymin = 4 + |7| + |4|
+                        font_builtin_fonts[FONT_FACE_TERMINUS_BOLD_8X14_ISO8859_1],
+                        0, 19, strBuff, // ymin = 4 + |9| + |6|
                         OLED_COLOR_WHITE,
                         OLED_COLOR_BLACK);
 
     ssd1306_draw_string(&oled_dev,
                         lcdbuff,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
-                        0, 26, strBuff, // ymin = 15 + |7| + |4|
-                        OLED_COLOR_WHITE,
-                        OLED_COLOR_BLACK);
-
-    ssd1306_draw_string(&oled_dev,
-                        lcdbuff,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
-                        0, 37, strBuff, // ymin = 16 + |7| + |4|
-                        OLED_COLOR_WHITE,
-                        OLED_COLOR_BLACK);
-
-    ssd1306_draw_string(&oled_dev,
-                        lcdbuff,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
-                        0, 48, strBuff, // ymin = 37 + |7| + |4|
+                        font_builtin_fonts[FONT_FACE_TERMINUS_BOLD_8X14_ISO8859_1],
+                        0, 33, strBuff, // ymin = 18 + |9| + |6|
                         OLED_COLOR_WHITE,
                         OLED_COLOR_BLACK);
 

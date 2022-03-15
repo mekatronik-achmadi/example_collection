@@ -11,6 +11,7 @@
 #include "my_nvs.h"
 #include "my_led.h"
 #include "my_cmd.h"
+#include "keypad.h"
 #include "my_shell.h"
 #include "my_btspp.h"
 #include "ssd1306i2c.h"
@@ -23,9 +24,10 @@
 void app_main(void){
     nvsInit();
     btsppInit();
-    start_ssd1306();
+    ssd1306Init();
     shellInit();
-    start_Inputs();
+    keypadInit();
+    inputsInit();
     ledInit();
 
     while(1){

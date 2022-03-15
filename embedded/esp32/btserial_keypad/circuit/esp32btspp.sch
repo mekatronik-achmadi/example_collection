@@ -277,10 +277,10 @@ Wire Wire Line
 Text Label 4100 1400 0    50   ~ 0
 LED
 $Comp
-L Device:R R-LED?
+L Device:R R-LED1
 U 1 1 6233C872
 P 4700 1200
-F 0 "R-LED?" H 4770 1246 50  0001 L CNN
+F 0 "R-LED1" H 4770 1246 50  0001 L CNN
 F 1 "330" H 4770 1200 50  0000 L CNN
 F 2 "" V 4630 1200 50  0001 C CNN
 F 3 "~" H 4700 1200 50  0001 C CNN
@@ -288,10 +288,10 @@ F 3 "~" H 4700 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR07
 U 1 1 6233DE45
 P 4700 1000
-F 0 "#PWR?" H 4700 850 50  0001 C CNN
+F 0 "#PWR07" H 4700 850 50  0001 C CNN
 F 1 "VDD" H 4715 1173 50  0000 C CNN
 F 2 "" H 4700 1000 50  0001 C CNN
 F 3 "" H 4700 1000 50  0001 C CNN
@@ -301,10 +301,10 @@ $EndComp
 Wire Wire Line
 	4700 1000 4700 1050
 $Comp
-L Device:LED D-LED?
+L Device:LED D-LED1
 U 1 1 62340D9B
 P 4700 1550
-F 0 "D-LED?" V 4739 1432 50  0001 R CNN
+F 0 "D-LED1" V 4739 1432 50  0001 R CNN
 F 1 "LED" V 4693 1432 50  0000 R CNN
 F 2 "" H 4700 1550 50  0001 C CNN
 F 3 "~" H 4700 1550 50  0001 C CNN
@@ -317,4 +317,71 @@ Wire Wire Line
 	4700 1700 4700 1850
 Text Label 4700 1850 0    50   ~ 0
 LED
+$Comp
+L Connector:Conn_01x07_Male J-Keypad1
+U 1 1 62304F9E
+P 4950 2750
+F 0 "J-Keypad1" H 5058 3139 50  0000 C CNN
+F 1 "Conn_01x07_Male" H 5058 3140 50  0001 C CNN
+F 2 "" H 4950 2750 50  0001 C CNN
+F 3 "~" H 4950 2750 50  0001 C CNN
+	1    4950 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 2850 5400 2850
+Wire Wire Line
+	5150 2950 5400 2950
+Wire Wire Line
+	5150 3050 5400 3050
+Text Label 5400 2850 0    50   ~ 0
+IN_0
+Text Label 5400 2950 0    50   ~ 0
+IN_1
+Text Label 5400 3050 0    50   ~ 0
+IN_2
+Wire Wire Line
+	5150 2450 5400 2450
+Wire Wire Line
+	5150 2550 5400 2550
+Wire Wire Line
+	5150 2650 5400 2650
+Wire Wire Line
+	5150 2750 5400 2750
+Text Label 5400 2450 0    50   ~ 0
+OUT_0
+Text Label 5400 2550 0    50   ~ 0
+OUT_1
+Text Label 5400 2650 0    50   ~ 0
+OUT_2
+Text Label 5400 2750 0    50   ~ 0
+OUT_3
+Wire Wire Line
+	3750 2900 4100 2900
+Wire Wire Line
+	3750 3000 4100 3000
+Wire Wire Line
+	3750 3100 4100 3100
+Text Label 4100 2900 0    50   ~ 0
+IN_0
+Text Label 4100 3000 0    50   ~ 0
+IN_1
+Text Label 4100 3100 0    50   ~ 0
+IN_2
+Wire Wire Line
+	3750 2400 4100 2400
+Wire Wire Line
+	3750 2500 4100 2500
+Text Label 4100 2400 0    50   ~ 0
+OUT_0
+Text Label 4100 2500 0    50   ~ 0
+OUT_1
+Wire Wire Line
+	3750 2200 4100 2200
+Text Label 4100 2200 0    50   ~ 0
+OUT_2
+Wire Wire Line
+	3750 2300 4100 2300
+Text Label 4100 2300 0    50   ~ 0
+OUT_3
 $EndSCHEMATC
