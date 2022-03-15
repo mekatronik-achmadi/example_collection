@@ -64,7 +64,9 @@ static void input_lcd_string(char* strbuff){
                             OLED_COLOR_BLACK);
 
     else if(strlen(strbuff)>20 && strlen(strbuff)<=40){
+
         strncpy(subline_1, &strbuff[0], 20);
+        subline_1[20]='\0';
         ssd1306_draw_string(&oled_dev,
                             lcdbuff,
                             font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
@@ -73,6 +75,7 @@ static void input_lcd_string(char* strbuff){
                             OLED_COLOR_BLACK);
 
         strncpy(subline_2, &strbuff[20], strlen(strbuff)-20);
+        subline_2[strlen(strbuff)-20] = '\0';
         ssd1306_draw_string(&oled_dev,
                             lcdbuff,
                             font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
