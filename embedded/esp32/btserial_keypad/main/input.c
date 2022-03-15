@@ -50,6 +50,9 @@ static void input_log_char(char* strbuff ){
 }
 
 static void input_lcd_string(char* strbuff){
+    char subline_1[22];
+    char subline_2[22];
+
     ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
 
     if(strlen(strbuff)<=20)
@@ -59,6 +62,25 @@ static void input_lcd_string(char* strbuff){
                             0, 4, strbuff,
                             OLED_COLOR_WHITE,
                             OLED_COLOR_BLACK);
+
+    else if(strlen(strbuff)>20 && strlen(strbuff)<=40){
+        strncpy(subline_1, &strbuff[0], 20);
+        ssd1306_draw_string(&oled_dev,
+                            lcdbuff,
+                            font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                            0, 4, subline_1,
+                            OLED_COLOR_WHITE,
+                            OLED_COLOR_BLACK);
+
+        strncpy(subline_2, &strbuff[20], strlen(strbuff)-20);
+        ssd1306_draw_string(&oled_dev,
+                            lcdbuff,
+                            font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                            0, 15, subline_2,
+                            OLED_COLOR_WHITE,
+                            OLED_COLOR_BLACK);
+
+    }
 
     ssd1306_load_frame_buffer(&oled_dev,lcdbuff);
 }
