@@ -49,13 +49,18 @@ static void input_log_char(char* strbuff ){
     printf("len %i\r\n",datLen);
 }
 
-static void input_lcd_string(uint16_t ypos, char* strbuff, uint8_t* bufflcd){
-    ssd1306_draw_string(&oled_dev,
-                        bufflcd,
-                        font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
-                        0, ypos, strbuff,
-                        OLED_COLOR_WHITE,
-                        OLED_COLOR_BLACK);
+static void input_lcd_string(char* strbuff){
+    ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
+
+    if(strlen(strbuff)<=20)
+        ssd1306_draw_string(&oled_dev,
+                            lcdbuff,
+                            font_builtin_fonts[FONT_FACE_TERMINUS_6X12_ISO8859_1],
+                            0, 4, strbuff,
+                            OLED_COLOR_WHITE,
+                            OLED_COLOR_BLACK);
+
+    ssd1306_load_frame_buffer(&oled_dev,lcdbuff);
 }
 
 void start_Inputs(void){
@@ -84,6 +89,7 @@ void bt_Inputs(uint8_t *spp_data_ind){
         chkLen = strlen(inputBuffer) + strlen(strBuffer);
         if(chkLen <= 100){
             strcat(inputBuffer,strBuffer);
+            input_lcd_string(inputBuffer);
             printf("%s\r\n",inputBuffer);
         }
         else {
@@ -92,6 +98,4 @@ void bt_Inputs(uint8_t *spp_data_ind){
             ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
         }
     }
-
-
 }
