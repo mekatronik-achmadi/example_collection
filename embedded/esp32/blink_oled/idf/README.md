@@ -62,11 +62,28 @@ Files you need download required source files and structure folder like this:
 |   +-- main
 |        +-- component.mk
 |        +-- blink_oled.c
+|        +-- ssd1306i2c.c
+|        +-- ssd1306i2c.h
+|        +-- fonts.c
+|        +-- fonts.h
+|        +-- fonts
+|             +-- font_bitocra_4x7_ascii.h
+|             +-- font_glcd_5x7.h
+|             +-- font_terminus_10x18_iso8859_1.h
+|             +-- font_terminus_12x24_iso8859_1.h
+|             +-- font_terminus_6x12_iso8859_1.h
+|             +-- font_terminus_8x14_iso8859_1.h
+|             +-- font_terminus_bold_10x18_iso8859_1.h
+|             +-- font_terminus_bold_12x24_iso8859_1.h
+|             +-- font_terminus_bold_8x14_iso8859_1.h
 ```
+
+**Tips:** You can utilize third part Github bulk downloader like here: 
+https://minhaskamal.github.io/DownGit/
 
 ## Compilation and Flashing
 
-To build the firmware binary, first open terminal on the **idf** folder's path.
+To build the firmwayre binary, first open terminal on the **idf** folder's path.
 Then activate the Python environment using commands:
 
 ```sh
