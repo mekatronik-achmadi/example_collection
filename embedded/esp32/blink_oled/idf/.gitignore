@@ -1,0 +1,10 @@
+/build/
+/compile_commands.json
+/.cache/
+sdkconfig
+*.cxxflags
+*.cflags
+*.config
+*.autosave
+*.creator.user
+*_doc/
