@@ -3,7 +3,6 @@
 #include "sdkconfig.h"
 
 #define BLINK_GPIO  2
-#define BLINK_DELAY 200
 
 void app_main(void){
     gpio_reset_pin(BLINK_GPIO);
