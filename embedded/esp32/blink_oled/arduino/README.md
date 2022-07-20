@@ -1,11 +1,12 @@
 # ESP32 Arduino Example
 
 This particular example show minimum example of ESP32 using Arduino framework, which actually employ ESP-IDF and GGC-Xtensa under the hood.
-For that reason, the source written in same API with ESP-IDF despite in regular INO file.
+For that reason, the source written in same C-API with ESP-IDF despite in regular INO file.
 
 ## Contents
 - [Minimum Hardware](#minimum-hardware)
 - [Framework Installation](#framework-installation)
+    + [OLED LCD Library](#oled-lcd-library)
 - [Source Download](#source-download)
 - [Compilation and Flashing](#compilation-and-flashing)
 
@@ -48,6 +49,10 @@ On Search Filter, type ESP32, choose latest version, then press *Install* button
 ![images](images/esp32_install.png?raw=true)
 
 Wait until finished and done.
+
+### OLED LCD Library
+
+**I'M STUCK HERE**
 
 ## Source Download
 
