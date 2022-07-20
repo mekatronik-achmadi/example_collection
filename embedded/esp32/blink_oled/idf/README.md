@@ -53,7 +53,7 @@ deactivate
 
 ## Source Download
 
-Files you need download required source files and structure folder like this:
+First, you need downloading all required source files and form structured folder like this:
 
 ```
 +-- idf
