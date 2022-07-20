@@ -82,10 +82,8 @@ make defconfig
 
 it will yield a file named **sdkconfig**.
 
-If if the NodeMCU unit is new you need to flash new bootloader and partition table.
+If if the NodeMCU unit is new, you need to flash new bootloader and partition table.
 Connect board's USB to laptop (make sure the USB serial registered as **/dev/ttyUSB0**), then use commands:
-
-**NOTES:** As some NodeMCU board had problem with RTS/CTS logic, you may need to hold down Flash or IO0 button to enter flashing mode when the **esptool.py** try to reset the board.
 
 ```sh
 make -j$(nproc) bootloader-flash
@@ -93,6 +91,8 @@ make -j$(nproc) partition_table-flash
 ```
 
 **NOTES:** You only need to flashing bootload and partition table **once** for each new NodeMCU board.
+
+**NOTES:** As some NodeMCU board had problem with RTS/CTS logic, you may need to hold down Flash or IO0 button to enter flashing mode when the **esptool.py** try to reset the board.
 
 Next you can flash the actual app firmware to chip using command:
 
