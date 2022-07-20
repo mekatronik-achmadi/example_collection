@@ -52,6 +52,7 @@ Wait until finished and done.
 ## Source Download
 
 All your need is just **blink_oled.ino** file.
+You can download as single file from **blink_oled** folder.
 
 ## Compilation and Flashing
 
