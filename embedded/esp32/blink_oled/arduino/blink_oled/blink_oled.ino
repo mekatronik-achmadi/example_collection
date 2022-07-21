@@ -5,6 +5,7 @@
 void setup(void){
   gpio_reset_pin(BLINK_GPIO);
   gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
+  my_oledInit();
   my_olcdtest_text();
 }
 

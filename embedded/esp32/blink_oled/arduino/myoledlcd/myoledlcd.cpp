@@ -150,7 +150,7 @@ static void i2c_master_init(void){
     conf.scl_io_num = SCL_PIN;
     conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
     conf.master.clk_speed = 100000;
-    // conf.clk_flags = 0; // WTF is wrong with you people
+    conf.clk_flags = 0; // WTF is wrong with you people
 
     ESP_ERROR_CHECK(i2c_driver_install(I2C_NUM_0, conf.mode, 0, 0, 0));
     ESP_ERROR_CHECK(i2c_param_config(I2C_NUM_0, &conf));
@@ -1032,8 +1032,6 @@ void my_oledInit(void){
 uint8_t lcdbuff[DISPLAY_WIDTH * DISPLAY_HEIGHT / 8];
 
 void my_olcdtest_text(void){
-	my_oledInit();
-
 	ssd1306_clear_screen(&oled_dev);
     ssd1306_clear_buffer(lcdbuff,0,sizeof(lcdbuff));
 
