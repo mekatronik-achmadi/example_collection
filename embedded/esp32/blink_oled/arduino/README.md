@@ -30,12 +30,12 @@ Here GPIO List:
 This example tested using **Arduino IDE 1.8.16** on **Arch-Linux 5.10-LTS**.
 It should be reproducible in other operating system such as Windows.
 
-First, install required ESP32 library (currently use **1.0.6** version in this test).
+First, install required ESP32 board library.
 Open *File*  -> *Preferences*.
 Then open Additional Board Manager URLs dialog and add URL below:
 
 ```
-https://dl.espressif.com/dl/package_esp32_index.json
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
 ```
 
 ![images](images/arduino_board.png?raw=true)
@@ -44,7 +44,7 @@ Next, open *Tools* -> *Board* -> *Board Manager*.
 
 ![images](images/board_manager.png?raw=true)
 
-On Search Filter, type ESP32, choose latest version, then press *Install* button.
+On Search Filter, type ESP32, choose **2.0.0** version (as it based on ESP-IDF 4.4), then press *Install* button.
 
 ![images](images/esp32_install.png?raw=true)
 
@@ -52,13 +52,44 @@ Wait until finished and done.
 
 ### OLED LCD Library
 
-**I'M STUCK HERE**
+You need to install the prepared OLED LCD Library in **myoledlcd**  folder.
+
+Easiest way to do is download the folder in zip format.
+Here you download using Downgit URL: [Download myoledlcd](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/mekatronik-achmadi/example_collection/tree/master/embedded/esp32/blink_oled/arduino/myoledlcd)
+
+Then you can import library as zip using *Sketch* -> *Include Library* -> *Add .ZIP Library*
+
+![images](images/add_zip_lib.png?raw=true)
 
 ## Source Download
 
-All your need is just **blink_oled.ino** file.
-You can download as single file from **blink_oled** folder,
-or just copy its content to your Arduino project.
+For minimum example, you can find it in *File* -> *Examples* -> *Examples from Custom Libraries*.
+Choose **text_drawing**.
+
+![images](images/example.png?raw=true)
+
+If you cant find the example (you should find it if the library already installed), you can copy and paste code below:
+
+```c
+#include <myoledlcd.h>
+
+#define BLINK_GPIO  GPIO_NUM_2
+
+void setup(void){
+  gpio_reset_pin(BLINK_GPIO);
+  gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
+  my_oledInit();
+  my_olcdtest_text();
+}
+
+void loop(void){
+    gpio_set_level(BLINK_GPIO, 0);
+    ets_delay_us(500000);
+
+    gpio_set_level(BLINK_GPIO, 1);
+    ets_delay_us(500000);
+}
+```
 
 ## Compilation and Flashing
 
@@ -79,3 +110,5 @@ The board setting should became looks like this:
  **NOTES:** As some NodeMCU board had problem with RTS/CTS logic, you may need to hold down Flash or IO0 button to enter flashing mode when the **esptool.py** try to reset the board.
  
 **NOTES:**  Arduino will override the board's bootloader and partition table automatically when flashing. No need to do it manually.
+
+**NOTES:** Arduino's bootloader both checking RTS/CTS and IO15 logic state to start the app. You may need to power-on reset the NodeMCU board. No need to worry this workaround if you use custom ESP32 board without RTS/CTS.
