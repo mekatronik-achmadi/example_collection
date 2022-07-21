@@ -1,7 +1,7 @@
 # ESP32 Arduino Example
 
 This particular example show minimum example of ESP32 using Arduino framework, which actually employ ESP-IDF and GGC-Xtensa under the hood.
-For that reason, the source written in same C-API with ESP-IDF despite in regular INO file.
+For that reason, the source written in same C-API as ESP-IDF (not C++) despite in regular INO file.
 
 ## Contents
 - [Minimum Hardware](#minimum-hardware)
@@ -27,10 +27,10 @@ Here GPIO List:
 
 ## Framework Installation
 
-This example tested using Arduino IDE 1.8.16 on Arch-Linux 5.10-LTS.
+This example tested using **Arduino IDE 1.8.16** on **Arch-Linux 5.10-LTS**.
 It should be reproducible in other operating system such as Windows.
 
-First, install required ESP32 library.
+First, install required ESP32 library (currently use **1.0.6** version in this test).
 Open *File*  -> *Preferences*.
 Then open Additional Board Manager URLs dialog and add URL below:
 
@@ -57,7 +57,8 @@ Wait until finished and done.
 ## Source Download
 
 All your need is just **blink_oled.ino** file.
-You can download as single file from **blink_oled** folder.
+You can download as single file from **blink_oled** folder,
+or just copy its content to your Arduino project.
 
 ## Compilation and Flashing
 
