@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name "OPL_Connector")(type "KiCad")(uri "/usr/share/kicad/userlib/footprints/seeedopl/OPL_Connector.pretty")(options "")(descr ""))
+  (lib (name "SSD1306")(type "KiCad")(uri "${KIPRJMOD}/libs/ssd1306/SSD1306.pretty")(options "")(descr ""))
+  (lib (name "INMP441")(type "KiCad")(uri "${KIPRJMOD}/libs/inmp441/INMP441.pretty")(options "")(descr ""))
+)

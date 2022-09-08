@@ -1,3 +1,5 @@
 *backups/
 *auto_saved_files*
 *.bak
+*.png
+*cache

@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name "SSD1306")(type "KiCad")(uri "${KIPRJMOD}/libs/ssd1306/SSD1306.kicad_sym")(options "")(descr ""))
   (lib (name "inmp441")(type "KiCad")(uri "${KIPRJMOD}/libs/inmp441/inmp441.kicad_sym")(options "")(descr ""))
+  (lib (name "OPL_Connector")(type "Legacy")(uri "/usr/share/kicad/userlib/symbols/seeedopl/OPL_Connector.lib")(options "")(descr ""))
 )
