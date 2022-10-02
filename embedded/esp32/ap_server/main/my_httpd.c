@@ -10,7 +10,7 @@ static char hello_info[RESP_STR_LEN];
  */
 static esp_err_t hello_get_hndl(httpd_req_t *req){
     char *buf;
-    size_t *buf_len;
+    size_t buf_len;
 
     buf_len = httpd_req_get_hdr_value_len(req, "Host") + 1;
     if(buf_len > 1){
