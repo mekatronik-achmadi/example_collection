@@ -27,7 +27,7 @@ static int get_version(int argc, char **argv)
 {
     esp_chip_info_t info;
     esp_chip_info(&info);
-    printf("IDF Version:%s\r\n", IDF_VER);
+    printf("IDF Version:%d.%d.%d\r\n",ESP_IDF_VERSION_MAJOR,ESP_IDF_VERSION_MINOR,ESP_IDF_VERSION_PATCH);
     printf("Chip info:\r\n");
     printf("\tmodel:%s\r\n", info.model == CHIP_ESP32 ? "ESP32" : "Unknow");
     printf("\tcores:%d\r\n", info.cores);

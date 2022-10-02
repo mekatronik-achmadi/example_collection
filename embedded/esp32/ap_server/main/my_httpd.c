@@ -31,8 +31,6 @@ static esp_err_t hello_get_hndl(httpd_req_t *req){
     }
 
     //const char *resp_str=(const char*) req->user_ctx;
-    //httpd_resp_send(req,resp_str,HTTPD_RESP_USE_STRLEN);
-
     const char *resp_str=(const char*) hello_info;
     httpd_resp_send(req,resp_str,HTTPD_RESP_USE_STRLEN);
 
@@ -47,7 +45,7 @@ static void hello_version(){
     esp_chip_info_t info;
     esp_chip_info(&info);
     sprintf(hello_info,"<font size=\"+2\">Hello World from ESP32:</font><br>");
-    sprintf(hello_info+strlen(hello_info),"IDF Version:%s<br>",IDF_VER);
+    sprintf(hello_info+strlen(hello_info),"IDF Version:%d.%d.%d<br>",ESP_IDF_VERSION_MAJOR,ESP_IDF_VERSION_MINOR,ESP_IDF_VERSION_PATCH);
     sprintf(hello_info+strlen(hello_info),"Chip info:<br>");
     sprintf(hello_info+strlen(hello_info),"&nbsp;&nbsp; model:%s<br>",info.model == CHIP_ESP32 ? "ESP32" : "Unknow");
     sprintf(hello_info+strlen(hello_info),"&nbsp;&nbsp; cores:%d<br>",info.cores);
