@@ -6,4 +6,5 @@ wx/compile_commands.json
 wx/.cache
 wx/*.o
 wx/*.plist
-
+wx/wxserterm
+wx/wxserterm.exe

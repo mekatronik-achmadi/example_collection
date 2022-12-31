@@ -9,6 +9,7 @@
  */
 
 #include "wx/wxprec.h"
+#include "wx/numdlg.h"
 
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
@@ -195,7 +196,7 @@ void MyFrame::SetBaud(wxCommandEvent& WXUNUSED(event)){
         txtRx->AppendText(wxString::Format(wxT("Close port %s first.\n"), comport.GetPort()));
     }
     else {
-        long n = wxGetNumberFromUser(wxT("Enter the baud rate"), wxT("Baud rate"), wxT("Set Baud Rate"),$
+        long n = wxGetNumberFromUser(wxT("Enter the baud rate"), wxT("Baud rate"), wxT("Set Baud Rate"),comport.GetBaudRate(),0, 1000000);
         if (n >= 0) {
             comport.SetBaudRate(n);
         }
