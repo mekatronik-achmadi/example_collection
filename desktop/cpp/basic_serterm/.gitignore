@@ -8,3 +8,11 @@ wx/*.o
 wx/*.plist
 wx/wxserterm
 wx/wxserterm.exe
+qt/compile_commands.json
+qt/.cache
+qt/*.o
+qt/*.plist
+qt/Makefile
+qt/qtserterm
+qt/qtserterm.exe
+qt/*.stash

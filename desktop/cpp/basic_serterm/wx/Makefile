@@ -28,6 +28,7 @@ $(TARGET): $(OBJECTS)
 
 clean:
 	rm -f $(TARGET) $(OBJECTS) *.plist *.exe
+	rm -f ../ceSerial/*.plist
 
 .PHONY: all clean
 
