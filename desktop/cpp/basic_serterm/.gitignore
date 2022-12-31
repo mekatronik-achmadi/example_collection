@@ -2,4 +2,8 @@ ceSerial/compile_commands.json
 ceSerial/.cache
 ceSerial/*.o
 ceSerial/*.plist
+wx/compile_commands.json
+wx/.cache
+wx/*.o
+wx/*.plist
 
