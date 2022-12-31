@@ -9,6 +9,7 @@
 #include <QAction>
 #include <QLineEdit>
 #include <QTextEdit>
+#include <QInputDialog>
 #include <QStatusBar>
 #include <QPushButton>
 #include <QMessageBox>
@@ -26,6 +27,7 @@ class QtSerTerm: public QMainWindow {
         void onAbout();
         void onBtnOpen();
         void onSetBaud();
+        void onSelPort();
         void onRxClear();
 
     private:

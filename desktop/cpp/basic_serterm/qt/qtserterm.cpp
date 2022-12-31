@@ -41,6 +41,7 @@ QtSerTerm::QtSerTerm(QWidget *parent):
     connect(appQuit,&QAction::triggered,qApp,&QApplication::quit);
     connect(appAbout,&QAction::triggered,this,&QtSerTerm::onAbout);
     connect(setBaud,&QAction::triggered,this,&QtSerTerm::onSetBaud);
+    connect(selPort,&QAction::triggered,this,&QtSerTerm::onSelPort);
     connect(txtClear,&QAction::triggered,this,&QtSerTerm::onRxClear);
     connect(btnOpen,&QPushButton::clicked,this,&QtSerTerm::onBtnOpen);
 }
@@ -112,6 +113,36 @@ void QtSerTerm::onSetBaud(){
         txtRx->append("Close port first.\n");
     }
     else{
+        long n = QInputDialog::getInt(this,"Set Baud Rate", "Enter the Baud Rate",comport.GetBaudRate(),0,1000000);
+        if(n>=0) comport.SetBaudRate(n);
+
+        QString strRx = "Set Baud Rate: ";
+        strRx += QString::number(comport.GetBaudRate());
+        strRx += "\n";
+        txtRx->append(strRx);
+    }
+}
+
+void QtSerTerm::onSelPort(){
+    if(comport.IsOpened()){
+        txtRx->append("Close port first.\n");
+    }
+    else{
+        QString dev = QInputDialog::getText(this, "Set Port", "Enter Port",QLineEdit::Normal,QString::fromStdString(comport.GetPort()));
+        std::string strDev = dev.toStdString();
+        if (strDev.length() > 0) {
+#ifdef ceWINDOWS
+            comport.SetPortWin(strDev);
+#else
+            comport.SetPort(strDev);
+#endif
+
+        QString strRx = "Set Port: ";
+        strRx += QString::fromStdString(comport.GetPort());
+        strRx += "\n";
+        txtRx->append(strRx);
+
+        }
     }
 }
 
