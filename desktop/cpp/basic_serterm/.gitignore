@@ -1,0 +1,5 @@
+ceSerial/compile_commands.json
+ceSerial/.cache
+ceSerial/*.o
+ceSerial/*.plist
+
