@@ -16,3 +16,10 @@ qt/Makefile
 qt/qtserterm
 qt/qtserterm.exe
 qt/*.stash
+gtkmm/compile_commands.json
+gtkmm/.cache
+gtkmm/*.o
+gtkmm/*.plist
+gtkmm/gtkserterm
+gtkmm/gtkserterm.exe
+
