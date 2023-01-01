@@ -104,10 +104,7 @@ MyFrame::MyFrame(const wxString &title)
     btnOpen = new wxButton(this,Button_Open,wxT("Open"),wxPoint(5,5),wxSize(75,25));
     btnSend = new wxButton(this,Button_Send,wxT("Send"),wxPoint(85, 5),wxSize(75, 25));
     txtSend = new wxTextCtrl(this,Txt_Send,wxT("help"),wxPoint(165,5),wxSize(215,25));
-    txtRx = new wxTextCtrl(this, Txt_Rx, wxT(""), wxPoint(5, 35), wxSize(375, 400), wxTE_MULTILINE);
-
-    wxFont fontRx = wxFont(9, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
-    txtRx->SetFont(fontRx);
+    txtRx = new wxTextCtrl(this, Txt_Rx, wxT(""), wxPoint(5, 35), wxSize(375, 400), wxTE_MULTILINE | wxTE_READONLY);
 
     Connect(Minimal_Quit,wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::OnQuit));
     Connect(Minimal_About,wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::OnAbout));

@@ -1,3 +1,13 @@
+/**
+ * @file qtserterm.h
+ * @brief Qt5 Serial example (code)
+ *
+ * @details Original works and credits: https://github.com/yan9a/serial
+ *
+ * @addtogroup QT5
+ * @{
+ */
+
 #include "qtserterm.h"
 
 QtSerTerm::QtSerTerm(QWidget *parent):
@@ -29,9 +39,11 @@ QtSerTerm::QtSerTerm(QWidget *parent):
 
     txtSend = new QLineEdit(this);
     txtSend->setGeometry(165,25,215,25);
+    txtSend->setText("help");
 
     txtRx = new QTextEdit(this);
     txtRx->setGeometry(5,55,375,425);
+    txtRx->setReadOnly(true);
 
     QString dbgSerial = "Port: 8-N-1-'\\r'-";
     dbgSerial += QString::fromStdString(comport.GetPort());
@@ -44,6 +56,11 @@ QtSerTerm::QtSerTerm(QWidget *parent):
     connect(selPort,&QAction::triggered,this,&QtSerTerm::onSelPort);
     connect(txtClear,&QAction::triggered,this,&QtSerTerm::onRxClear);
     connect(btnOpen,&QPushButton::clicked,this,&QtSerTerm::onBtnOpen);
+    connect(btnSend,&QPushButton::clicked,this,&QtSerTerm::onBtnSend);
+
+    m_timer = new QTimer(this);
+    connect(m_timer,&QTimer::timeout,this,&QtSerTerm::onTimer);
+    m_timer->start(1);
 }
 
 void QtSerTerm::onAbout(){
@@ -149,3 +166,37 @@ void QtSerTerm::onSelPort(){
 void QtSerTerm::onRxClear(){
     txtRx->clear();
 }
+
+void QtSerTerm::onBtnSend(){
+    QString strReq = txtSend->text();
+    strReq += "\r";
+    QByteArray buffer = strReq.toUtf8();
+
+    if(comport.Write(buffer.data())){
+        txtRx->append(strReq);
+    }
+    else{
+        txtRx->append("Write error.\n");
+    }
+}
+
+void QtSerTerm::onTimer(){
+    char ch; bool r;
+    do {ch = comport.ReadChar(r); if (r) ProcessChar(ch);} while(r);
+}
+
+void QtSerTerm::ProcessChar(char ch){
+    if(ch=='\n'){
+        // ignore linefeed
+    }
+    else{
+        // check if character is printable or white-space
+        if(isprint(ch) || isspace(ch)){
+            // Qt text append() always add new paragraph
+            txtRx->moveCursor(QTextCursor::End);
+            txtRx->insertPlainText(QChar(ch));
+        }
+    }
+}
+
+/** @} */

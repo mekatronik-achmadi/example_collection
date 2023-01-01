@@ -1,3 +1,13 @@
+/**
+ * @file qtserterm.h
+ * @brief Qt5 Serial example (main code)
+ *
+ * @details Original works and credits: https://github.com/yan9a/serial
+ *
+ * @addtogroup QT5
+ * @{
+ */
+
 #include "qtserterm.h"
 
 int main(int argc, char *argv[])
@@ -13,3 +23,5 @@ int main(int argc, char *argv[])
     return app.exec();
     return 0;
 }
+
+/** @} */
