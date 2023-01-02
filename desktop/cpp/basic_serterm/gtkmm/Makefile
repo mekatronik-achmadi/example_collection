@@ -18,7 +18,7 @@ endif
 SOURCES=main.cpp gtkserterm.cpp ../ceSerial/ceSerial.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
-all: $(TARGET)
+all: clean $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $(TARGET)

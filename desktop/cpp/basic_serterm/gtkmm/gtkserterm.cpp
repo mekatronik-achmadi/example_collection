@@ -1,10 +1,9 @@
 #include "gtkserterm.h"
 
 GtkSerTerm::GtkSerTerm(){
-    set_default_size(390,500);
-
     add(m_Box);
 
+    // MenuBar
     m_refActionGroup  = Gio::SimpleActionGroup::create();
 
     m_refActionGroup->add_action("quit",
@@ -70,8 +69,29 @@ GtkSerTerm::GtkSerTerm(){
     }
     else{
         auto pMenuBar = Gtk::make_managed<Gtk::MenuBar>(gmenu);
-        m_Box.pack_start(*pMenuBar,Gtk::PACK_SHRINK);
+        m_boxMenu.add(*pMenuBar);
     }
+    //menubar
+
+    //button open send
+    m_btnOpen.add_label("Open");
+    m_btnOpen.signal_clicked().connect(sigc::mem_fun(*this,
+    &GtkSerTerm::on_clicked_btnOpen));
+    m_boxButton.add(m_btnOpen);
+
+    m_btnSend.add_label("Send");
+    m_boxButton.add(m_btnSend);
+
+    m_txtSend.set_max_length(50);
+    m_txtSend.set_text("help");
+    m_boxButton.add(m_txtSend);
+    // button open send
+
+
+
+    // packing all
+    m_Box.add(m_boxMenu);
+    m_Box.add(m_boxButton);
 
     show_all_children();
 }
@@ -89,4 +109,17 @@ void GtkSerTerm::on_action_help_about(){
 
     Gtk::MessageDialog dlgAbout(*this,strAbout);
     dlgAbout.run();
+}
+
+void GtkSerTerm::onOpen(){
+    if(comport.Open()) {
+        std::cout << "Serial Failed";
+    }
+    else{
+        std::cout << "Serial Opened";
+    }
+}
+
+void GtkSerTerm::on_clicked_btnOpen(){
+    onOpen();
 }
