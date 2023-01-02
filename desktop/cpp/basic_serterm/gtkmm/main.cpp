@@ -1,4 +1,3 @@
-#include <gtkmm/application.h>
 #include "gtkserterm.h"
 
 int main(int argc, char *argv[]){
