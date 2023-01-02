@@ -71,7 +71,7 @@ IMPLEMENT_APP(MyApp)
 bool MyApp::OnInit(){
     if(!wxApp::OnInit()) return false;
 
-    MyFrame *frame = new MyFrame(wxT("Serial Port"));
+    MyFrame *frame = new MyFrame(wxT("Serial Port (wxWidget)"));
     frame->Show(true);
 
     return true;

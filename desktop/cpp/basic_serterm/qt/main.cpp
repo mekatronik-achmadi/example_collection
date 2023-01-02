@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QtSerTerm serterm;
 
     serterm.resize(390,500);
-    serterm.setWindowTitle("Serial Port");
+    serterm.setWindowTitle("Serial Port (Qt5)");
     serterm.show();
 
     return app.exec();
