@@ -34,14 +34,14 @@ class QtSerTerm: public QMainWindow {
         QtSerTerm (QWidget *parent = nullptr);
         void onOpen();
         void onClose();
+        void onSetBaud();
+        void onSelPort();
         void ProcessChar(char ch);
 
     private slots:
         void onAbout();
         void onBtnOpen();
         void onBtnSend();
-        void onSetBaud();
-        void onSelPort();
         void onRxClear();
         void onTimer();
 
@@ -49,6 +49,8 @@ class QtSerTerm: public QMainWindow {
         QPushButton *btnOpen;
         QPushButton *btnSend;
         QLineEdit *txtSend;
+        QLineEdit *txtSetBaud;
+        QLineEdit *txtSelPort;
         QTextEdit *txtRx;
         ceSerial comport;
         QTimer *m_timer;

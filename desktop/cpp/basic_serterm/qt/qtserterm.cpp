@@ -19,15 +19,10 @@ QtSerTerm::QtSerTerm(QWidget *parent):
     QMenu *helpMenu = menuBar()->addMenu("&Help");
 
     QAction *appQuit = new QAction("&Quit",this);
-    QAction *selPort = new QAction("Serial &Port",this);
-    QAction *setBaud = new QAction("&Baud Rate",this);
     QAction *txtClear = new QAction("C&lear",this);
     QAction *appAbout = new QAction("&About",this);
 
     fileMenu->addAction(appQuit);
-    editMenu->addAction(selPort);
-    editMenu->addAction(setBaud);
-    editMenu->addSeparator();
     editMenu->addAction(txtClear);
     helpMenu->addAction(appAbout);
 
@@ -41,8 +36,16 @@ QtSerTerm::QtSerTerm(QWidget *parent):
     txtSend->setGeometry(165,25,215,25);
     txtSend->setText("help");
 
+    txtSetBaud = new QLineEdit(this);
+    txtSetBaud->setGeometry(5,55,155,25);
+    txtSetBaud->setText("9600");
+
+    txtSelPort = new QLineEdit(this);
+    txtSelPort->setGeometry(165,55,215,25);
+    txtSelPort->setText("/dev/ttyUSB0");
+
     txtRx = new QTextEdit(this);
-    txtRx->setGeometry(5,55,375,425);
+    txtRx->setGeometry(5,85,375,395);
     txtRx->setReadOnly(true);
 
     QString dbgSerial = "Port: 8-N-1-'\\r'-";
@@ -52,8 +55,6 @@ QtSerTerm::QtSerTerm(QWidget *parent):
 
     connect(appQuit,&QAction::triggered,qApp,&QApplication::quit);
     connect(appAbout,&QAction::triggered,this,&QtSerTerm::onAbout);
-    connect(setBaud,&QAction::triggered,this,&QtSerTerm::onSetBaud);
-    connect(selPort,&QAction::triggered,this,&QtSerTerm::onSelPort);
     connect(txtClear,&QAction::triggered,this,&QtSerTerm::onRxClear);
     connect(btnOpen,&QPushButton::clicked,this,&QtSerTerm::onBtnOpen);
     connect(btnSend,&QPushButton::clicked,this,&QtSerTerm::onBtnSend);
@@ -72,6 +73,9 @@ void QtSerTerm::onAbout(){
 }
 
 void QtSerTerm::onOpen(){
+    onSelPort();
+    onSetBaud();
+
     if(comport.Open()){
         QString strRx = "Error on port ";
         strRx += QString::fromStdString(comport.GetPort());
@@ -130,7 +134,8 @@ void QtSerTerm::onSetBaud(){
         txtRx->append("Close port first.\n");
     }
     else{
-        long n = QInputDialog::getInt(this,"Set Baud Rate", "Enter the Baud Rate",comport.GetBaudRate(),0,1000000);
+        QString baud = txtSetBaud->text();
+        long n = baud.trimmed().toLong();
         if(n>=0) comport.SetBaudRate(n);
 
         QString strRx = "Set Baud Rate: ";
@@ -145,8 +150,8 @@ void QtSerTerm::onSelPort(){
         txtRx->append("Close port first.\n");
     }
     else{
-        QString dev = QInputDialog::getText(this, "Set Port", "Enter Port",QLineEdit::Normal,QString::fromStdString(comport.GetPort()));
-        std::string strDev = dev.toStdString();
+        QString dev = txtSelPort->text();
+        std::string strDev = dev.trimmed().toStdString();
         if (strDev.length() > 0) {
 #ifdef ceWINDOWS
             comport.SetPortWin(strDev);
