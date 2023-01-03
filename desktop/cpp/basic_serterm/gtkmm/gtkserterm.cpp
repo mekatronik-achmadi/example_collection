@@ -9,12 +9,11 @@ GtkSerTerm::GtkSerTerm(){
     // MenuBar
     m_refActionGroup  = Gio::SimpleActionGroup::create();
 
-    m_refActionGroup->add_action("quit",
-    sigc::mem_fun(*this,&GtkSerTerm::on_action_file_quit));
-    m_refActionGroup->add_action("clear",
-    sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_clear));
-    m_refActionGroup->add_action("about",
-    sigc::mem_fun(*this,&GtkSerTerm::on_action_help_about));
+    m_refActionGroup->add_action("quit",sigc::mem_fun(*this,&GtkSerTerm::on_action_file_quit));
+    m_refActionGroup->add_action("selport",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_selport));
+    m_refActionGroup->add_action("setbaud",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_setbaud));
+    m_refActionGroup->add_action("clear",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_clear));
+    m_refActionGroup->add_action("about",sigc::mem_fun(*this,&GtkSerTerm::on_action_help_about));
 
     insert_action_group("serportmenu", m_refActionGroup);
 

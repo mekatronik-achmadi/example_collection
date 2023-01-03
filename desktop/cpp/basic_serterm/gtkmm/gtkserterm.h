@@ -18,6 +18,8 @@ class GtkSerTerm: public Gtk::Window
         void ProcessChar(char ch);
 
         void on_action_file_quit();
+        void on_action_edit_selport();
+        void on_action_edit_setbaud();
         void on_action_edit_clear();
         void on_action_help_about();
         void on_clicked_btnOpen();
