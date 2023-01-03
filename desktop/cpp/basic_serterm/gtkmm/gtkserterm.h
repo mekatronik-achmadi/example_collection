@@ -14,12 +14,12 @@ class GtkSerTerm: public Gtk::Window
     private:
         void onOpen();
         void onClose();
+        void onSelPort();
+        void onSetBaud();
         bool onTimer();
         void ProcessChar(char ch);
 
         void on_action_file_quit();
-        void on_action_edit_selport();
-        void on_action_edit_setbaud();
         void on_action_edit_clear();
         void on_action_help_about();
         void on_clicked_btnOpen();
@@ -28,6 +28,7 @@ class GtkSerTerm: public Gtk::Window
         Gtk::VBox m_Box;
         Gtk::Box m_boxMenu;
         Gtk::HBox m_boxButton;
+        Gtk::HBox m_boxPortBaud;
         Gtk::Box m_boxRx;
 
         Glib::RefPtr<Gtk::Builder> m_refBuilder;
@@ -36,6 +37,9 @@ class GtkSerTerm: public Gtk::Window
         Gtk::Button m_btnOpen;
         Gtk::Button m_btnSend;
         Gtk::Entry m_txtSend;
+
+        Gtk::Entry m_txtSetBaud;
+        Gtk::Entry m_txtSelPort;
 
         Gtk::TextView m_txtRx;
         Gtk::ScrolledWindow m_winTxtRx;

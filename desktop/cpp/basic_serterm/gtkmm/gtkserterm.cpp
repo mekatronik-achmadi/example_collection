@@ -10,8 +10,6 @@ GtkSerTerm::GtkSerTerm(){
     m_refActionGroup  = Gio::SimpleActionGroup::create();
 
     m_refActionGroup->add_action("quit",sigc::mem_fun(*this,&GtkSerTerm::on_action_file_quit));
-    m_refActionGroup->add_action("selport",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_selport));
-    m_refActionGroup->add_action("setbaud",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_setbaud));
     m_refActionGroup->add_action("clear",sigc::mem_fun(*this,&GtkSerTerm::on_action_edit_clear));
     m_refActionGroup->add_action("about",sigc::mem_fun(*this,&GtkSerTerm::on_action_help_about));
 
@@ -34,14 +32,6 @@ GtkSerTerm::GtkSerTerm(){
     "    <submenu>"
     "      <attribute name='label'>Edit</attribute>"
     "      <section>"
-    "        <item>"
-    "          <attribute name='label'>Serial Port</attribute>"
-    "          <attribute name='action'>serportmenu.selport</attribute>"
-    "        </item>"
-    "        <item>"
-    "          <attribute name='label'>Baud Rate</attribute>"
-    "          <attribute name='action'>serportmenu.setbaud</attribute>"
-    "        </item>"
     "        <item>"
     "          <attribute name='label'>Clear</attribute>"
     "          <attribute name='action'>serportmenu.clear</attribute>"
@@ -93,6 +83,14 @@ GtkSerTerm::GtkSerTerm(){
     m_boxButton.add(m_txtSend);
     // button open send
 
+    // port baud
+    m_txtSetBaud.set_text("9600");
+    m_boxPortBaud.add(m_txtSetBaud);
+
+    m_txtSelPort.set_text("/dev/ttyUSB0");
+    m_boxPortBaud.add(m_txtSelPort);
+    // port baud
+
     // text receive
     m_buffTxtRx = Gtk::TextBuffer::create();
     m_winTxtRx.set_size_request(-1,425);
@@ -111,6 +109,7 @@ GtkSerTerm::GtkSerTerm(){
     // packing all
     m_Box.add(m_boxMenu);
     m_Box.add(m_boxButton);
+    m_Box.add(m_boxPortBaud);
     m_Box.add(m_boxRx);
     m_Box.add(m_statusbar);
 
@@ -138,6 +137,9 @@ void GtkSerTerm::on_action_help_about(){
 }
 
 void GtkSerTerm::onOpen(){
+    onSetBaud();
+    onSelPort();
+
     if( comport.Open() ) {
         std::string strRx = "Error on Port ";
         strRx += comport.GetPort();
@@ -197,13 +199,48 @@ void GtkSerTerm::on_clicked_btnOpen(){
     }
 }
 
-void GtkSerTerm::on_action_edit_setbaud(){
+void GtkSerTerm::onSetBaud(){
     if(comport.IsOpened() ){
         auto iter = m_buffTxtRx->get_iter_at_offset(-1);
         m_buffTxtRx->insert(iter,"Close Port First.\n");
     }
     else{
+        auto baud = m_txtSetBaud.get_text();
+        long n = std::atol(baud.c_str());
+        if(n>=0){
+            comport.SetBaudRate(n);
+        }
 
+        std::string strRx = "Baud rate: ";
+        strRx += Glib::ustring::format(comport.GetBaudRate());
+        strRx += "\n";
+
+        auto iter = m_buffTxtRx->get_iter_at_offset(-1);
+        m_buffTxtRx->insert(iter, strRx);
+    }
+}
+
+void GtkSerTerm::onSelPort(){
+    if(comport.IsOpened() ){
+        auto iter = m_buffTxtRx->get_iter_at_offset(-1);
+        m_buffTxtRx->insert(iter,"Close Port First.\n");
+    }
+    else{
+        auto dev = m_txtSelPort.get_text();
+        if(dev.length()>0){
+#ifdef ceWINDOWS
+            comport.SetPortWin(dev);
+#else
+            comport.SetPort(dev);
+#endif
+        }
+
+        std::string strRx = "Port: ";
+        strRx += comport.GetPort();
+        strRx += "\n";
+
+        auto iter = m_buffTxtRx->get_iter_at_offset(-1);
+        m_buffTxtRx->insert(iter, strRx);
     }
 }
 
@@ -214,7 +251,7 @@ void GtkSerTerm::on_action_edit_clear(){
 void GtkSerTerm::on_clicked_btnSend(){
     auto strReq = m_txtSend.get_text();
     strReq += "\r";
-    auto buffer = strdup(Glib::locale_to_utf8(strReq).c_str() );
+    auto buffer = strdup(Glib::locale_to_utf8(strReq).c_str());
 
     if(comport.Write(buffer)){
         auto iter = m_buffTxtRx->get_iter_at_offset(-1);
