@@ -9,7 +9,6 @@
  */
 
 #include "wx/wxprec.h"
-#include "wx/numdlg.h"
 
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
@@ -28,6 +27,8 @@ public:
     wxButton* btnSend;
     wxButton* btnOpen;
     wxTextCtrl* txtSend;
+    wxTextCtrl* txtSelPort;
+    wxTextCtrl* txtSetBaud;
     wxTimer m_timer;
     wxTextCtrl* txtRx;
     ceSerial comport;
@@ -37,8 +38,8 @@ public:
     void OnOpen(void);
     void OnClose(void);
     void OnBtnOpen(wxCommandEvent& event);
-    void SelPort(wxCommandEvent& event);
-    void SetBaud(wxCommandEvent& event);
+    void SelPort(void);
+    void SetBaud(void);
     void OnSend(wxCommandEvent& event);
     void OnTimer(wxTimerEvent& event);
     void ProcessChar(char ch);
@@ -85,9 +86,6 @@ MyFrame::MyFrame(const wxString &title)
     wxMenu *helpMenu = new wxMenu;
 
     fileMenu->Append(Minimal_Quit,wxT("&Quit"),wxT("Quit Program"));
-    editMenu->Append(Serial_Port, wxT("Serial &Port"),wxT("Select serial port"));
-    editMenu->Append(Serial_Baud, wxT("&Baud Rate"),wxT("Set baud rate"));
-    editMenu->AppendSeparator();
     editMenu->Append(Txt_Clear,wxT("C&lear"),wxT("Clear Console Text"));
     helpMenu->Append(Minimal_About,wxT("&About"),wxT("Show about Message"));
 
@@ -104,13 +102,12 @@ MyFrame::MyFrame(const wxString &title)
     btnOpen = new wxButton(this,Button_Open,wxT("Open"),wxPoint(5,5),wxSize(75,25));
     btnSend = new wxButton(this,Button_Send,wxT("Send"),wxPoint(85, 5),wxSize(75, 25));
     txtSend = new wxTextCtrl(this,Txt_Send,wxT("help"),wxPoint(165,5),wxSize(215,25));
-    txtRx = new wxTextCtrl(this, Txt_Rx, wxT(""), wxPoint(5, 35), wxSize(375, 400), wxTE_MULTILINE | wxTE_READONLY);
+    txtSetBaud = new wxTextCtrl(this,Serial_Baud,wxT("9600"),wxPoint(5,35),wxSize(155,25));
+    txtSelPort = new wxTextCtrl(this,Serial_Port,wxT("/dev/ttyUSB0"),wxPoint(165,35),wxSize(215,25));
+    txtRx = new wxTextCtrl(this, Txt_Rx, wxT(""), wxPoint(5, 65), wxSize(375, 360), wxTE_MULTILINE | wxTE_READONLY);
 
     Connect(Minimal_Quit,wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::OnQuit));
     Connect(Minimal_About,wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::OnAbout));
-
-    Connect(Serial_Port, wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::SelPort));
-    Connect(Serial_Baud, wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::SetBaud));
 
     Connect(Txt_Clear, wxEVT_COMMAND_MENU_SELECTED,wxCommandEventHandler(MyFrame::ClearText));
     Connect(Button_Open, wxEVT_COMMAND_BUTTON_CLICKED,wxCommandEventHandler(MyFrame::OnBtnOpen));
@@ -136,6 +133,9 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event)){
 }
 
 void MyFrame::OnOpen(void){
+   SelPort();
+   SetBaud();
+
    if(comport.Open()){
        txtRx->AppendText(wxString::Format(wxT("Error on port %s\n"),comport.GetPort()));
 
@@ -154,7 +154,7 @@ void MyFrame::OnOpen(void){
 
 void MyFrame::OnClose(void){
     comport.Close();
-    wxString strStatusBar = wxString::Format(wxT("Port: 8-N-1-%s [CLOSED]"),comport.GetPort());
+    wxString strStatusBar = wxString::Format(wxT("Port: 8-N-1-'\\r'-%s [CLOSED]"),comport.GetPort());
     SetStatusText(strStatusBar);
     btnOpen->SetLabelText(wxT("Open"));
     txtRx->AppendText(wxString::Format(wxT("Port %s is closed.\n"), comport.GetPort()));
@@ -169,14 +169,13 @@ void MyFrame::OnBtnOpen(wxCommandEvent& WXUNUSED(event)){
     }
 }
 
-void MyFrame::SelPort(wxCommandEvent& WXUNUSED(event)){
+void MyFrame::SelPort(void){
     if (comport.IsOpened()) {
         txtRx->AppendText(wxString::Format(wxT("Close Port %s first.\n"), comport.GetPort()));
     }
     else {
-        wxString cdev=wxString::Format(wxT("%s"), comport.GetPort());
-        wxString device = wxGetTextFromUser(wxT("Enter the port"), wxT("Set Port"), cdev);
-        std::string str = device.ToStdString();
+        wxString device = txtSelPort->GetValue();
+        std::string str = device.Trim().ToStdString();
         if (str.length() > 0) {
 #ifdef ceWINDOWS
         comport.SetPortWin(str);
@@ -188,12 +187,13 @@ void MyFrame::SelPort(wxCommandEvent& WXUNUSED(event)){
     }
 }
 
-void MyFrame::SetBaud(wxCommandEvent& WXUNUSED(event)){
+void MyFrame::SetBaud(void){
     if (comport.IsOpened()) {
         txtRx->AppendText(wxString::Format(wxT("Close port %s first.\n"), comport.GetPort()));
     }
     else {
-        long n = wxGetNumberFromUser(wxT("Enter the baud rate"), wxT("Baud rate"), wxT("Set Baud Rate"),comport.GetBaudRate(),0, 1000000);
+        wxString baud = txtSetBaud->GetValue();
+        long n = wxAtol(baud.Trim());
         if (n >= 0) {
             comport.SetBaudRate(n);
         }

@@ -197,6 +197,16 @@ void GtkSerTerm::on_clicked_btnOpen(){
     }
 }
 
+void GtkSerTerm::on_action_edit_setbaud(){
+    if(comport.IsOpened() ){
+        auto iter = m_buffTxtRx->get_iter_at_offset(-1);
+        m_buffTxtRx->insert(iter,"Close Port First.\n");
+    }
+    else{
+
+    }
+}
+
 void GtkSerTerm::on_action_edit_clear(){
     m_buffTxtRx->set_text("");
 }
