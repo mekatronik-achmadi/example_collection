@@ -1,0 +1,10 @@
+Exe/
+Linker/
+List/
+Obj/
+*.cci
+*.cof
+*.c~
+*.fct
+*.map
+*.txt

@@ -74,3 +74,26 @@ Tested on GCC AVR 12 with recent GNU Make on Arch-Linux.
 
 It should be also tested on winAVR package for Windows. 
 You can visit their [website](https://winavr.sourceforge.net/).
+
+## CodeVision AVR
+
+Here example in C language in CVAVR.
+Source example and its compiled binary can be found in *cvavr* folder.
+
+```c
+#include <mega16.h>
+
+void main(void){
+PORTC=0x20;
+DDRC=0x40;
+ACSR=0x80;
+SFIOR=0x00;
+
+while (1){
+    if(PINC.5==1) PORTC.6=0;
+    else PORTC.6=1;
+    }
+}
+```
+
+Tested on CodeVision AVR 2.05.3 run on Arch-Linux via Wine.
