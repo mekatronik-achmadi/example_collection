@@ -47,6 +47,6 @@ def ReadList(list_file):
 
     for x in lines:
         list_sig.append(x.split(" ")[0])
-        list_ir.append(x.split(" ").rstrip())
+        list_ir.append(x.split(" ")[1].rstrip())
 
     return [list_sig,list_ir]
