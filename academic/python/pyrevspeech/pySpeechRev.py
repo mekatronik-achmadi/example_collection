@@ -36,3 +36,26 @@ for i in range(len(list_sig)):
 
     # Open Impulse Response (IR)
     IR = load_IR(list_ir[i])
+
+    # IR normalization
+    IR = IR / np.abs(np.max(IR))
+    p_max = np.argmax(np.abs(IR))
+
+    signal_rev = signal.fftconvolve(signal_clean, IR, mode="full")
+
+    # Normalization
+    signal_rev = signal_rev / np.max(np.abs(signal_rev))
+
+    # IR delay compensation
+    signal_rev = shift(signal_rev, -p_max)
+
+    # Cut reverberated signal (same length as clean sig)
+    signal_rev = signal_rev[0 : signal_clean.shape[0]]
+
+    # Save Reverberated Speech
+    file_out = list_sig[i].replace(in_folder, out_folder)
+    # wavfile.write(file_out,fs,signal_rev)
+    sf.write(file_out, signal_rev, fs)
+
+    print("Done %s" % (file_out))
+

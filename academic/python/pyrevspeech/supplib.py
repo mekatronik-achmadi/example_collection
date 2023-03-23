@@ -32,7 +32,8 @@ def load_IR(IR_file):
 
     if ".mat" in IR_file:
         IR = loadmat(IR_file,squeeze_me=True,struct_as_record=False)
-        IR = IR[IR.keys()[0]]
+        keys = list(IR.keys())
+        IR = IR[keys[3]]
     else:
         [IR,fs] = sf.read(IR_file)
 
