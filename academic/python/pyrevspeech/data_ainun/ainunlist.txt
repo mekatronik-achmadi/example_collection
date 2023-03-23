@@ -1,0 +1,3 @@
+clean/ex1.wav ir/R1P1Tr1_1.mat
+clean/ex2.wav ir/R1P1Tr1_2.mat
+clean/ex3.wav ir/R1P1Tr1_3.mat
