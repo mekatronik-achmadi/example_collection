@@ -27,7 +27,7 @@ def copy_folder(in_folder, out_folder):
 def ig_f(dirr,files):
     return [f for f in files if os.path.isfile(os.path.join(dirr,f))]
 
-# load Instaneous Response
+# load Impulse Response
 def load_IR(IR_file):
 
     if ".mat" in IR_file:

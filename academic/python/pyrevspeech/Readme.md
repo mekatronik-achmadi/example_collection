@@ -30,16 +30,23 @@ wget -c -O ex2.wav https://github.com/mravanelli/pySpeechRev/blob/master/clean_e
 wget -c -O ex3.wav https://github.com/mravanelli/pySpeechRev/blob/master/clean_examples/ex3.wav?raw=true
 cd ../
 
+cd IR_examples/
+wget -c -O IR1.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR1.mat?raw=true
+wget -c -O IR1_16.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR1_16.mat?raw=true
+wget -c -O IR2.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR2.mat?raw=true
+wget -c -O IR2_16.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR2_16.mat?raw=true
+wget -c -O IR3.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR3.mat?raw=true
+wget -c -O IR3_16.mat https://github.com/mravanelli/pySpeechRev/blob/master/IR_examples/IR3_16.mat?raw=true
+cd ../
+
 wget -c https://raw.githubusercontent.com/mravanelli/pySpeechRev/master/list.txt
 cd ../
 ```
 
 Run first example:
 ```sh
-mkdir -p data_example/rev_examples/
+cd data_example/
+mkdir -p rev_examples/
 
-python pySpeechRev.py \
-data_example/clean_examples/ \
-data_example/rev_examples/ \
-data_example/list.txt
+python ../pySpeechRev.py clean_examples/ rev_examples/ list.txt
 ```
