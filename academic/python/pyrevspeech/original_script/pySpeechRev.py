@@ -1,10 +1,14 @@
-#!/bin/python
+# pySpeechRev
+# Mirco Ravanelli - Fondazione Bruno Kessler
+# Nov 2017
+
+# Example:
+# python pySpeechRev.py clean_examples/ rev_examples/ list.txt
 
 import numpy as np
 from scipy import signal
 import sys
 import os
-#from scipy.io import wavfile
 import soundfile as sf
 
 # Load support lib
@@ -25,11 +29,12 @@ list_file = sys.argv[3]  # list file ("wav_file IR_file")
 # Replicate input folder structure to output folder
 copy_folder(in_folder, out_folder)
 
+# Speech Data Reverberation Loop
 for i in range(len(list_sig)):
 
     # Open clean wav file
+    # [fs, signal_clean] = wavfile.read(list_sig[i])
     [signal_clean, fs] = sf.read(list_sig[i])
-    #[fs, signal_clean] = wavfile.read(list_sig[i])
 
     signal_clean = signal_clean.astype(np.float64)
 
@@ -60,4 +65,3 @@ for i in range(len(list_sig)):
     sf.write(file_out, signal_rev, fs)
 
     print("Done %s" % (file_out))
-
