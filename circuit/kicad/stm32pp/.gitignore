@@ -2,3 +2,7 @@
 fp-info-cache
 *.jpg
 *.png
+production/
+jlcpcb/
+plots/
+gerbers/
