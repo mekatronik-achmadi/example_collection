@@ -36,7 +36,8 @@
 
 #include <string.h>
 #include <stdint.h>
-#include "lwjson/lwjson_opt.h"
+
+#include "lwjson_opt.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -186,7 +187,7 @@ struct lwjson_stream_parser;
 
 /**
  * \brief           Callback function for various events
- * 
+ *
  */
 typedef void (*lwjson_stream_parser_callback_fn)(struct lwjson_stream_parser* jsp, lwjson_stream_type_t type);
 
