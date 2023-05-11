@@ -4,7 +4,7 @@
 
 #include "jsmn.h"
 
-static jsmntok_t tkn[2048];
+static jsmntok_t tkn[512];
 static unsigned int calAmpl[6][2];
 
 static const char *jsonAud =
