@@ -4,10 +4,18 @@
 
 #include "jsmn.h"
 
+#define TRUE    1
+#define FALSE   0
+
+#define EMPTY_JSON  TRUE
+
 static jsmntok_t tkn[512];
 static unsigned int calAmpl[6][2];
 
 static const char *jsonAud =
+#if EMPTY_JSON
+"{\"audiogram\":{}}";
+#else
 "{\"audiogram\":{"
 "\"ch_0\":{"
 "\"freq_0\":{\"freq\": 0.625,\"ampl\":1,\"record\":[11,10,9,8,7,6,5,4,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"
@@ -24,6 +32,7 @@ static const char *jsonAud =
 "\"freq_4\":{\"freq\":10.000,\"ampl\":1,\"record\":[11,10,9,8,7,6,5,4,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"
 "\"freq_5\":{\"freq\":20.000,\"ampl\":1,\"record\":[11,10,9,8,7,6,5,4,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}}"
 "}}";
+#endif
 
 static int jsonEq(const char *jsonSTR, jsmntok_t *tok, const char *str){
 
