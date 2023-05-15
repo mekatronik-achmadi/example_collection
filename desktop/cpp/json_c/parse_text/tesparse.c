@@ -10,7 +10,7 @@ unsigned int valL[4];
 
 int main(int argc, char *argv[])
 {
-    unsigned i,j,cnt;
+    unsigned int i,j,cnt;
     char strNew[9][4];
 
     j=0; cnt=0;
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     printf("%i %i %i %i %i %i %i %i %i\n",
             num,
             valL[0], valL[1], valL[2], valL[3],
-            valR[0], valR[1], valR[2], valL[3]);
+            valR[0], valR[1], valR[2], valR[3]);
 
     return 0;
 }
