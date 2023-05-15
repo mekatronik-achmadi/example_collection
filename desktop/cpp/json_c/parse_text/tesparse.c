@@ -28,8 +28,7 @@ int main(int argc, char *argv[])
 
     for(i=0;i<cnt;i++){
         if(i==0) num = atoi(strNew[i]);
-
-        if((i>0) && (i<5)) valL[i-1] = atoi(strNew[i]);
+        else if((i>0) && (i<5)) valL[i-1] = atoi(strNew[i]);
         else if(i>=5) valR[i-5] = atoi(strNew[i]);
     }
 
