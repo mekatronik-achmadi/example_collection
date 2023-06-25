@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "SSD1306")(type "KiCad")(uri "${KIPRJMOD}/libs/ssd1306/SSD1306.pretty")(options "")(descr ""))
+  (lib (name "OPL_Connector")(type "KiCad")(uri "/usr/share/kicad/userlib/footprints/seeedopl/OPL_Connector.pretty")(options "")(descr ""))
+  (lib (name "NUCLEO-F401RE")(type "KiCad")(uri "${KIPRJMOD}/libs/NUCLEO-F401RE")(options "")(descr ""))
+)
