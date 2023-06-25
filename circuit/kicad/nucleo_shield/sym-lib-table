@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "NUCLEO-F401RE")(type "KiCad")(uri "${KIPRJMOD}/libs/NUCLEO-F401RE/NUCLEO-F401RE.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,11 @@
+*-backups
+*auto_saved_files#
+fp-info-cache
+exports/
+*.step
+*.wrl
+shape3D/
+libs/pkg3d/
+*.jpg
+*.png
+*.csv
