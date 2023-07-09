@@ -2,4 +2,4 @@ compile_commands.json
 .cache/
 *.o
 *_doc/
-sin
+sinc

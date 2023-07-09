@@ -3,3 +3,4 @@ compile_commands.json
 *_doc/
 build/
 sdkconfig
+sdkconfig.old

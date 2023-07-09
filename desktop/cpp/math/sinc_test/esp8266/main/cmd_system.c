@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include "esp_log.h"
 #include "esp_attr.h"
@@ -24,14 +25,18 @@
 #include "cmd_system.h"
 #include "sdkconfig.h"
 
+#include "sinc.h"
+
 static const char *TAG = "cmd_system";
 
+static void register_sinc();
 static void register_free();
 static void register_heap();
 static void register_version();
 static void register_restart();
 
 void register_system(){
+    register_sinc();
     register_free();
     register_heap();
     register_version();
@@ -125,3 +130,40 @@ static void register_heap()
     ESP_ERROR_CHECK( esp_console_cmd_register(&heap_cmd) );
 
 }
+
+static int get_sinc(int argc, char **argv){
+
+    if(argc != 3) {
+        printf("using default value\n");
+        double defX = 0.5;
+        unsigned int defN = DEFAULT_N;
+
+        printf("SinC of X = %f and N = %i is %f\n",
+                defX,
+                defN,
+                sinCalc(defX, defN));
+    }
+    else{
+        double valX = atof(argv[1]);
+        unsigned valN = atoi(argv[2]);
+
+        printf("SinC of X = %f and N = %i is %f\n",
+                valX,
+                valN,
+                sinCalc(valX, valN));
+    }
+
+    return 0;
+}
+
+static void register_sinc()
+{
+    const esp_console_cmd_t sinc_cmd = {
+        .command = "sinc",
+        .help = "Sines Calculation",
+        .hint = NULL,
+        .func = &get_sinc,
+    };
+    ESP_ERROR_CHECK( esp_console_cmd_register(&sinc_cmd) );
+}
+

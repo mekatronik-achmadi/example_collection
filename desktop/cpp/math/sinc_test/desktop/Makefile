@@ -1,6 +1,6 @@
 include ../sinc/sinc.mk
 
-APP = sin
+APP = sinc
 
 CC = gcc
 CCFLAGS = -Wall

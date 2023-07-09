@@ -4,6 +4,7 @@
 #
 
 PROJECT_NAME := console
+CFLAGS += -DDEFAULT_N=100
 
 include $(IDF_PATH)/make/project.mk
 
