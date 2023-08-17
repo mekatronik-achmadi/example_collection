@@ -1,3 +1,4 @@
 exports/
 *backups/
 libs/pkg3d/
+fp-info-cache
