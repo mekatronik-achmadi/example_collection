@@ -1,0 +1,21 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 6644f23c-d446-4fd8-afb3-cde9354cfc25)
+
+  (paper "A4")
+
+  (title_block
+    (title "STM32 LQFP64 Minimum System")
+    (date "2023-08-17")
+    (rev "v0")
+    (company "Achmadi ST MT")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
