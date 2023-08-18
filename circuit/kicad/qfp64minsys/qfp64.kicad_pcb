@@ -91,7 +91,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "exports/")
+      (outputdirectory "exports/gerbers/")
     )
   )
 
@@ -479,10 +479,10 @@
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp 2afc30b5-ccae-40d6-9922-e630bd8c8a53))
     (pad "6" smd rect (at 4.4 2.9 90) (size 2 2.5) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp a9bec857-772f-4a73-8926-5996b25d171d))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_USB.3dshapes/USB_Mini-B_Wuerth_65100516121_Horizontal.wrl"
-      (offset (xyz 0 0 0))
+    (model "${KIPRJMOD}/libs/pkg3d/Download_STP_65100516121 (rev1).stp"
+      (offset (xyz 0 -1.5 2))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 180 0))
     )
   )
 
@@ -816,10 +816,10 @@
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp 189b0b3c-6f0a-479e-afde-6c6a5ef2ec08))
     (pad "6" smd rect (at 4.4 2.9 90) (size 2 2.5) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 2 "GND") (pinfunction "Shield") (pintype "passive") (tstamp e4ef6efb-d66e-4ccc-a03e-fbad2bc0b94c))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_USB.3dshapes/USB_Mini-B_Wuerth_65100516121_Horizontal.wrl"
-      (offset (xyz 0 0 0))
+    (model "${KIPRJMOD}/libs/pkg3d/Download_STP_65100516121 (rev1).stp"
+      (offset (xyz 0 -1.5 2))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 180 0))
     )
   )
 
