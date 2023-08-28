@@ -444,8 +444,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "exports/qfp64.step",
+      "vrml": "exports/qfp64.wrl"
     },
     "page_layout_descr_file": ""
   },

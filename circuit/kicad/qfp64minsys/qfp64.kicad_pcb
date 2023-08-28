@@ -297,7 +297,7 @@
     (property "ki_keywords" "USB UART Serial Converter Interface")
     (path "/0cb1b338-67ff-413f-b1d0-5537b2d5b24d")
     (attr smd)
-    (fp_text reference "U1" (at 28.7 -7.19 90) (layer "F.SilkS")
+    (fp_text reference "U1" (at -2.675 -6.225 90) (layer "F.SilkS")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 280bbe5a-7bff-462e-b4fd-e606c79cc83d)
     )
