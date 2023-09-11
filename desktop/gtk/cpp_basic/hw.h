@@ -8,6 +8,7 @@ class HW: public  Gtk::Window
 {
  public:
   HW();
+  virtual ~HW();
 
  protected:
   void on_button_clicked();

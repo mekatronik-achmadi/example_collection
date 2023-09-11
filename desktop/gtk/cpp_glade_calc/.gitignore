@@ -1,0 +1,4 @@
+*.o
+*.glade~
+calc
+compile_commands.json

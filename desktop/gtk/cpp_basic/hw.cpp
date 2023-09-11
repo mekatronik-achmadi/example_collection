@@ -10,6 +10,10 @@ HW::HW()
  m_button.show();
 }
 
+HW::~HW()
+{
+}
+
 void HW::on_button_clicked(){
  std::cout << "Hello World" << std::endl;
 }

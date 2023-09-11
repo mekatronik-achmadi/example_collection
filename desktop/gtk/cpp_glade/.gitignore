@@ -1,0 +1,4 @@
+*.o
+*.glade~
+coba
+compile_commands.json
