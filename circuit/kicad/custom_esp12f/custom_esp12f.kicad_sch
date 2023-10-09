@@ -5,7 +5,7 @@
   (paper "A5")
 
   (title_block
-    (title "Minimal ESP12-F Module")
+    (title "Minimal ESP-12F Module")
     (date "2023-10-09")
     (rev "v0")
     (company "Achmadi ST MT")
