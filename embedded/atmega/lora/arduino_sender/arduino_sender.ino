@@ -20,14 +20,14 @@ void loop() {
   int val = 100;
 
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
+  delay(10);
 
   LoRa.beginPacket();
   LoRa.print(val);
   LoRa.endPacket();
 
   digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+  delay(10);
 
   Serial.println("LoRa Data Send");
 }
