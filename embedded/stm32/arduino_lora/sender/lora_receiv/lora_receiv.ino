@@ -7,15 +7,17 @@
 
 #define BAND    433E6
 
-int counter = 0;
+String inString = "";
+int val = 0;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
 
   Serial.begin(9600);
   while (!Serial);
 
-  Serial.println("LoRa Sender");
+  Serial.println("LoRa Receiver");
 
   LoRa.setPins(NSS, RST, DI0);
 
@@ -30,18 +32,22 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
+  int packetSize = LoRa.parsePacket();
 
-  Serial.print("Sending packet: ");
-  Serial.println(counter);
-
-  LoRa.beginPacket();
-  LoRa.print(counter);
-  LoRa.endPacket();
-
-  counter++;
-  
   digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+  
+  if (packetSize) { 
+    // read packet    
+    while (LoRa.available())
+    {
+      int inChar = LoRa.read();
+      inString += (char)inChar;
+      val = inString.toInt();
+          
+    }
+    inString = "";     
+    LoRa.packetRssi();
+    Serial.println(val);
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
 }
