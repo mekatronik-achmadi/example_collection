@@ -12,7 +12,7 @@ static const SPIConfig spicfg = {
 };
 
 static uint8_t lora_singleTransfer(uint8_t address, uint8_t value){
-    palClearPad(GPIOA, LORA_DEFAULT_SS_PIN);
+
 
     uint8_t txbuf[1];
     uint8_t rxbuf[1];
@@ -20,12 +20,12 @@ static uint8_t lora_singleTransfer(uint8_t address, uint8_t value){
     txbuf[0] = value;
 
     spiSelect(&SPID1);
+    palClearPad(GPIOA, LORA_DEFAULT_SS_PIN);
+
     spiSend(&SPID1, sizeof(address), &address);
     spiExchange(&SPID1, sizeof(txbuf), txbuf, rxbuf);
-    //spiSend(&SPID1, sizeof(address), &value);
-    //spiReceive(&SPID1, sizeof(response), &response);
-    spiUnselect(&SPID1);
 
+    spiUnselect(&SPID1);
     palSetPad(GPIOA, LORA_DEFAULT_SS_PIN);
 
     return rxbuf[0];
@@ -47,12 +47,28 @@ static void lora_idle(void){
     lora_writeRegister(REG_OP_MODE, MODE_LONG_RANGE_MODE | MODE_STDBY);
 }
 
-static void lora_implicitHeaderMode(void){
-    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) | 0x01);
+static void lora_setOCP(uint8_t mA){
+    uint8_t ocpTrim = 27;
+
+    if (mA <= 120) {
+        ocpTrim = (mA - 45) / 5;
+    } else if (mA <=240) {
+        ocpTrim = (mA + 30) / 10;
+    }
+
+    lora_writeRegister(REG_OCP, 0x20 | (0x1F & ocpTrim));
 }
 
-static void lora_explicitHeaderMode(void){
-    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) & 0xfe);
+static bool lora_isTransmitting(void){
+    if ((lora_readRegister(REG_OP_MODE) & MODE_TX) == MODE_TX) {
+        return TRUE;
+    }
+
+    if (lora_readRegister(REG_IRQ_FLAGS) & IRQ_TX_DONE_MASK) {
+        lora_writeRegister(REG_IRQ_FLAGS, IRQ_TX_DONE_MASK);
+    }
+
+    return FALSE;
 }
 
 void lora_setFrequency(long frequency){
@@ -76,32 +92,50 @@ void lora_setTxPower(int level, uint8_t outputPin){
 
     // PA BOOST
     else{
-        if (level < 2) {
-            level = 2;
-        } else if (level > 17) {
-            level = 17;
+        if (level > 17) {
+            if (level > 20) {
+                level = 20;
+            }
+
+            // subtract 3 from level, so 18 - 20 maps to 15 - 17
+            level -= 3;
+
+            // High Power +20 dBm Operation (Semtech SX1276/77/78/79 5.4.3.)
+            lora_writeRegister(REG_PA_DAC, 0x87);
+            lora_setOCP(140);
+        }
+        else {
+            if (level < 2) {
+                level = 2;
+            }
+            //Default value PA_HF/LF or +17dBm
+            lora_writeRegister(REG_PA_DAC, 0x84);
+            lora_setOCP(100);
         }
 
         lora_writeRegister(REG_PA_CONFIG, PA_BOOST | (level - 2));
     }
 }
 
-void lora_BeginPacket(uint8_t implicitheader){
+void lora_BeginPacket(void){
+    if(lora_isTransmitting()){
+        return;
+    }
+
     lora_idle();
 
-    if(implicitheader){
-        lora_implicitHeaderMode();
-    }
-    else{
-        lora_explicitHeaderMode();
-    }
+#if LORA_IMPLICITHEADER
+    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) | 0x01);
+#else
+    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) & 0xfe);
+#endif
 
     lora_writeRegister(REG_FIFO_ADDR_PTR, 0);
     lora_writeRegister(REG_PAYLOAD_LENGTH, 0);
 }
 
 size_t lora_WriteBuffer(char *buffer, size_t size){
-    uint8_t currentLength = lora_readRegister(REG_PAYLOAD_LENGTH);
+     int currentLength = lora_readRegister(REG_PAYLOAD_LENGTH);
 
     // check size
     if ((currentLength + size) > MAX_PKT_LENGTH) {

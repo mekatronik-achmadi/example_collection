@@ -36,7 +36,7 @@ static void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if(argc > 0){chprintf(chp,"Usage: test\r\n");return;}
 
-    lora_BeginPacket(FALSE);
+    lora_BeginPacket();
     packetsize = lora_WriteBuffer(packet, sizeof(packet));
     lora_EndPacket();
 

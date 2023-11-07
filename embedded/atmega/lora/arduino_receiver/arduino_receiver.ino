@@ -2,7 +2,7 @@
 #include <LoRa.h>
 
 String inString = "";
-int val = 0;
+byte data[50];
 
 void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
@@ -20,22 +20,28 @@ void setup(){
 }
 
 void loop() {
+  // try to parse packet
   int packetSize = LoRa.parsePacket();
-
-  digitalWrite(LED_BUILTIN, LOW);
-  
-  if (packetSize) { 
-    // read packet    
+  if (packetSize) {
+    // received a packet
+    Serial.print("Received packet size ");
+    Serial.print(packetSize);
+    Serial.print(" data ");
+    // read packet
     while (LoRa.available())
-    {
-      int inChar = LoRa.read();
-      inString += (char)inChar;
-      val = inString.toInt();
-          
+    for(int i=0;i<packetSize;i++){
+      data[i]= LoRa.read();
+      Serial.print(' ');
+      Serial.print(data[i]);
+      inString += (char) data[i];
     }
-    inString = "";     
-    LoRa.packetRssi();
-    Serial.println(val);
-    digitalWrite(LED_BUILTIN, HIGH);
+
+    Serial.print("' as ");
+    Serial.print(inString);
+    // print RSSI of packet
+    Serial.print(" with RSSI ");
+    Serial.println(LoRa.packetRssi());
+
+    inString = "";
   }
 }
