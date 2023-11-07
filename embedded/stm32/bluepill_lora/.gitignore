@@ -4,3 +4,7 @@ sender/.dep/
 sender/build/
 .cache/
 compile_commands.json
+receiver/compile_commands.json
+receiver/.cache/
+receiver/.dep/
+receiver/build/
