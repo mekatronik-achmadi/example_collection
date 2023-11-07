@@ -4,8 +4,7 @@
 #define NSS   PA4
 #define RST   PA2
 #define DI0   PA3
-
-#define BAND    433E6
+#define BAND  433E6
 
 int counter = 0;
 
@@ -30,7 +29,7 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
+  delay(1);
 
   Serial.print("Sending packet: ");
   Serial.println(counter);
@@ -42,5 +41,5 @@ void loop() {
   counter++;
   
   digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+  delay(1);
 }

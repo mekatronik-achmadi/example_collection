@@ -4,10 +4,7 @@
 #define NSS   PA4
 #define RST   PA2
 #define DI0   PA3
-
-#define TX_P    17
-#define BAND    433E6
-#define ENCRYPT 0x78
+#define BAND  433E6
 
 String inString = "";
 int val = 0;
@@ -20,9 +17,6 @@ void setup() {
   while (!Serial);
 
   Serial.println("LoRa Receiver");
-
-  LoRa.setTxPower(TX_P);
-  LoRa.setSyncWord(ENCRYPT);
   LoRa.setPins(NSS, RST, DI0);
 
   if (!LoRa.begin(BAND)) {
