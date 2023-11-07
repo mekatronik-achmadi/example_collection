@@ -1,6 +1,8 @@
 #include <SPI.h>
 #include <LoRa.h>
 
+int count = 0;
+
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
@@ -17,17 +19,18 @@ void setup() {
 }
 
 void loop() {
-  int val = 100;
-
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(10);
+  delay(500);
 
   LoRa.beginPacket();
-  LoRa.print(val);
+  LoRa.print(count);
   LoRa.endPacket();
 
   digitalWrite(LED_BUILTIN, LOW);
-  delay(10);
+  delay(500);
 
-  Serial.println("LoRa Data Send");
+  Serial.print("LoRa Data Send: ");
+  Serial.println(count);
+
+  count++;
 }
