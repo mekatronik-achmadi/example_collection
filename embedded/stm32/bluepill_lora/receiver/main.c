@@ -6,6 +6,8 @@
  * @{
  */
 
+#include <string.h>
+
 #include "ch.h"
 #include "hal.h"
 
@@ -27,6 +29,34 @@ static THD_FUNCTION(thdLED, arg) {
     }
 }
 
+static THD_WORKING_AREA(waLora, 128);
+static THD_FUNCTION(thdLora, arg) {
+
+    (void)arg;
+    unsigned char data[50] = {0};
+    char strData[16] = {0};
+
+    chRegSetThreadName("receive lora");
+    while (true) {
+        uint16_t packetSize = lora_parsePacket();
+        if(packetSize>0){
+            chprintf((BaseSequentialStream*)&SD1, "Received packet size %i data: ",packetSize);
+
+            while(lora_available())
+            for(uint16_t i=0;i<packetSize;i++){
+                data[i] = lora_read();
+                chprintf((BaseSequentialStream*)&SD1, " %i ", data[i]);
+
+                char chr = (char) data[i];
+                strncat(strData, &chr, 1);
+            }
+            chprintf((BaseSequentialStream*)&SD1, " as '%s' with RSSI: %i\r\n",strData,lora_packetRssi());
+            strcpy(strData, "");
+        }
+        chThdSleepMicroseconds(1);
+    }
+}
+
 int main(void) {
 
   halInit();
@@ -41,6 +71,7 @@ int main(void) {
   sdStart(&SD1,NULL);
 
   lora_begin(433E6);
+  chThdCreateStatic(waLora, sizeof(waLora), NORMALPRIO, thdLora, NULL);
 
   chprintf((BaseSequentialStream *)&SD1, "System Initiated \r\n");
 
