@@ -1,3 +1,3 @@
-LORASRC = ../lora/lora.c
-LORAINC = ../lora/
+LORASRC = ./lora/lora.c
+LORAINC = ./lora/
 

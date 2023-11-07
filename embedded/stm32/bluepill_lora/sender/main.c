@@ -4,7 +4,7 @@
 #include "chprintf.h"
 #include "shell.h"
 
-#define GPIOA_SPI1NSS   4
+#include "lora/lora.h"
 
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
@@ -29,8 +29,23 @@ static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]) {
     chprintf(chp,"Serial OK\r\n");
 }
 
+static void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]) {
+    (void)argv;
+    uint8_t packetsize;
+    char packet[5] = "coba";
+
+    if(argc > 0){chprintf(chp,"Usage: test\r\n");return;}
+
+    lora_BeginPacket(FALSE);
+    packetsize = lora_WriteBuffer(packet, sizeof(packet));
+    lora_EndPacket();
+
+    chprintf(chp,"%i packet sent\r\n",packetsize);
+}
+
 static const ShellCommand commands[] = {
     {"test", cmd_test},
+    {"send", cmd_send},
     {NULL, NULL}
 };
 
@@ -38,31 +53,6 @@ static const ShellConfig shell_cfg = {
     (BaseSequentialStream *)&SD1,
     commands
 };
-
-/////////////////////////////////// SPI+LORA //////////////////////////
-
-static const SPIConfig hs_spicfg = {
-  NULL,
-  GPIOA,
-  GPIOA_SPI1NSS,
-  0
-};
-
-/*
- * Low speed SPI configuration (281.250kHz, CPHA=0, CPOL=0, MSb first).
- */
-static const SPIConfig ls_spicfg = {
-  NULL,
-  GPIOA,
-  GPIOA_SPI1NSS,
-  SPI_CR1_BR_2 | SPI_CR1_BR_1
-};
-
-/*
- * SPI TX and RX buffers.
- */
-static uint8_t txbuf[512];
-static uint8_t rxbuf[512];
 
 int main(void) {
 
@@ -78,6 +68,10 @@ int main(void) {
   sdStart(&SD1,NULL);
 
   shellInit();
+
+  lora_Begin(433E6);
+
+  chprintf((BaseSequentialStream *)&SD1, "System Initiated \r\n");
 
   while(true){
     if (!shelltp)
