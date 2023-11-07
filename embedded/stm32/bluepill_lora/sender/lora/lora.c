@@ -60,13 +60,11 @@ static void lora_setOCP(uint8_t mA){
 }
 
 static bool lora_isTransmitting(void){
-    if ((lora_readRegister(REG_OP_MODE) & MODE_TX) == MODE_TX) {
-        return TRUE;
-    }
+    if ((lora_readRegister(REG_OP_MODE) & MODE_TX) == MODE_TX) return TRUE;
 
-    if (lora_readRegister(REG_IRQ_FLAGS) & IRQ_TX_DONE_MASK) {
+
+    if (lora_readRegister(REG_IRQ_FLAGS) & IRQ_TX_DONE_MASK)
         lora_writeRegister(REG_IRQ_FLAGS, IRQ_TX_DONE_MASK);
-    }
 
     return FALSE;
 }
@@ -134,7 +132,7 @@ void lora_BeginPacket(void){
     lora_writeRegister(REG_PAYLOAD_LENGTH, 0);
 }
 
-size_t lora_WriteBuffer(char *buffer, size_t size){
+size_t lora_WriteChars(char *buffer, size_t size){
      int currentLength = lora_readRegister(REG_PAYLOAD_LENGTH);
 
     // check size

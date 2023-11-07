@@ -36,10 +36,10 @@ void loop() {
       inString += (char) data[i];
     }
 
-    Serial.print("' as ");
+    Serial.print("' as '");
     Serial.print(inString);
     // print RSSI of packet
-    Serial.print(" with RSSI ");
+    Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
 
     inString = "";

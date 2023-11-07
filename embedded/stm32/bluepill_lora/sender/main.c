@@ -32,12 +32,14 @@ static void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]) {
 static void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]) {
     (void)argv;
     uint8_t packetsize;
-    char packet[5] = "coba";
+    char packet[16] = {0};
 
     if(argc > 0){chprintf(chp,"Usage: test\r\n");return;}
 
     lora_BeginPacket();
-    packetsize = lora_WriteBuffer(packet, sizeof(packet));
+    chsnprintf(packet, sizeof(packet), "test data");
+    packetsize = lora_WriteChars(packet, sizeof(packet));
+
     lora_EndPacket();
 
     chprintf(chp,"%i packet sent\r\n",packetsize);

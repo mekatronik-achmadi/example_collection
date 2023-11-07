@@ -108,13 +108,13 @@ void lora_setTxPower(int level, uint8_t outputPin);
 void lora_BeginPacket(void);
 
 /**
- * @brief Write Buffered Data
+ * @brief Write characters
  *
  * @param buffer
  * @param size
  * @return size_t
  */
-size_t lora_WriteBuffer(char *buffer, size_t size);
+size_t lora_WriteChars(char *buffer, size_t size);
 
 /**
  * @brief Packet Sending End
