@@ -1,5 +1,6 @@
 sender/compile_commands.json
-sender/.dep/
 sender/.cache/
+sender/.dep/
 sender/build/
+.cache/
 compile_commands.json

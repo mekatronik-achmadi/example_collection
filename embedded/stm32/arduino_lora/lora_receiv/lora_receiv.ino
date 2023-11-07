@@ -1,8 +1,9 @@
-#include <LoRa_STM32.h>
+#include <SPI.h>
+#include <LoRa.h>
 
 #define NSS   PA4
-#define RST   PB0
-#define DI0   PA1
+#define RST   PA2
+#define DI0   PA3
 
 #define TX_P    17
 #define BAND    433E6

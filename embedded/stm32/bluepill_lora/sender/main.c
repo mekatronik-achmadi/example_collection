@@ -4,6 +4,8 @@
 #include "chprintf.h"
 #include "shell.h"
 
+#define GPIOA_SPI1NSS   4
+
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
 static THD_WORKING_AREA(waLED, 128);
@@ -36,6 +38,31 @@ static const ShellConfig shell_cfg = {
     (BaseSequentialStream *)&SD1,
     commands
 };
+
+/////////////////////////////////// SPI+LORA //////////////////////////
+
+static const SPIConfig hs_spicfg = {
+  NULL,
+  GPIOA,
+  GPIOA_SPI1NSS,
+  0
+};
+
+/*
+ * Low speed SPI configuration (281.250kHz, CPHA=0, CPOL=0, MSb first).
+ */
+static const SPIConfig ls_spicfg = {
+  NULL,
+  GPIOA,
+  GPIOA_SPI1NSS,
+  SPI_CR1_BR_2 | SPI_CR1_BR_1
+};
+
+/*
+ * SPI TX and RX buffers.
+ */
+static uint8_t txbuf[512];
+static uint8_t rxbuf[512];
 
 int main(void) {
 
