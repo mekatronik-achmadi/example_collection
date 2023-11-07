@@ -99,7 +99,7 @@ include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 # Other files (optional).
 #include $(CHIBIOS)/test/rt/test.mk
-include ./lora/lora.mk
+include ../lora/lora.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F103x8.ld

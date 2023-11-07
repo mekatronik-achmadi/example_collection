@@ -1,3 +1,12 @@
+/**
+ * @file lora.h
+ * @brief LoRa module SPI header
+ *
+ * @addtogroup LORA
+ * @{
+ */
+
+
 #ifndef _LORA_H_
 #define _LORA_H_
 
@@ -123,3 +132,6 @@ size_t lora_WriteChars(char *buffer, size_t size);
 void lora_EndPacket(void);
 
 #endif
+
+/**  @} */
+

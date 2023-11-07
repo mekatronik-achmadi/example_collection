@@ -1,10 +1,18 @@
+/**
+ * @file main.c
+ * @brief Main code
+ *
+ * @addtogroup MAIN
+ * @{
+ */
+
 #include "ch.h"
 #include "hal.h"
 
 #include "chprintf.h"
 #include "shell.h"
 
-#include "lora/lora.h"
+#include "../lora/lora.h"
 
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
@@ -85,3 +93,6 @@ int main(void) {
     chThdSleepMilliseconds(100);
   }
 }
+
+/**  @} */
+

@@ -1,3 +1,11 @@
+/**
+ * @file lora.c
+ * @brief LoRa module SPI code
+ *
+ * @addtogroup LORA
+ * @{
+ */
+
 #include "lora.h"
 
 static const SPIConfig spicfg = {
@@ -223,3 +231,6 @@ void lora_Begin(long frequency){
 
     chprintf((BaseSequentialStream *)&SD1, "LoRA Initiated \r\n");
 }
+
+/**  @} */
+
