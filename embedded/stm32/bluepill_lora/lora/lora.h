@@ -79,7 +79,6 @@
 
 #define PA_OUTPUT_RFO_PIN       0
 #define PA_OUTPUT_PA_BOOST_PIN  1
-#define LORA_IMPLICITHEADER     FALSE
 
 #define GPIOA_SPI1NSS   4
 #define USE_LOWER_SPI   TRUE
@@ -93,7 +92,7 @@
  *
  * @param frequency
  */
-void lora_Begin(long frequency);
+void lora_begin(long frequency);
 
 /**
  * @brief Set Module Frequency
@@ -114,7 +113,7 @@ void lora_setTxPower(int level, uint8_t outputPin);
  * @brief Packet Sending Begin
  *
  */
-void lora_BeginPacket(void);
+void lora_beginPacket(void);
 
 /**
  * @brief Write characters
@@ -123,13 +122,18 @@ void lora_BeginPacket(void);
  * @param size
  * @return size_t
  */
-size_t lora_WriteChars(char *buffer, size_t size);
+size_t lora_writeChars(char *buffer, size_t size);
 
 /**
  * @brief Packet Sending End
  *
  */
-void lora_EndPacket(void);
+void lora_endPacket(void);
+
+uint16_t lora_parsePacket(void);
+int lora_packetRssi(void);
+int lora_available(void);
+int lora_read(void);
 
 #endif
 

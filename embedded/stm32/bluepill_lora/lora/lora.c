@@ -8,6 +8,9 @@
 
 #include "lora.h"
 
+static uint16_t packetIndex = 0;
+static long moduleFreq;
+
 static const SPIConfig spicfg = {
   NULL,
   GPIOA,
@@ -20,8 +23,6 @@ static const SPIConfig spicfg = {
 };
 
 static uint8_t lora_singleTransfer(uint8_t address, uint8_t value){
-
-
     uint8_t txbuf[1];
     uint8_t rxbuf[1];
 
@@ -78,6 +79,8 @@ static bool lora_isTransmitting(void){
 }
 
 void lora_setFrequency(long frequency){
+    moduleFreq = frequency;
+
     uint64_t frf = ((uint64_t)frequency << 19) / 32000000;
 
     lora_writeRegister(REG_FRF_MSB, (uint8_t)(frf >> 16));
@@ -123,24 +126,20 @@ void lora_setTxPower(int level, uint8_t outputPin){
     }
 }
 
-void lora_BeginPacket(void){
+void lora_beginPacket(void){
     if(lora_isTransmitting()){
         return;
     }
 
     lora_idle();
 
-#if LORA_IMPLICITHEADER
-    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) | 0x01);
-#else
     lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) & 0xfe);
-#endif
 
     lora_writeRegister(REG_FIFO_ADDR_PTR, 0);
     lora_writeRegister(REG_PAYLOAD_LENGTH, 0);
 }
 
-size_t lora_WriteChars(char *buffer, size_t size){
+size_t lora_writeChars(char *buffer, size_t size){
      int currentLength = lora_readRegister(REG_PAYLOAD_LENGTH);
 
     // check size
@@ -159,7 +158,7 @@ size_t lora_WriteChars(char *buffer, size_t size){
     return size;
 }
 
-void lora_EndPacket(void){
+void lora_endPacket(void){
     lora_writeRegister(REG_OP_MODE, MODE_LONG_RANGE_MODE | MODE_TX);
 
     // wait for TX done
@@ -171,7 +170,47 @@ void lora_EndPacket(void){
     lora_writeRegister(REG_IRQ_FLAGS, IRQ_TX_DONE_MASK);
 }
 
-void lora_Begin(long frequency){
+uint16_t lora_parsePacket(void){
+    uint16_t packetLength = 0;
+    uint8_t irqFlags = lora_readRegister(REG_IRQ_FLAGS);
+
+    lora_writeRegister(REG_MODEM_CONFIG_1, lora_readRegister(REG_MODEM_CONFIG_1) & 0xfe);
+
+    // clear IRQs
+    lora_writeRegister(REG_IRQ_FLAGS, irqFlags);
+
+    if((irqFlags & IRQ_RX_DONE_MASK) && (irqFlags & IRQ_PAYLOAD_CRC_ERROR_MASK) == 0) {
+        packetIndex = 0;
+        packetLength = lora_readRegister(REG_RX_NB_BYTES);
+        lora_writeRegister(REG_FIFO_ADDR_PTR, lora_readRegister(REG_FIFO_RX_CURRENT_ADDR));
+    }
+    else if(lora_readRegister(REG_OP_MODE) != (MODE_LONG_RANGE_MODE | MODE_RX_SINGLE)) {
+        lora_writeRegister(REG_FIFO_ADDR_PTR, 0);
+        lora_writeRegister(REG_OP_MODE, MODE_LONG_RANGE_MODE | MODE_RX_SINGLE);
+    }
+
+    return packetLength;
+}
+
+int lora_packetRssi(void){
+    return (lora_readRegister(REG_PKT_RSSI_VALUE) - (moduleFreq < RF_MID_BAND_THRESHOLD ? RSSI_OFFSET_LF_PORT : RSSI_OFFSET_HF_PORT));
+}
+
+int lora_available(void){
+    return (lora_readRegister(REG_RX_NB_BYTES) - packetIndex);
+}
+
+int lora_read(void){
+    if(!lora_available()){
+        return -1;
+    }
+
+    packetIndex++;
+
+    return lora_readRegister(REG_FIFO);
+}
+
+void lora_begin(long frequency){
     (void) frequency;
 
     palSetPadMode(GPIOA, 5, PAL_MODE_STM32_ALTERNATE_PUSHPULL);

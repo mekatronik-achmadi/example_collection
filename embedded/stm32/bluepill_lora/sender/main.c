@@ -44,11 +44,11 @@ static void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if(argc > 0){chprintf(chp,"Usage: test\r\n");return;}
 
-    lora_BeginPacket();
+    lora_beginPacket();
     chsnprintf(packet, sizeof(packet), "test data");
-    packetsize = lora_WriteChars(packet, sizeof(packet));
+    packetsize = lora_writeChars(packet, sizeof(packet));
 
-    lora_EndPacket();
+    lora_endPacket();
 
     chprintf(chp,"%i packet sent\r\n",packetsize);
 }
@@ -79,7 +79,7 @@ int main(void) {
 
   shellInit();
 
-  lora_Begin(433E6);
+  lora_begin(433E6);
 
   chprintf((BaseSequentialStream *)&SD1, "System Initiated \r\n");
 

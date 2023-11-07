@@ -40,8 +40,7 @@ int main(void) {
   palSetPadMode(GPIOA,10,PAL_MODE_INPUT); //RX
   sdStart(&SD1,NULL);
 
-
-  lora_Begin(433E6);
+  lora_begin(433E6);
 
   chprintf((BaseSequentialStream *)&SD1, "System Initiated \r\n");
 
