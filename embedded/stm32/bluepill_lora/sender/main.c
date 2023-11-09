@@ -80,7 +80,6 @@ static void cmd_loop(BaseSequentialStream *chp, int argc, char *argv[]) {
 
 static void cmd_numb(BaseSequentialStream *chp, int argc, char *argv[]) {
     (void)argv;
-    uint8_t packetsize;
     char packet[8] = {0};
     uint8_t rnd = 0;
 
@@ -93,12 +92,10 @@ static void cmd_numb(BaseSequentialStream *chp, int argc, char *argv[]) {
         lora_beginPacket();
         rnd = rand() % (20 + 1 - 10) + 10;
         chsnprintf(packet, sizeof(packet), "%i\r\n",rnd);
-        packetsize = lora_writeChars(packet, sizeof(packet));
+        lora_writeChars(packet, sizeof(packet));
         lora_endPacket();
 
-        chprintf(chp,"%i packet sent\r\n",packetsize);
-
-        chThdSleepMilliseconds(1);
+        chThdSleepMicroseconds(100);
     }
     chprintf(chp, "Data Send Loop Finished\r\n");
 }
