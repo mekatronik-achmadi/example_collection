@@ -72,10 +72,12 @@
 
 #define MAX_PKT_LENGTH           255
 
-//GPIOA
-#define LORA_DEFAULT_SS_PIN    4
-#define LORA_DEFAULT_RESET_PIN 2
-#define LORA_DEFAULT_DIO0_PIN  3 // Receive Interrupt Pin
+// GPIOA5 -> SCK
+// GPIOA6 -> MISO
+// GPIOA7 -> MOSI
+#define LORA_DEFAULT_NSS_PIN    4 // GPIOA4
+#define LORA_DEFAULT_RESET_PIN  0 // GPIOB0
+#define LORA_DEFAULT_DIO0_PIN   3 // GPIOA3 -> Synchronize pin, keep connected
 
 #define PA_OUTPUT_RFO_PIN       0
 #define PA_OUTPUT_PA_BOOST_PIN  1

@@ -16,6 +16,8 @@
 
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
+#define SENDLOOPNUMBER  10
+
 static THD_WORKING_AREA(waLED, 128);
 static THD_FUNCTION(thdLED, arg) {
 
@@ -42,20 +44,40 @@ static void cmd_send(BaseSequentialStream *chp, int argc, char *argv[]) {
     uint8_t packetsize;
     char packet[16] = {0};
 
-    if(argc > 0){chprintf(chp,"Usage: test\r\n");return;}
+    if(argc > 0){chprintf(chp,"Usage: send\r\n");return;}
 
     lora_beginPacket();
     chsnprintf(packet, sizeof(packet), "test data");
     packetsize = lora_writeChars(packet, sizeof(packet));
-
     lora_endPacket();
 
     chprintf(chp,"%i packet sent\r\n",packetsize);
 }
 
+static void cmd_loop(BaseSequentialStream *chp, int argc, char *argv[]) {
+    (void)argv;
+    uint8_t packetsize;
+    char packet[16] = {0};
+
+    if(argc > 0){chprintf(chp,"Usage: loop\r\n");return;}
+
+    chprintf(chp, "Data Send Loop Start\r\n");
+    for(uint8_t i=0;i<SENDLOOPNUMBER;i++){
+        lora_beginPacket();
+        chsnprintf(packet, sizeof(packet), "test data");
+        packetsize = lora_writeChars(packet, sizeof(packet));
+        lora_endPacket();
+
+        chprintf(chp,"%i packet sent\r\n",packetsize);
+
+        chThdSleepMilliseconds(500);
+    }
+    chprintf(chp, "Data Send Loop Finished");
+}
 static const ShellCommand commands[] = {
     {"test", cmd_test},
     {"send", cmd_send},
+    {"loop", cmd_loop},
     {NULL, NULL}
 };
 

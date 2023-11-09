@@ -14,7 +14,7 @@ static long moduleFreq;
 static const SPIConfig spicfg = {
   NULL,
   GPIOA,
-  LORA_DEFAULT_SS_PIN,
+  LORA_DEFAULT_NSS_PIN,
 #if USE_LOWER_SPI
   SPI_CR1_BR_2 | SPI_CR1_BR_1 //281.250kHz, CPHA=0, CPOL=0, MSb first
 #else
@@ -28,14 +28,14 @@ static uint8_t lora_singleTransfer(uint8_t address, uint8_t value){
 
     txbuf[0] = value;
 
-    spiSelect(&SPID1);
-    palClearPad(GPIOA, LORA_DEFAULT_SS_PIN);
+    palClearPad(GPIOA, LORA_DEFAULT_NSS_PIN);
 
+    spiSelect(&SPID1);
     spiSend(&SPID1, sizeof(address), &address);
     spiExchange(&SPID1, sizeof(txbuf), txbuf, rxbuf);
-
     spiUnselect(&SPID1);
-    palSetPad(GPIOA, LORA_DEFAULT_SS_PIN);
+
+    palSetPad(GPIOA, LORA_DEFAULT_NSS_PIN);
 
     return rxbuf[0];
 }
@@ -128,6 +128,7 @@ void lora_setTxPower(int level, uint8_t outputPin){
 
 void lora_beginPacket(void){
     if(lora_isTransmitting()){
+        chprintf((BaseSequentialStream*)&SD1, "Module still Transmitting\r\n");
         return;
     }
 
@@ -213,17 +214,17 @@ int lora_read(void){
 void lora_begin(long frequency){
     (void) frequency;
 
-    palSetPadMode(GPIOA, 5, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
-    palSetPadMode(GPIOA, 6, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
-    palSetPadMode(GPIOA, 7, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
+    palSetPadMode(GPIOA, 5, PAL_MODE_STM32_ALTERNATE_PUSHPULL); //SCK
+    palSetPadMode(GPIOA, 6, PAL_MODE_STM32_ALTERNATE_PUSHPULL); //MISO
+    palSetPadMode(GPIOA, 7, PAL_MODE_STM32_ALTERNATE_PUSHPULL); //MOSI
 
-    palSetPadMode(GPIOA, LORA_DEFAULT_SS_PIN, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOA, LORA_DEFAULT_RESET_PIN, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOA, LORA_DEFAULT_DIO0_PIN, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOA, LORA_DEFAULT_NSS_PIN, PAL_MODE_OUTPUT_PUSHPULL);   //NSS
+    palSetPadMode(GPIOB, LORA_DEFAULT_RESET_PIN, PAL_MODE_OUTPUT_PUSHPULL); //RST
+    palSetPadMode(GPIOA, LORA_DEFAULT_DIO0_PIN, PAL_MODE_OUTPUT_PUSHPULL);  //DIO0
 
-    palSetPad(GPIOA, LORA_DEFAULT_SS_PIN);
-    palSetPad(GPIOA, LORA_DEFAULT_RESET_PIN);
-    palSetPad(GPIOA, LORA_DEFAULT_DIO0_PIN);
+    palSetPad(GPIOA, LORA_DEFAULT_NSS_PIN);
+    palSetPad(GPIOB, LORA_DEFAULT_RESET_PIN);
+    palSetPad(GPIOA, LORA_DEFAULT_DIO0_PIN); // -> Synchronize pin, keep connected
 
     spiAcquireBus(&SPID1);
     spiStart(&SPID1, &spicfg);
@@ -231,9 +232,9 @@ void lora_begin(long frequency){
     // LoRA Initialization
 
     //reset the module
-    palClearPad(GPIOA, LORA_DEFAULT_RESET_PIN);
+    palClearPad(GPIOB, LORA_DEFAULT_RESET_PIN);
     chThdSleepMilliseconds(10);
-    palSetPad(GPIOA, LORA_DEFAULT_RESET_PIN);
+    palSetPad(GPIOB, LORA_DEFAULT_RESET_PIN);
     chThdSleepMilliseconds(10);
 
     //check version
