@@ -6,6 +6,8 @@
  * @{
  */
 
+#include <stdlib.h>
+
 #include "ch.h"
 #include "hal.h"
 
@@ -17,6 +19,7 @@
 #define SHELL_WA_SIZE   THD_WORKING_AREA_SIZE(512)
 
 #define SENDLOOPNUMBER  10
+#define SENDNUMBERMAX   100
 
 static THD_WORKING_AREA(waLED, 128);
 static THD_FUNCTION(thdLED, arg) {
@@ -74,10 +77,38 @@ static void cmd_loop(BaseSequentialStream *chp, int argc, char *argv[]) {
     }
     chprintf(chp, "Data Send Loop Finished\r\n");
 }
+
+static void cmd_numb(BaseSequentialStream *chp, int argc, char *argv[]) {
+    (void)argv;
+    uint8_t packetsize;
+    char packet[8] = {0};
+    uint8_t rnd = 0;
+
+    if(argc > 0){chprintf(chp,"Usage: loop\r\n");return;}
+
+    srand(45);
+
+    chprintf(chp, "Number Send Loop Start\r\n");
+    for(uint8_t i=0;i<SENDNUMBERMAX;i++){
+        lora_beginPacket();
+        rnd = rand() % (20 + 1 - 10) + 10;
+        chsnprintf(packet, sizeof(packet), "%i\r\n",rnd);
+        packetsize = lora_writeChars(packet, sizeof(packet));
+        lora_endPacket();
+
+        chprintf(chp,"%i packet sent\r\n",packetsize);
+
+        chThdSleepMilliseconds(1);
+    }
+    chprintf(chp, "Data Send Loop Finished\r\n");
+}
+
+
 static const ShellCommand commands[] = {
     {"test", cmd_test},
     {"send", cmd_send},
     {"loop", cmd_loop},
+    {"numb", cmd_numb},
     {NULL, NULL}
 };
 
