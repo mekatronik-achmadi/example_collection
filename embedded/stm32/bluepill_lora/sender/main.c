@@ -72,7 +72,7 @@ static void cmd_loop(BaseSequentialStream *chp, int argc, char *argv[]) {
 
         chThdSleepMilliseconds(500);
     }
-    chprintf(chp, "Data Send Loop Finished");
+    chprintf(chp, "Data Send Loop Finished\r\n");
 }
 static const ShellCommand commands[] = {
     {"test", cmd_test},
