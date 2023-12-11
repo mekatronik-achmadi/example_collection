@@ -36,7 +36,7 @@ PRJ_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(PRJ_SOURCE:.c=.rel))
 SPL_ROOT    = /opt/stm8spl
 SPL_SRC_DIR = $(SPL_ROOT)/Libraries/STM8S_StdPeriph_Driver/src
 SPL_INC_DIR = $(SPL_ROOT)/Libraries/STM8S_StdPeriph_Driver/inc
-SPL_SOURCE  = stm8s_gpio.c stm8s_clk.c
+SPL_SOURCE  = stm8s_gpio.c stm8s_clk.c stm8s_uart1.c
 SPL_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(SPL_SOURCE:.c=.rel))
 
 # set path to STM8S_EVAL board routines
