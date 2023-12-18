@@ -1,0 +1,25 @@
+pkgname=wxserterm
+pkgver=0.1
+pkgrel=1
+pkgdesc="Simple wxWidgets Serial Terminal"
+arch=('x86_64')
+url="https://github.com/yan9a/serial"
+license=('GPL')
+depends=('wxwidgets-gtk3')
+source=('ceSerial.h' 'ceSerial.cpp' 'wxSerial.cpp' 'Makefile' 'wxserterm.desktop')
+md5sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+build() {
+	cd "$srcdir/"
+	make
+}
+
+package() {
+	cd "$srcdir/"
+
+	mkdir -p "$pkgdir/usr/bin/"
+	mkdir -p "$pkgdir/usr/share/applications/"
+    cp -f wxserterm "$pkgdir/usr/bin/"
+    cp -f wxserterm.desktop "$pkgdir/usr/share/applications/"
+}
+

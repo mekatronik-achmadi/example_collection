@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=wxSerialTerminal
+GenericName=WX Serial Terminal
+Comment=A wxWidget-based serial terminal
+Exec=wxserterm
+Icon=terminal
+Type=Application
+Terminal=false
+Categories=Development;
+

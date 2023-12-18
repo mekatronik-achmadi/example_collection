@@ -1,0 +1,5 @@
+*.o
+*.plist
+.cache/
+wxserterm
+compile_commands.json
