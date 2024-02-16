@@ -63,4 +63,15 @@ run these command script to use virtual environment
 source esp32env.sh
 ```
 
+### Build
+
+#### generate compile commands for clangd
+
+**NOTES:** You just need to do this once
+
+```sh
+make defconfig
+bear -- make app
+```
+
 ## PlatformIO
