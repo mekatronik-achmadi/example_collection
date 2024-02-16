@@ -14,9 +14,6 @@
 
 #include "shell.h"
 
-#define CONFIG_ESP_CONSOLE_UART_NUM 0
-#define UART_USE_PROMPT 1
-
 //////////////////////////////// Commands //////////////////////////
 
 static int reboot_cb(int argc, char *argv[]){
