@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <math.h>
+
 #include <stdio.h>
 #include <esp_err.h>
 
@@ -22,11 +24,10 @@ static int16_t i2s_in_raw_buff[SAMPLES_NUM];
  */
 float y_fft[SAMPLES_NUM*2];
 
-
 /**
- * @brief Task Run Flag
+ * @brief Task Get Run Flag
  */
-uint8_t mic_TaskRun = 1;
+uint8_t mic_TaskRun = 0;
 
 /**
  * @brief Zero-ing a Int16 Array
