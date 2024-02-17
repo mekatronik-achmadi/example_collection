@@ -13,8 +13,24 @@
 #include <argtable3/argtable3.h>
 
 #include "shell.h"
+#include "i2smic.h"
 
 //////////////////////////////// Commands //////////////////////////
+
+static int micGet_cb(int argc, char *argv[]){
+    esp_err_t errMic = mic_Get();
+    return errMic;
+}
+
+static void micGet_reg(void){
+    const esp_console_cmd_t cmd = {
+        .command = "get",
+        .help = "Usage: get",
+        .hint = NULL,
+        .func = &micGet_cb
+    };
+    esp_console_cmd_register(&cmd);
+}
 
 static int reboot_cb(int argc, char *argv[]){
     printf("Rebooting\n");
@@ -47,6 +63,7 @@ static void serialTest_reg(void){
 }
 
 static void register_Commands(void){
+    micGet_reg();
     reboot_reg();
     serialTest_reg();
 }
