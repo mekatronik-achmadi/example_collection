@@ -17,6 +17,26 @@
 
 //////////////////////////////// Commands //////////////////////////
 
+extern uint8_t mic_TaskRun;
+
+static int micTask_cb(int argc, char *argv[]){
+    if(mic_TaskRun) mic_TaskRun = 0;
+    else mic_TaskRun = 1;
+
+    return 0;
+}
+
+static void micTask_reg(void){
+    const esp_console_cmd_t cmd = {
+        .command = "mic",
+        .help = "Run Mic Task",
+        .hint = NULL,
+        .func = &micTask_cb
+    };
+    esp_console_cmd_register(&cmd);
+
+}
+
 static int micGet_cb(int argc, char *argv[]){
     esp_err_t errMic = mic_Get();
     return errMic;
@@ -25,7 +45,7 @@ static int micGet_cb(int argc, char *argv[]){
 static void micGet_reg(void){
     const esp_console_cmd_t cmd = {
         .command = "get",
-        .help = "Usage: get",
+        .help = "Get One Shot Mic",
         .hint = NULL,
         .func = &micGet_cb
     };
@@ -40,7 +60,7 @@ static int reboot_cb(int argc, char *argv[]){
 static void reboot_reg(void){
     const esp_console_cmd_t cmd = {
         .command = "reboot",
-        .help = "Usage: reboot",
+        .help = "Rebooting Chip",
         .hint = NULL,
         .func = &reboot_cb
     };
@@ -55,7 +75,7 @@ static int serialTest_cb(int argc, char *argv[]){
 static void serialTest_reg(void){
     const esp_console_cmd_t cmd = {
         .command = "test",
-        .help = "Usage: test",
+        .help = "Test the Console",
         .hint = NULL,
         .func = &serialTest_cb
     };
@@ -63,6 +83,7 @@ static void serialTest_reg(void){
 }
 
 static void register_Commands(void){
+    micTask_reg();
     micGet_reg();
     reboot_reg();
     serialTest_reg();

@@ -22,6 +22,12 @@ static int16_t i2s_in_raw_buff[SAMPLES_NUM];
  */
 float y_fft[SAMPLES_NUM*2];
 
+
+/**
+ * @brief Task Run Flag
+ */
+uint8_t mic_TaskRun = 1;
+
 /**
  * @brief Zero-ing a Int16 Array
  *
@@ -70,6 +76,13 @@ int mic_Get(void){
     return err_Get;
 }
 
+static void mic_Task(void *pvParameter){
+    while (1) {
+       if(mic_TaskRun) mic_Get();
+       vTaskDelay(500/portTICK_PERIOD_MS);
+    }
+}
+
 /**
  * @brief Mic I2S Initialize
  *
@@ -104,4 +117,11 @@ void  mic_Init(void){
     if(i2s_set_clk(I2S_CH, AUDIO_SAMPLE_RATE, I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO) != ESP_OK){
         printf("I2S clock set error\r\n");
     }
+
+    xTaskCreate(&mic_Task,
+            "mic_task",
+            4096,
+            NULL,
+            tskIDLE_PRIORITY,
+            NULL);
 }
