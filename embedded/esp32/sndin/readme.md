@@ -65,13 +65,47 @@ source esp32env.sh
 
 ### Build
 
+#### generate default sdkconfig
+
+**NOTES:** You just need to do this once to generate **sdkconfig** file.
+
+```sh
+make defconfig
+```
+
 #### generate compile commands for clangd
 
 **NOTES:** You just need to do this once
 
 ```sh
-make defconfig
 bear -- make app
+```
+
+#### reflash bootloader and partition table
+
+**NOTES:** You just need to do this once each development kit.
+But you should repeat this step after flashing firmware using Arduino or PlatformIO.
+
+Connect USB and run commands:
+
+```sh
+make erase_flash
+make bootloader-flash
+make partition_table-flash
+```
+
+#### compile app and flashing
+
+compile command:
+
+```sh
+make app
+```
+
+if successfully compiled, flash to chip using command:
+
+```sh
+make app-flash
 ```
 
 ## PlatformIO
