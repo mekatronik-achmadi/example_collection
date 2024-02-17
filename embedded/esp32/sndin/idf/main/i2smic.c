@@ -65,6 +65,8 @@ int mic_Get(void){
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
         printf("%i,",i2s_in_raw_buff[i]);
 
+    printf("\n");
+
     return err_Get;
 }
 
