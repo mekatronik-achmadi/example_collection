@@ -1,5 +1,11 @@
 # ESP32-based Sound Input Testing
 
+## Acknowledge
+
+This work are based on:
+- [ESP32 Sound Spectrum](https://github.com/pedrominatel/esp32-projects/blob/master/demo/sound_spectrum/main/i2s_spectrum_example_main.c)
+- [Adafruit Guide](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout)
+
 ## Contents
 
 This folder contains:

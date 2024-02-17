@@ -25,27 +25,25 @@ float y_fft[SAMPLES_NUM*2];
 /**
  * @brief Zero-ing a Int16 Array
  *
- * @param arrVar Input Array
  */
-static void mic_Zero(int16_t *arrVar){
-    for(uint16_t i=0;i<sizeof(arrVar);i++)
-        arrVar[i] = 0;
+static void mic_Zero(void){
+    for(uint16_t i=0;i<SAMPLES_NUM;i++)
+        i2s_in_raw_buff[i] = 0;
 }
 
 /**
  * @brief Get raw read of I2S
  *
- * @param arrVar Buffer Array
  * @return int Exit Code
  */
-static int mic_Raw(int16_t *arrVar){
+static int mic_Raw(void){
     size_t bytesRead;
 
     esp_err_t err_Mic  = i2s_read(I2S_CH,
-    (char*)arrVar,
-    sizeof(arrVar),
+    (char*)i2s_in_raw_buff,
+    sizeof(i2s_in_raw_buff),
     &bytesRead,
-    100/portTICK_RATE_MS);
+    (100/portTICK_RATE_MS));
 
     return err_Mic;
 }
@@ -56,15 +54,15 @@ static int mic_Raw(int16_t *arrVar){
  * @return int Exit Code
  */
 int mic_Get(void){
-    mic_Zero(i2s_in_raw_buff);
+    mic_Zero();
 
-    esp_err_t err_Get = mic_Raw(i2s_in_raw_buff);
+    esp_err_t err_Get = mic_Raw();
     if(err_Get!=ESP_OK) {
         printf("I2S Read Error\n");
         return err_Get;
     }
 
-    for(uint16_t i=0;i<sizeof(i2s_in_raw_buff);i++)
+    for(uint16_t i=0;i<SAMPLES_NUM;i++)
         printf("%i,",i2s_in_raw_buff[i]);
 
     return err_Get;
@@ -79,7 +77,7 @@ void  mic_Init(void){
         .mode = I2S_MODE_MASTER | I2S_MODE_RX,
         .sample_rate = AUDIO_SAMPLE_RATE,
         .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT,
-        .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT, //LRC pin must to GND
+        .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT, //LRC (WS) pin must to GND
         .communication_format = I2S_COMM_FORMAT_STAND_I2S,
         .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
         .dma_buf_count = 8,
