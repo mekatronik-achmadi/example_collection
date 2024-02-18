@@ -24,7 +24,7 @@ Its designed using KiCAD 7 on Arch Linux without additional libraries.
 
 ## RTOS
 
-This source tree based on XTensa's GCC for ESP8266, and ESP-8266.
+This source tree based on XTensa's GCC for ESP8266, and ESP-RTOS.
 Information described here on works only for Arch-Linux or its derivative.
 
 ### Device Access
