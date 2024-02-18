@@ -37,8 +37,8 @@ void led_Init(void){
 
     xTaskCreate(&led_Task,
     "led task",
-    1024,
+    256,
     NULL,
-    5,
+    tskIDLE_PRIORITY+1,
     NULL);
 }

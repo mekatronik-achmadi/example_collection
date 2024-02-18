@@ -120,8 +120,8 @@ void  mic_Init(void){
 
     xTaskCreate(&mic_Task,
             "mic_task",
-            4096,
+            2048,
             NULL,
-            tskIDLE_PRIORITY,
+            tskIDLE_PRIORITY+2,
             NULL);
 }
