@@ -1,7 +1,5 @@
 #include <stdint.h>
-
 #include <stdio.h>
-#include <esp_err.h>
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
@@ -16,12 +14,6 @@
  *
  */
 static int16_t i2s_in_raw_buff[SAMPLES_NUM];
-
-/**
- * @brief FFT Complex Vector Array
- *
- */
-float y_fft[SAMPLES_NUM*2];
 
 /**
  * @brief Task Get Run Flag
@@ -42,14 +34,14 @@ static void mic_Zero(void){
  *
  * @return int Exit Code
  */
-static int mic_Raw(void){
+static esp_err_t mic_Raw(void){
     size_t bytesRead;
 
     esp_err_t err_Mic  = i2s_read(I2S_CH,
     (char*)i2s_in_raw_buff,
     sizeof(i2s_in_raw_buff),
     &bytesRead,
-    (100/portTICK_RATE_MS));
+    (100/portTICK_PERIOD_MS));
 
     return err_Mic;
 }
@@ -59,7 +51,7 @@ static int mic_Raw(void){
  *
  * @return int Exit Code
  */
-int mic_Get(void){
+esp_err_t mic_Get(void){
     mic_Zero();
 
     esp_err_t err_Get = mic_Raw();
@@ -107,20 +99,20 @@ void  mic_Init(void){
     };
 
     if(i2s_driver_install(I2S_CH, &micConf, 0, NULL) != ESP_OK){
-        printf("I2S driver install error\r\n");
+        printf("I2S driver install error\n");
     }
 
     if(i2s_set_pin(I2S_CH, &micPin) != ESP_OK){
-        printf("I2S pin set error\r\n");
+        printf("I2S pin set error\n");
     }
 
     if(i2s_set_clk(I2S_CH, AUDIO_SAMPLE_RATE, I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO) != ESP_OK){
-        printf("I2S clock set error\r\n");
+        printf("I2S clock set error\n");
     }
 
     xTaskCreate(&mic_Task,
             "mic_task",
-            2048,
+            4096,
             NULL,
             tskIDLE_PRIORITY+2,
             NULL);
