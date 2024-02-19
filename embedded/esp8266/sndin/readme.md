@@ -1,5 +1,7 @@
 # ESP8266 Sound Input Testing
 
+**NOTES:** Currently doesn't work as the array only contain zero array.
+
 ## Acknowledge
 
 This work is based on:
@@ -15,14 +17,14 @@ This work is based on:
 
 ## Wiring
 
-| INMP441 | SPH0645 | ESP8266 | NODEMCU |
-|:-------:|:-------:|:-------:|:-------:|
-| L/R     | SEL     | GND     | GND     |
-| WS      | LRCL    | GPIO14  | D5      |
-| SD      | DOUT    | GPIO12  | D6      |
-| SCK     | BCLK    | GPIO13  | D7      |
-| GND     | GND     | GND     | GND     |
-| VDD     | 3V      | VDD     | VDD     |
+| INMP441 | SPH0645 | ESP8266 | NODEMCU | PINNAME |
+|:-------:|:-------:|:-------:|:-------:|:-------:|
+| L/R     | SEL     | GND     | GND     | -       |
+| WS      | LRCL    | GPIO14  | D5      | MTMS    |
+| SD      | DOUT    | GPIO12  | D6      | MTDI    |
+| SCK     | BCLK    | GPIO13  | D7      | MTCK    |
+| GND     | GND     | GND     | GND     | -       |
+| VDD     | 3V      | VDD     | VDD     | -       |
 
 ## RTOS
 
