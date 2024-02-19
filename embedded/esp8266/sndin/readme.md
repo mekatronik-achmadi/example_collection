@@ -4,7 +4,7 @@
 
 This work is based on:
 
-- [ESP8266 I2S Mic]()
+- [ESP8266 I2S Mic](https://github.com/joextodd/listener/blob/master/listener.ino)
 - [Adafruit Guide](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout)
 
 ## Contents

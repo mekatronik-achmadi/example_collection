@@ -1,0 +1,6 @@
+build/
+compile_commands.json
+sdkconfig
+.cache/
+main/compile_commands.json
+
