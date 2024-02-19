@@ -17,19 +17,21 @@ This work is based on:
 
 | INMP441 | SPH0645 | ESP8266 | NODEMCU |
 |:-------:|:-------:|:-------:|:-------:|
-| L/R | SEL | GND | GND |
-| WS | LRCL | GPIO14 | D5 |
-| SD | DOUT | GPIO12 | D6 |
-| SCK | BCLK | GPIO13 | D7 |
-| GND | GND | GND | GND |
-| VDD | 3V | VDD | VDD |
+| L/R     | SEL     | GND     | GND     |
+| WS      | LRCL    | GPIO14  | D5      |
+| SD      | DOUT    | GPIO12  | D6      |
+| SCK     | BCLK    | GPIO13  | D7      |
+| GND     | GND     | GND     | GND     |
+| VDD     | 3V      | VDD     | VDD     |
 
 ## RTOS
 
 This source tree based on XTensa's GCC for ESP8266 and ESP8266-RTOS.
 Information described here on works only for Arch-Linux or its derivative.
 
-### Devive Access
+### Setup
+
+#### Devive Access
 
 Run these command to gain device access without sudo:
 
@@ -43,7 +45,7 @@ sudo gpasswd -a $USER uucp
 
 Then reboot.
 
-### Setup
+#### Environment
 
 Install following Arch Linux Packages:
 
