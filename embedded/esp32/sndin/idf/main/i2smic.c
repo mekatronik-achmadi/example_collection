@@ -13,7 +13,7 @@
 
 static int16_t i2s_in_raw_buff[SAMPLES_NUM];
 
-uint8_t mic_TaskRun = 0;
+uint8_t mic_TaskRun = AUTOPRINT_TASK;
 
 static void mic_Zero(void){
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
@@ -74,15 +74,17 @@ uint16_t mic_Max(void){
 
 static void mic_Task(void *pvParameter){
     while (1) {
-       if(mic_TaskRun) mic_Get();
-       vTaskDelay(500/portTICK_PERIOD_MS);
+       if(mic_TaskRun)
+#if AUTOPRINT_MAX
+           printf("%i\n",mic_Max());
+#else
+           mic_Get();
+#endif
+
+       vTaskDelay(10/portTICK_PERIOD_MS);
     }
 }
 
-/**
- * @brief Mic I2S Initialize
- *
- */
 void  mic_Init(void){
     i2s_config_t micConf = {
         .mode = I2S_MODE_MASTER | I2S_MODE_RX,
@@ -97,7 +99,7 @@ void  mic_Init(void){
 
     i2s_pin_config_t micPin = {
         .bck_io_num = 14,
-        .ws_io_num = 15,
+        .ws_io_num = 13,
         .data_out_num = I2S_PIN_NO_CHANGE,
         .data_in_num = 12,
     };
@@ -121,3 +123,4 @@ void  mic_Init(void){
             tskIDLE_PRIORITY+2,
             NULL);
 }
+
