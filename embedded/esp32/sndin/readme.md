@@ -16,6 +16,8 @@ This folder contains:
 
 ## Wiring
 
+**NOTES:** SPH0645 still untested
+
 | INMP441 | SPH0645 | ESP32 | DEVKIT |
 |:-------:|:-------:|:-----:|:------:|
 | L/R     | SEL     | GND   | GND    |

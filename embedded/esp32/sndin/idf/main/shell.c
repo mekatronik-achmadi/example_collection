@@ -58,7 +58,7 @@ static void micMax_reg(void){
 }
 
 static int micGet_cb(int argc, char *argv[]){
-    mic_Get();
+    printf("Bytes: %i\n",(uint16_t)mic_Get());
     return 0;
 }
 

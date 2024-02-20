@@ -37,21 +37,20 @@ static size_t mic_Raw(void){
     return bytesRead;
 }
 
-void mic_Get(void){
+size_t mic_Get(void){
     size_t readByte;
 
     mic_Zero();
     readByte = mic_Raw();
 
-    printf("Bytes: %i\n",(uint16_t)readByte);
-    if(readByte==-1) return;
+    if(readByte==-1) return -1; ;
 
     for(uint16_t i=0;i<SAMPLES_NUM;i++){
         printf("%i\n",(int16_t)i2s_in_raw_buff[i]);
-        vTaskDelay(10/portTICK_PERIOD_MS);
+        vTaskDelay(AUTOPRINT_DELAY/portTICK_PERIOD_MS);
     }
 
-    return;
+    return readByte;
 }
 
 uint16_t mic_Max(void){
@@ -74,14 +73,8 @@ uint16_t mic_Max(void){
 
 static void mic_Task(void *pvParameter){
     while (1) {
-       if(mic_TaskRun)
-#if AUTOPRINT_MAX
-           printf("%i\n",mic_Max());
-#else
-           mic_Get();
-#endif
-
-       vTaskDelay(10/portTICK_PERIOD_MS);
+       if(mic_TaskRun) mic_Get();
+       vTaskDelay(AUTOPRINT_DELAY/portTICK_PERIOD_MS);
     }
 }
 

@@ -1,6 +1,7 @@
 #ifndef I2SMIC_H
 #define I2SMIC_H
 
+#include <stdlib.h>
 #include <stdint.h>
 
 #define AUDIO_SAMPLE_RATE   (44100)
@@ -8,11 +9,10 @@
 #define SAMPLES_NUM         (128) // (1024)
 
 #define AUTOPRINT_TASK      1
-#define AUTOPRINT_MAX       0
-#define AUTOPRINT_DELAY     10
+#define AUTOPRINT_DELAY     1
 
 void mic_Init(void);
-void mic_Get(void);
+size_t mic_Get(void);
 uint16_t mic_Max(void);
 
 #endif
