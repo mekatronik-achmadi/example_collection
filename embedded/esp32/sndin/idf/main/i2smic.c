@@ -46,10 +46,10 @@ void mic_Get(void){
     printf("Bytes: %i\n",(uint16_t)readByte);
     if(readByte==-1) return;
 
-    for(uint16_t i=0;i<SAMPLES_NUM;i++)
-        printf("%i,",(int16_t)i2s_in_raw_buff[i]);
-
-    printf("\n");
+    for(uint16_t i=0;i<SAMPLES_NUM;i++){
+        printf("%i\n",(int16_t)i2s_in_raw_buff[i]);
+        vTaskDelay(10/portTICK_PERIOD_MS);
+    }
 
     return;
 }

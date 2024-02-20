@@ -6,8 +6,10 @@
 #define AUDIO_SAMPLE_RATE   (44100)
 #define I2S_CH              I2S_NUM_0
 #define SAMPLES_NUM         (128) // (1024)
+
 #define AUTOPRINT_TASK      1
-#define AUTOPRINT_MAX       1
+#define AUTOPRINT_MAX       0
+#define AUTOPRINT_DELAY     10
 
 void mic_Init(void);
 void mic_Get(void);
