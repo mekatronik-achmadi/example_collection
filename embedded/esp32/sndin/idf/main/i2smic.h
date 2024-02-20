@@ -8,6 +8,6 @@
 #define SAMPLES_NUM         (1024)
 
 void mic_Init(void);
-esp_err_t mic_Get(void);
+void mic_Get(void);
 
 #endif

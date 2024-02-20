@@ -38,8 +38,8 @@ static void micTask_reg(void){
 }
 
 static int micGet_cb(int argc, char *argv[]){
-    esp_err_t errMic = mic_Get();
-    return errMic;
+    mic_Get();
+    return 0;
 }
 
 static void micGet_reg(void){

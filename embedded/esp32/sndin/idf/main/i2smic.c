@@ -9,63 +9,47 @@
 
 #include "i2smic.h"
 
-/**
- * @brief Raw Input Buffer Array
- *
- */
 static int16_t i2s_in_raw_buff[SAMPLES_NUM];
 
-/**
- * @brief Task Get Run Flag
- */
 uint8_t mic_TaskRun = 0;
 
-/**
- * @brief Zero-ing a Int16 Array
- *
- */
 static void mic_Zero(void){
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
         i2s_in_raw_buff[i] = 0;
 }
 
-/**
- * @brief Get raw read of I2S
- *
- * @return int Exit Code
- */
-static esp_err_t mic_Raw(void){
+static size_t mic_Raw(void){
     size_t bytesRead;
 
     esp_err_t err_Mic  = i2s_read(I2S_CH,
     (char*)i2s_in_raw_buff,
     sizeof(i2s_in_raw_buff),
     &bytesRead,
-    (100/portTICK_PERIOD_MS));
+    portMAX_DELAY);
 
-    return err_Mic;
-}
-
-/**
- * @brief Get I2S Read and print to console
- *
- * @return int Exit Code
- */
-esp_err_t mic_Get(void){
-    mic_Zero();
-
-    esp_err_t err_Get = mic_Raw();
-    if(err_Get!=ESP_OK) {
-        printf("I2S Read Error\n");
-        return err_Get;
+    if(err_Mic!=ESP_OK){
+        printf("Mic read error\n");
+        return -1;
     }
 
+    return bytesRead;
+}
+
+void mic_Get(void){
+    size_t readByte;
+
+    mic_Zero();
+    readByte = mic_Raw();
+
+    printf("Bytes: %i\n",(uint16_t)readByte);
+    if(readByte==-1) return;
+
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
-        printf("%i,",i2s_in_raw_buff[i]);
+        printf("%i,",(int16_t)i2s_in_raw_buff[i]);
 
     printf("\n");
 
-    return err_Get;
+    return;
 }
 
 static void mic_Task(void *pvParameter){

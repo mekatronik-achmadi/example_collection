@@ -9,7 +9,9 @@ void app_main(void){
     nvs_Init();
     led_Init();
     shell_Init();
+
     mic_Init();
+    mic_Get();
 
     while (1) {
         int sh = shell_Loop();

@@ -11,11 +11,11 @@
 
 #include "i2smic.h"
 
-static int mic_Raw_Buff[SAMPLES_NUM];
+static int16_t mic_Raw_Buff[SAMPLES_NUM];
 
 static void mic_Zero(void){
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
-        mic_Raw_Buff[0] = 0;
+        mic_Raw_Buff[i] = 0;
 }
 
 static size_t mic_Read(void){
@@ -36,16 +36,16 @@ static size_t mic_Read(void){
 }
 
 void mic_Get(void){
-    int readByte;
+    size_t readByte;
 
     mic_Zero();
     readByte = mic_Read();
 
-    printf("Bytes: %i\n",readByte);
+    printf("Bytes: %lu\n",(uint16_t)readByte);
     if(readByte==-1) return;
 
     for(uint16_t i=0;i<SAMPLES_NUM;i++)
-        printf("%i,",mic_Raw_Buff[i]);
+        printf("%i,",(int16_t)mic_Raw_Buff[i]);
 
     printf("\n");
 

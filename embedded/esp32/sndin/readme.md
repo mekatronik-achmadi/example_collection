@@ -23,7 +23,7 @@ This folder contains:
 | SD      | DOUT    | IO23  | D23    |
 | SCK     | BCLK    | IO14  | D14    |
 | GND     | GND     | GND   | GND    |
-| VDD     | 3V      | VDD   | VDD    |
+| VDD     | 3V      | VDD   | 3V3    |
 
 ## IDF
 
@@ -118,3 +118,5 @@ make app-flash
 ```
 
 ## PlatformIO
+
+Coming Soon
