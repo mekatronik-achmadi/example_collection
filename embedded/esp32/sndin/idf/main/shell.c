@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #include <esp_system.h>
 #include <esp_console.h>
 #include <esp_vfs_dev.h>
@@ -32,6 +34,24 @@ static void micTask_reg(void){
         .help = "Run Mic Task",
         .hint = NULL,
         .func = &micTask_cb
+    };
+    esp_console_cmd_register(&cmd);
+
+}
+
+static int micMax_cb(int argc, char *argv[]){
+    uint16_t max = mic_Max();
+    printf("Max: %i\n",max);
+
+    return 0;
+}
+
+static void micMax_reg(void){
+    const esp_console_cmd_t cmd = {
+        .command = "max",
+        .help = "Get Max Mic",
+        .hint = NULL,
+        .func = &micMax_cb
     };
     esp_console_cmd_register(&cmd);
 
@@ -84,6 +104,7 @@ static void serialTest_reg(void){
 
 static void register_Commands(void){
     micTask_reg();
+    micMax_reg();
     micGet_reg();
     reboot_reg();
     serialTest_reg();

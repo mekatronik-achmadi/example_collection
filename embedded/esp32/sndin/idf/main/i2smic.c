@@ -1,5 +1,7 @@
-#include <stdint.h>
 #include <stdio.h>
+#include <math.h>
+
+#include <esp_err.h>
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
@@ -52,6 +54,24 @@ void mic_Get(void){
     return;
 }
 
+uint16_t mic_Max(void){
+    size_t readByte;
+    uint16_t valMax = 0;
+    uint16_t valAbs = 0;
+
+    mic_Zero();
+    readByte = mic_Raw();
+
+    if(readByte==-1) return -1;
+
+    for(uint16_t i=0;i<SAMPLES_NUM;i++){
+        valAbs = abs(i2s_in_raw_buff[i]);
+        if(valAbs>=valMax) valMax=valAbs;
+    }
+
+    return valMax;
+}
+
 static void mic_Task(void *pvParameter){
     while (1) {
        if(mic_TaskRun) mic_Get();
@@ -79,7 +99,7 @@ void  mic_Init(void){
         .bck_io_num = 14,
         .ws_io_num = 15,
         .data_out_num = I2S_PIN_NO_CHANGE,
-        .data_in_num = 23,
+        .data_in_num = 12,
     };
 
     if(i2s_driver_install(I2S_CH, &micConf, 0, NULL) != ESP_OK){
