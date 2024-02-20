@@ -10,17 +10,20 @@ This work are based on:
 
 This folder contains:
 
-- [Circuit](#circuit)
+- [Wiring](#wiring)
 - [ESP IDF](#idf)
 - [PlatformIO](#platformio)
 
-## Circuit
+## Wiring
 
-Circuit folder only contains schematic without layout.
-
-![](images/sndin.png)
-
-Its designed using KiCAD 7 on Arch Linux without additional libraries.
+| INMP441 | SPH0645 | ESP32 | DEVKIT |
+|:-------:|:-------:|:-----:|:------:|
+| L/R     | SEL     | GND   | GND    |
+| WS      | LRCL    | IO13  | D13    |
+| SD      | DOUT    | IO23  | D23    |
+| SCK     | BCLK    | IO14  | D14    |
+| GND     | GND     | GND   | GND    |
+| VDD     | 3V      | VDD   | VDD    |
 
 ## IDF
 
