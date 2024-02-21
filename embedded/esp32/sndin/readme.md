@@ -16,6 +16,12 @@ This folder contains:
 	+ [Setup](#setup)
 	+ [Build](#build)
 - [PlatformIO](#platformio)
+	+ [Setup](#setup-1)
+	+ [Home](#home-server)
+	+ [Build](#build-1)
+- [PlatformIO VSCode](#platformio-vscode)
+	+ [Setup](#setup-2)
+	+ [Home](#home-page)
 
 **note:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
 
@@ -101,7 +107,7 @@ bear -- make app
 
 #### reflash bootloader and partition table
 
-**note:** You just need to do this once each development kit.
+**note:** You just need to do this once for each development kit.
 But you should repeat this step after flashing firmware using Arduino or PlatformIO.
 
 Connect USB and run commands:
@@ -150,7 +156,9 @@ deactivate
 cd -
 ```
 
-### install USB permission
+#### install USB permission
+
+**note:** This is may necessary for GNU/Linux system.
 
 ```sh
 UDEV=https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules
@@ -159,7 +167,7 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-### install framework
+#### install framework
 
 ```sh
 source $HOME/platformio/bin/activate
@@ -201,4 +209,62 @@ if successfully compiled, flash to chip using command:
 make upload
 ```
 
-## PlatformIO (VSCode)
+## PlatformIO VSCode
+
+**note:** This part if you prefer using Visual Studio Code.
+If you using Vim or other programming editor, you may follow previous step and skip this part.
+
+### Setup
+
+First, install Visual Studio Code:
+
+- Windows: [Download](https://code.visualstudio.com/download/)
+- ArchLinux/Manjaro: [AUR](https://aur.archlinux.org/packages/visual-studio-code-bin)
+- Debian/Ubuntu: [Download](https://code.visualstudio.com/download/)
+
+Then install this extension: [PlatformIO](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)
+
+You may install from command line using command:
+
+```sh
+code --install-extension platformio.platformio-ide
+code --install-extension ms-vscode.vscode-serial-monitor
+```
+
+Or from VSCode Quick Open (Ctrl+P):
+
+```
+ext install platformio.platformio-ide
+ext install ms-vscode.vscode-serial-monitor
+```
+
+**tips:**
+
+You may need to disable/remove Clangd, if you prefer Microsoft's C/C++ extension:
+
+```sh
+code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
+```
+
+### Home Page
+
+Open PlatformIO Home in a new tab, from VSCode Quick Open (Ctrl+P):
+
+```sh
+PlatformIO: PlatformIO Home
+```
+
+Next, you can open previous PlatformIO project folder.
+then open PlatformIO Project Tasks, from VSCode Quick Open (Ctrl+P):
+
+```
+View: Show PlatformIO
+```
+
+Project can be build and upload from Project Tasks.
+
+To access Serial Port, from VSCode Quick Open (Ctrl+P):
+
+```
+View: Toggle Serial Monitor
+```
