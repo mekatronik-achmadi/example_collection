@@ -39,6 +39,8 @@ sudo gpasswd -a $USER lock
 sudo gpasswd -a $USER uucp
 ```
 
+**NOTES:** This command is for ArchLinux or its derivative.
+
 Then reboot.
 
 ## RTOS
