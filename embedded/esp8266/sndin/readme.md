@@ -12,6 +12,7 @@ This work is based on:
 ## Contents
 
 - [Wiring](#wiring)
+- [Device Access](#device-access)
 - [ESP RTOS](#rtos)
 - [PlatformIO](#platformio)
 
@@ -26,14 +27,7 @@ This work is based on:
 | GND     | GND     | GND     | GND     | -       |
 | VDD     | 3V      | VDD     | VDD     | -       |
 
-## RTOS
-
-This source tree based on XTensa's GCC for ESP8266 and ESP8266-RTOS.
-Information described here on works only for Arch-Linux or its derivative.
-
-### Setup
-
-#### Devive Access
+## Devive Access
 
 Run these command to gain device access without sudo:
 
@@ -46,6 +40,13 @@ sudo gpasswd -a $USER uucp
 ```
 
 Then reboot.
+
+## RTOS
+
+This source tree based on XTensa's GCC for ESP8266 and ESP8266-RTOS.
+Information described here on works only for Arch-Linux or its derivative.
+
+### Setup
 
 #### Environment
 

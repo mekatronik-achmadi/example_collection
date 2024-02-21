@@ -11,8 +11,11 @@ This work are based on:
 This folder contains:
 
 - [Wiring](#wiring)
+- [Device Access](#device-access)
 - [ESP IDF](#idf)
 - [PlatformIO](#platformio)
+
+**NOTES:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
 
 ## Wiring
 
@@ -27,12 +30,7 @@ This folder contains:
 | GND     | GND     | GND   | GND    |
 | VDD     | 3V      | VDD   | 3V3    |
 
-## IDF
-
-This source tree based on XTensa's GCC for ESP32, ESP-IDF, and ESP-DSP.
-Information described here on works only for Arch-Linux or its derivative.
-
-### Device Access
+## Device Access
 
 Run these command to gain device access without sudo:
 
@@ -45,6 +43,11 @@ sudo gpasswd -a $USER uucp
 ```
 
 Then reboot.
+
+## IDF
+
+This source tree based on XTensa's GCC for ESP32 and ESP-IDF from Espressif.
+Information described here on works only for Arch-Linux or its derivative.
 
 ### Setup
 
@@ -121,4 +124,71 @@ make app-flash
 
 ## PlatformIO
 
-Coming Soon
+This source tree based on XTensa's GCC for ESP32 and ESP-IDF from PlatformIO server.
+Information described here tested on ArchLinux but should work Windows using Python or MSYS2.
+
+**NOTES:** The user codebase is similar to IDF version with some changes.
+The difference only in framework installation source.
+
+### Setup
+
+#### environment
+
+```sh
+cd $HOME
+virtualenv platformio --system-site-packages
+
+source $HOME/platformio/bin/activate
+mkdir -p $HOME/.platformio/
+pip install platformio
+
+UDEV=https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules
+curl -fsSL $UDEV | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+deactivate
+cd -
+```
+
+### install framework
+
+```sh
+source $HOME/platformio/bin/activate
+pio project init -b esp32dev -O 'framework=espidf'
+```
+
+### Home Server
+
+```sh
+source $HOME/platformio/bin/activate
+pio home --no-open &
+xdg-open http://localhost:8008/ &
+```
+
+### Build
+
+#### generate compile commands for clangd
+
+**NOTES:** You just need to do this once
+
+```sh
+source $HOME/platformio/bin/activate
+export MAKEFLAGS=-j$(nproc)
+
+make compiledb
+```
+
+#### compile app and flashing
+
+compile command:
+
+```sh
+make all
+```
+
+if successfully compiled, flash to chip using command:
+
+```sh
+make upload
+```
