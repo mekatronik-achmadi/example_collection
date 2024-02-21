@@ -13,13 +13,15 @@ This folder contains:
 - [Wiring](#wiring)
 - [Device Access](#device-access)
 - [ESP IDF](#idf)
+	+ [Setup](#setup)
+	+ [Build](#build)
 - [PlatformIO](#platformio)
 
-**NOTES:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
+**note:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
 
 ## Wiring
 
-**NOTES:** SPH0645 still untested
+**note:** SPH0645 still untested
 
 | INMP441 | SPH0645 | ESP32 | DEVKIT |
 |:-------:|:-------:|:-----:|:------:|
@@ -42,7 +44,7 @@ sudo gpasswd -a $USER lock
 sudo gpasswd -a $USER uucp
 ```
 
-**NOTES:** This command is for ArchLinux or its derivative.
+**note:** This command is for ArchLinux or its derivative.
 
 Then reboot.
 
@@ -83,7 +85,7 @@ source esp32env.sh
 
 #### generate default sdkconfig
 
-**NOTES:** You just need to do this once to generate **sdkconfig** file.
+**note:** You just need to do this once to generate **sdkconfig** file.
 
 ```sh
 make defconfig
@@ -91,7 +93,7 @@ make defconfig
 
 #### generate compile commands for clangd
 
-**NOTES:** You just need to do this once
+**note:** You just need to do this once
 
 ```sh
 bear -- make app
@@ -99,7 +101,7 @@ bear -- make app
 
 #### reflash bootloader and partition table
 
-**NOTES:** You just need to do this once each development kit.
+**note:** You just need to do this once each development kit.
 But you should repeat this step after flashing firmware using Arduino or PlatformIO.
 
 Connect USB and run commands:
@@ -129,7 +131,7 @@ make app-flash
 This source tree based on XTensa's GCC for ESP32 and ESP-IDF from PlatformIO server.
 Information described here tested on ArchLinux but should work Windows using Python or MSYS2.
 
-**NOTES:** The user codebase is similar to IDF version with some changes.
+**note:** The user codebase is similar to IDF version with some changes.
 The difference only in framework installation source.
 
 ### Setup
@@ -144,13 +146,17 @@ source $HOME/platformio/bin/activate
 mkdir -p $HOME/.platformio/
 pip install platformio
 
+deactivate
+cd -
+```
+
+### install USB permission
+
+```sh
 UDEV=https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules
 curl -fsSL $UDEV | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
-
-deactivate
-cd -
 ```
 
 ### install framework
@@ -172,7 +178,7 @@ xdg-open http://localhost:8008/ &
 
 #### generate compile commands for clangd
 
-**NOTES:** You just need to do this once
+**note:** You just need to do this once
 
 ```sh
 source $HOME/platformio/bin/activate
@@ -194,3 +200,5 @@ if successfully compiled, flash to chip using command:
 ```sh
 make upload
 ```
+
+## PlatformIO (VSCode)
