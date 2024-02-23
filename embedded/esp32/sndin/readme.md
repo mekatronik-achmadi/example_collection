@@ -22,6 +22,9 @@ This folder contains:
 - [PlatformIO VSCode](#platformio-vscode)
 	+ [Setup](#setup-2)
 	+ [Home](#home-page)
+- [Serial Plotter](#serial-plotter)
+	+ [Qt Serial Plot](#qt-serial-plot)
+	+ [Arduplot](#arduplot)
 
 **note:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
 
@@ -267,4 +270,48 @@ To access Serial Port, from VSCode Quick Open (Ctrl+P):
 
 ```
 View: Toggle Serial Monitor
+```
+
+## Serial Plotter
+
+They are several Serial Plotter available for Windows and GNU/Linux
+
+**note:** make sure you have device access as mentioned before.
+
+### Qt Serial Plot
+
+A Qt5/QWT based serial plot. 
+
+Visit [Project Page](https://github.com/hyOzd/serialplot).
+
+Installation:
+
+- ArchLinux/Manjaro: [AUR](https://aur.archlinux.org/packages/serialplot-hg)
+- Debian/Ubuntu: [AppImage](https://serialplot.ozderya.net/downloads/serialplot-0.12.0-x86_64.AppImage)
+- Windows: [Setup x86](https://serialplot.ozderya.net/downloads/serialplot-0.12.0-win32-setup.exe)
+
+### Arduplot
+
+A clone of Arduino Plotter without Arduino IDE and come as a Python package.
+
+Visit [Project Page](https://github.com/yhur/arduplot).
+
+Installing inside in an environment on GNU/Linux or MSYS2 (Windows):
+
+```sh
+cd $HOME
+virtualenv arduplot --system-site-packages
+
+source $HOME/arduplot/bin/activate
+pip install arduplot
+
+deactivate
+cd -
+```
+
+then to use:
+
+```sh
+source $HOME/arduplot/bin/activate
+arduplot -p /dev/ttyUSB0 -b 115200
 ```
