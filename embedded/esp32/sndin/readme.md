@@ -318,3 +318,19 @@ arduplot -p /dev/ttyUSB0 -b 115200
 ```
 
 ### Python Serial Plot
+
+This in example of serial plotting using Matplotlib and PySerial.
+
+First, install required modules. For ArchLinux/Manjaro:
+
+```sh
+sudo pacman -S python-matplotlib python-pyserial
+```
+
+The Python script is [here](https://github.com/mekatronik-achmadi/example_collection/tree/master/embedded/esp32/sndin/serialgraph)
+
+Download and run using command (assumed you have device access):
+
+```sh
+python serialgraph.py /dev/ttyUSB0
+```
