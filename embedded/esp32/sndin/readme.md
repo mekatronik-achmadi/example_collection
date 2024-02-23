@@ -25,6 +25,7 @@ This folder contains:
 - [Serial Plotter](#serial-plotter)
 	+ [Qt Serial Plot](#qt-serial-plot)
 	+ [Arduplot](#arduplot)
+	+ [Python Serial Plot](#python-serial-plot)
 
 **note:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
 
@@ -315,3 +316,5 @@ then to use:
 source $HOME/arduplot/bin/activate
 arduplot -p /dev/ttyUSB0 -b 115200
 ```
+
+### Python Serial Plot
