@@ -252,20 +252,17 @@ code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
 
 ### Home Page
 
-Open PlatformIO Home in a new tab, from VSCode Quick Open (Ctrl+P):
-
-```sh
-PlatformIO: PlatformIO Home
-```
-
-Next, you can open previous PlatformIO project folder.
-then open PlatformIO Project Tasks, from VSCode Quick Open (Ctrl+P):
+Open PlatformIO Project Tasks, from VSCode Quick Open (Ctrl+P):
 
 ```
 View: Show PlatformIO
 ```
 
-Project can be build and upload from Project Tasks.
+Then on **Quick Access** -> **PIO Home**, click **Open**
+
+Next, to open project, click **Pick a Folder** on Project Tasks.
+
+Then, from Project Tasks, you can build and upload your project.
 
 To access Serial Port, from VSCode Quick Open (Ctrl+P):
 
