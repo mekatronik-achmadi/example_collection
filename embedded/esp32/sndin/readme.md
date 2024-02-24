@@ -24,7 +24,6 @@ This folder contains:
 	+ [Home](#home-page)
 - [Serial Plotter](#serial-plotter)
 	+ [Qt Serial Plot](#qt-serial-plot)
-	+ [Arduplot](#arduplot)
 	+ [Python Serial Plot](#python-serial-plot)
 
 **note:** The recommended platform is PlatformIO as it easier because everything downloaded from their server and available on both Windows or GNU/Linux.
@@ -261,7 +260,6 @@ View: Show PlatformIO
 Then on **Quick Access** -> **PIO Home**, click **Open**
 
 Next, to open project, click **Pick a Folder** on Project Tasks.
-
 Then, from Project Tasks, you can build and upload your project.
 
 To access Serial Port, from VSCode Quick Open (Ctrl+P):
@@ -288,35 +286,10 @@ Installation:
 - Debian/Ubuntu: [AppImage](https://serialplot.ozderya.net/downloads/serialplot-0.12.0-x86_64.AppImage)
 - Windows: [Setup x86](https://serialplot.ozderya.net/downloads/serialplot-0.12.0-win32-setup.exe)
 
-### Arduplot
-
-A clone of Arduino Plotter without Arduino IDE and come as a Python package.
-
-Visit [Project Page](https://github.com/yhur/arduplot).
-
-Installing inside in an environment on GNU/Linux or MSYS2 (Windows):
-
-```sh
-cd $HOME
-virtualenv arduplot --system-site-packages
-
-source $HOME/arduplot/bin/activate
-pip install arduplot
-
-deactivate
-cd -
-```
-
-then to use:
-
-```sh
-source $HOME/arduplot/bin/activate
-arduplot -p /dev/ttyUSB0 -b 115200
-```
-
 ### Python Serial Plot
 
 This in example of serial plotting using Matplotlib and PySerial.
+This is just example and can be easily ported to Debian/Ubuntu or Windows.
 
 First, install required modules. For ArchLinux/Manjaro:
 

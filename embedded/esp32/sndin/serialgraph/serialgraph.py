@@ -18,7 +18,7 @@ from threading import Thread
 
 class SerialGraph():
 
-    dataLong = 1024
+    dataLong = 512
     baudRate = 115200
     plotUpd = True
     dataUpd = True
@@ -42,15 +42,15 @@ class SerialGraph():
 
         fig = Figure(figsize=(11,9),dpi=100,facecolor='white',tight_layout=True)
 
-        ax1 = fig.add_subplot(111)
-        ax1.set_facecolor('white')
-        ax1.grid(True,which='both',ls='-')
-        ax1.set_title('Serial Data Plot')
-        ax1.set_xlabel('Data Points')
-        ax1.set_ylabel('Serial Value')
-        self.line1, = ax1.plot(self.X, self.Y)
-        ax1.relim()
-        ax1.autoscale_view()
+        self.ax1 = fig.add_subplot(111)
+        self.ax1.set_facecolor('white')
+        self.ax1.grid(True,which='both',ls='-')
+        self.ax1.set_title('Serial Data Plot')
+        self.ax1.set_xlabel('Data Points')
+        self.ax1.set_ylabel('Serial Value')
+        self.line1, = self.ax1.plot(self.X, self.Y)
+        self.ax1.relim()
+        self.ax1.autoscale_view()
 
         style.use('ggplot')
         canvas = FigureCanvasTkAgg(fig, master=graphfrm)
@@ -64,7 +64,7 @@ class SerialGraph():
         aniplot = anim.FuncAnimation(
                 fig,
                 self.graphUpdate,
-                interval=0.00005,
+                interval=0.000001,
                 repeat=False,
                 cache_frame_data=False)
         aniplot._start()
@@ -108,8 +108,9 @@ class SerialGraph():
             if self.serPort.is_open:
                 serVal = self.portRead()
                 try:
-                    valY = int(serVal)
-                    self.arrayValue(valY)
+                    if serVal is not None:
+                        valY = int(serVal)
+                        self.arrayValue(valY)
                 except ValueError:
                     pass
 
@@ -119,6 +120,8 @@ class SerialGraph():
     def graphUpdate(self, args):
         if self.plotUpd:
             self.line1.set_data(self.X,self.Y)
+            self.ax1.relim()
+            self.ax1.autoscale_view()
 
 if __name__ == "__main__":
     sergraph = SerialGraph()
