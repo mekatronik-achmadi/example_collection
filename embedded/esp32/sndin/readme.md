@@ -249,24 +249,15 @@ You may need to disable/remove Clangd, if you prefer Microsoft's C/C++ extension
 code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
 ```
 
-### Home Page
+### PlatformIO Menu
 
-Open PlatformIO Project Tasks, from VSCode Quick Open (Ctrl+P):
+Menu List:
 
-```
-View: Show PlatformIO
-```
-
-Then on **Quick Access** -> **PIO Home**, click **Open**
-
-Next, to open project, click **Pick a Folder** on Project Tasks.
-Then, from Project Tasks, you can build and upload your project.
-
-To access Serial Port, from VSCode Quick Open (Ctrl+P):
-
-```
-View: Toggle Serial Monitor
-```
+- Open PlatformIO: **View** -> **Open View** -> **PlatformIO**
+	+ Home: **Quick Access** -> **PIO Home** -> **Open**
+	+ Project: **Project Tasks** -> **Pick a Folder**
+	+ Build/Upload: **Project Tasks** -> ProjectName/Default -> **General**
+- Serial Port: **View** -> **Open View** -> **Serial Monitor**
 
 ## Serial Plotter
 
