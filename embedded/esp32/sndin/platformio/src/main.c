@@ -12,6 +12,8 @@ void app_main(void){
     mic_Init();
     mic_Get();
 
+    vTaskDelay(100/portTICK_PERIOD_MS);
+
     while (1) {
         int sh = shell_Loop();
         if(sh==1) break;

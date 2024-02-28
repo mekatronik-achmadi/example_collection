@@ -100,7 +100,7 @@ source esp32env.sh
 make defconfig
 ```
 
-#### generate compile commands for clangd
+#### generate compile commands for autocomplete
 
 **note:** You just need to do this once
 
@@ -187,7 +187,7 @@ xdg-open http://localhost:8008/ &
 
 ### Build
 
-#### generate compile commands for clangd
+#### generate compile commands for autocomplete
 
 **note:** You just need to do this once
 
