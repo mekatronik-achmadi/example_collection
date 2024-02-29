@@ -1,14 +1,14 @@
 all:
-	pio run
+	pio run -v
 
 compiledb:
-	pio run --target compiledb
+	pio run -v --target compiledb
 
 upload:
-	pio run --target upload
+	pio run -v --target upload
 
 clean:
-	pio run --target clean
+	pio run -v --target clean
 
 monitor:
 	pio device monitor -p /dev/ttyUSB0 -b 115200
