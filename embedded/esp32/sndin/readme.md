@@ -241,12 +241,35 @@ ext install platformio.platformio-ide
 ext install ms-vscode.vscode-serial-monitor
 ```
 
-**tips:**
-
-You may need to disable/remove Clangd, if you prefer Microsoft's C/C++ extension:
+For using Intellisense as autocomplete, first uninstall CLangd extension (if any):
 
 ```sh
 code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
+```
+
+Then install Microsoft's C/C++ extension using command:
+
+```sh
+code --force --install-extension ms-vscode.cpptools
+```
+
+Then open at user settings files:
+
+- GNU/Linux: ~/.config/Code/User/settings.json
+- Windows: %APPDATA%\Roaming\Code\User\settings.json
+
+Make sure it contain these lines:
+
+```json
+"C_Cpp.intelliSenseEngine": "disabled",
+"C_Cpp.autocompleteAddParentheses": true,
+"C_Cpp.default.compileCommands": "compile_commands.json",
+```
+
+Then to generate **compile_commands.json**, open menu **Terminal** -> **New Terminal** and run:
+
+```sh
+make compiledb
 ```
 
 ### PlatformIO Menu
