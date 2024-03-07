@@ -258,10 +258,10 @@ Then open at user settings files:
 - GNU/Linux: ~/.config/Code/User/settings.json
 - Windows: %APPDATA%\Roaming\Code\User\settings.json
 
-Make sure it contain these lines:
+Add this lines if not found:
 
 ```json
-"C_Cpp.intelliSenseEngine": "disabled",
+"C_Cpp.intelliSenseEngine": "default",
 "C_Cpp.autocompleteAddParentheses": true,
 "C_Cpp.default.compileCommands": "compile_commands.json",
 ```
