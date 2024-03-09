@@ -1,4 +1,5 @@
 fn main() {
+///////////////// Declaration ///////////////////////
     // variables
     let var_int = -5;
     let var_u16: u16 = 45;
@@ -14,8 +15,13 @@ fn main() {
     const VAL_U16: u16 = 35;
 
     // string object
-    let str_obj = String::from("Hello String");
+    let mut str_obj = String::new();
 
+///////////////// Action ///////////////////////////
+    // some compilation checking
+    assert_eq!(var_u16, 45);
+
+    // printing
     println!("Var Int: {}",var_int);
     println!("Var Uint16: {}",var_u16);
     println!("Var Float: {}",var_float);
@@ -28,5 +34,6 @@ fn main() {
 
     println!("Const Uint16: {}",VAL_U16);
 
-    println!("Str Obj: {}",str_obj);
+    str_obj.push_str("Rust Programming");
+    println!("Str Obj: {} (length {})",str_obj,str_obj.len());
 }
