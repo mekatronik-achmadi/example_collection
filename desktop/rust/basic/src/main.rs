@@ -13,15 +13,20 @@ fn main() {
     // constant
     const VAL_U16: u16 = 35;
 
-    println!("Var Int {}",var_int);
-    println!("Var Uint16 {}",var_u16);
-    println!("Var Float {}",var_float);
-    println!("Var Pointer {:p}",var_ptr);
-    println!("Var Char {}",var_chr);
-    println!("Var String {}",var_str);
+    // string object
+    let str_obj = String::from("Hello String");
+
+    println!("Var Int: {}",var_int);
+    println!("Var Uint16: {}",var_u16);
+    println!("Var Float: {}",var_float);
+    println!("Var Pointer: {:p}",var_ptr);
+    println!("Var Char: {}",var_chr);
+    println!("Var String: {}",var_str);
 
     mut_u16 = mut_u16 + 10;
-    println!("Mut Uint16 {}",mut_u16);
+    println!("Mut Uint16: {}",mut_u16);
 
-    println!("Const Uint16 {}",VAL_U16);
+    println!("Const Uint16: {}",VAL_U16);
+
+    println!("Str Obj: {}",str_obj);
 }
