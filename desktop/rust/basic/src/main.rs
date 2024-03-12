@@ -78,9 +78,18 @@ fn main() {
 ///////////////// Array ///////////////////////////
 
 let var_arr: [u16;5] = [0,1,3,5,7];
+
 print!("Array: ");
 for i in var_arr.iter() {
     print!("{} ",i);
+}
+println!();
+
+print!("Array Elements: ");
+let mut j = 0;
+while j<var_arr.len() {
+    print!("{} ",var_arr[j]);
+    j = j + 1;
 }
 println!();
 
