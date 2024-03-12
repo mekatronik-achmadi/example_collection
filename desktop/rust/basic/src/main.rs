@@ -97,6 +97,9 @@ println!();
 
 println!("Power Fn: {}",power(3, 4));
 
+println!("{}",str_ret());
+println!("{}",strobj_ret());
+
 ///////////////// Struct/Enum ///////////////////////////
 
 enum PowerLevel {
@@ -158,6 +161,19 @@ fn power(v_root:u16,mut v_pwr:u16) -> u16 {
     }
 
     return ret;
+}
+
+fn str_ret() -> &'static str{
+    let str_msg = "Rust string function";
+
+    return str_msg;
+}
+
+fn strobj_ret() -> String {
+    let mut str_msg = String::new();
+    str_msg.push_str("Rust string object function");
+
+    return str_msg;
 }
 
 ////////////////// Untested ///////////////////////
