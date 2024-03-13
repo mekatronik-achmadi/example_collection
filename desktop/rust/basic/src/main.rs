@@ -86,110 +86,110 @@ fn main() {
 
 ///////////////// Array ///////////////////////////
 
-let var_arr: [u16;5] = [0,1,3,5,7];
+    let var_arr: [u16;5] = [0,1,3,5,7];
 
-print!("Array: ");
-for i in var_arr.iter() {
-    print!("{} ",i);
-}
-println!();
+    print!("Array: ");
+    for i in var_arr.iter() {
+        print!("{} ",i);
+    }
+    println!();
 
-print!("Array Elements: ");
-let mut j = 0;
-while j<var_arr.len() {
-    print!("{} ",var_arr[j]);
-    j = j + 1;
-}
-println!();
+    print!("Array Elements: ");
+    let mut j = 0;
+    while j<var_arr.len() {
+        print!("{} ",var_arr[j]);
+        j = j + 1;
+    }
+    println!();
 
 ///////////////// Function ///////////////////////////
 
-println!("Power Fn: {}",power(3, 4));
+    println!("Power Fn: {}",power(3, 4));
 
-let mut tozero: u16 = 100;
-zeroing(&mut tozero);
-println!("Zeroing {}",tozero);
+    let mut tozero: u16 = 100;
+    zeroing(&mut tozero);
+    println!("Zeroing {}",tozero);
 
-println!("{}",str_ret());
-println!("{}",strobj_ret());
+    println!("{}",str_ret());
+    println!("{}",strobj_ret());
 
 ///////////////// Struct/Enum ///////////////////////////
 
-enum PowerLevel {
-    Low, High
-}
+    enum PowerLevel {
+        Low, High
+    }
 
-struct Stm32{
-    pin_num: u16,
-    cpu_arch: String,
-    _pwr_lvl: PowerLevel,
-}
+    struct Stm32{
+        pin_num: u16,
+        cpu_arch: String,
+        _pwr_lvl: PowerLevel,
+    }
 
-let f103c8 = Stm32{
-    pin_num:48,
-    cpu_arch:String::from("Cortex-M1"),
-    _pwr_lvl:PowerLevel::Low,
-};
+    let f103c8 = Stm32{
+        pin_num:48,
+        cpu_arch:String::from("Cortex-M1"),
+        _pwr_lvl:PowerLevel::Low,
+    };
 
-let f407vg = Stm32{
-    pin_num:144,
-    cpu_arch:String::from("Cortex-M4+"),
-    _pwr_lvl:PowerLevel::High,
-};
+    let f407vg = Stm32{
+        pin_num:144,
+        cpu_arch:String::from("Cortex-M4+"),
+        _pwr_lvl:PowerLevel::High,
+    };
 
-println!("Chip has {} pin with arch {}",
-    f103c8.pin_num,
-    f103c8.cpu_arch,
-);
+    println!("Chip has {} pin with arch {}",
+        f103c8.pin_num,
+        f103c8.cpu_arch,
+    );
 
-println!("Chip has {} pin with arch {}",
-    f407vg.pin_num,
-    f407vg.cpu_arch,
-);
+    println!("Chip has {} pin with arch {}",
+        f407vg.pin_num,
+        f407vg.cpu_arch,
+    );
 
 ///////////////// Vector ///////////////////////////
 
-let mut var_vec = vec![3,5,7];
-var_vec.push(9);
+    let mut var_vec = vec![3,5,7];
+    var_vec.push(9);
 
-let mut var_vect: Vec<u16> = Vec::new();
-var_vect.push(10);
-var_vect.push(25);
-var_vect.push(45);
+    let mut var_vect: Vec<u16> = Vec::new();
+    var_vect.push(10);
+    var_vect.push(25);
+    var_vect.push(45);
 
-println!("Vectors: {:?} \nAnd {:?}",var_vec,var_vect);
+    println!("Vectors: {:?} \nAnd {:?}",var_vec,var_vect);
 
 ////////////////// Threading ///////////////////////
 
-// new thread
-print!("thread ");
-thread::spawn(||{
+    // new thread
+    print!("thread ");
+    thread::spawn(||{
+        for i in 1..10 {
+            print!("{} ",i);
+            thread::sleep(Duration::from_millis(10));
+        }
+    });
+
+    // new thread
+    print!("thread ");
+    thread::spawn(||{
+        for i in 1..10 {
+            print!("{} ",i);
+            thread::sleep(Duration::from_millis(10));
+        }
+    });
+
+    // concurrent in main thread
+    // should be the last thread
+    print!("main ");
     for i in 1..10 {
         print!("{} ",i);
         thread::sleep(Duration::from_millis(10));
     }
-});
-
-// new thread
-print!("thread ");
-thread::spawn(||{
-    for i in 1..10 {
-        print!("{} ",i);
-        thread::sleep(Duration::from_millis(10));
-    }
-});
-
-// concurrent in main thread
-// should be the last thread
-print!("main ");
-for i in 1..10 {
-    print!("{} ",i);
-    thread::sleep(Duration::from_millis(10));
-}
 
 //////////////////////////////////////////////////////
 
-println!();
+    println!();
 
 }
 
