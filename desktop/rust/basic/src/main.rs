@@ -1,3 +1,6 @@
+use std::thread;
+use std::time::Duration;
+
 fn main() {
 // Tutorial sources
 // https://www.tutorialspoint.com/rust/
@@ -22,6 +25,12 @@ fn main() {
     let mut str_obj = String::new();
 
 ///////////////// Action ///////////////////////////
+    // print command line arguments
+    for arg in std::env::args() {
+        print!("{} ",arg);
+    }
+    println!();
+
     // some compilation checking
     assert_eq!(var_u16, 45);
 
@@ -97,6 +106,10 @@ println!();
 
 println!("Power Fn: {}",power(3, 4));
 
+let mut tozero: u16 = 100;
+zeroing(&mut tozero);
+println!("Zeroing {}",tozero);
+
 println!("{}",str_ret());
 println!("{}",strobj_ret());
 
@@ -146,9 +159,31 @@ var_vect.push(45);
 
 println!("Vectors: {:?} \nAnd {:?}",var_vec,var_vect);
 
-//////////////////////////////////////////////////////
+////////////////// Threading ///////////////////////
+
+// new thread
+print!("thread ");
+thread::spawn(||{
+    for i in 1..10 {
+        print!("{} ",i);
+        thread::sleep(Duration::from_millis(10));
+    }
+});
+
+// concurrent in main thread
+print!("main ");
+for i in 1..10 {
+    print!("{} ",i);
+    thread::sleep(Duration::from_millis(10));
 }
 
+//////////////////////////////////////////////////////
+
+println!();
+
+}
+
+// pass by value
 fn power(v_root:u16,mut v_pwr:u16) -> u16 {
     let mut ret: u16 = 1;
     let mut idx: u16 = 0;
@@ -163,12 +198,19 @@ fn power(v_root:u16,mut v_pwr:u16) -> u16 {
     return ret;
 }
 
+// pass by reference
+fn zeroing(val: &mut u16) {
+    *val = 0;
+}
+
+// string return
 fn str_ret() -> &'static str{
     let str_msg = "Rust string function";
 
     return str_msg;
 }
 
+// string object return
 fn strobj_ret() -> String {
     let mut str_msg = String::new();
     str_msg.push_str("Rust string object function");
@@ -177,7 +219,7 @@ fn strobj_ret() -> String {
 }
 
 ////////////////// Untested ///////////////////////
-// Derive Debug
+// Macro
 // Tuple
 // Ownership
 // Borrowing
@@ -185,7 +227,7 @@ fn strobj_ret() -> String {
 // Generic Types
 // Panic/Error
 // I/O
-// Pointer Deref
+// Box Pointer
+// Move
 // Module
 // Package Manager
-// Threading
