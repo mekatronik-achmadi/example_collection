@@ -170,7 +170,17 @@ thread::spawn(||{
     }
 });
 
+// new thread
+print!("thread ");
+thread::spawn(||{
+    for i in 1..10 {
+        print!("{} ",i);
+        thread::sleep(Duration::from_millis(10));
+    }
+});
+
 // concurrent in main thread
+// should be the last thread
 print!("main ");
 for i in 1..10 {
     print!("{} ",i);
