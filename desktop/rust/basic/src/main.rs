@@ -229,6 +229,7 @@ fn strobj_ret() -> String {
 }
 
 ////////////////// Untested ///////////////////////
+// Class/Impl
 // Macro
 // Tuple
 // Ownership
