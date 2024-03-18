@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=QtSerialTerminal
+GenericName=Qt Serial Terminal
+Comment=A Qt-based serial terminal
+Exec=qserialterm
+Icon=terminal
+Type=Application
+Terminal=false
+Categories=Development;
