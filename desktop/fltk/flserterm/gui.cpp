@@ -19,10 +19,12 @@ static void onBtnQuit(Fl_Widget *w, void *p){
 static void onSerialTimer(void *p){
     char ch; bool r;
 
-    do {
-        ch = ((Gui*)p)->comPort.ReadChar(r);
-        if(r) ((Gui*)p)->serialChar(ch);
-    } while(r);
+    if(((Gui*)p)->comPort.IsOpened()){
+        do {
+            ch = ((Gui*)p)->comPort.ReadChar(r);
+            if(r) ((Gui*)p)->serialChar(ch);
+        } while(r);
+    }
 
     Fl::repeat_timeout(0.01, onSerialTimer,p);
 }
@@ -100,7 +102,7 @@ void Gui::portOpen(){
             case 4: vBaud = 115200; break;
         }
 
-        comPort.SetBaudRate(vBaud);
+        comPort.SetBaudRate(115200);
         comPort.SetPort(std::string(txtPort->value()));
 
         if(comPort.Open()){
