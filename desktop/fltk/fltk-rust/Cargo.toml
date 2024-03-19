@@ -1,0 +1,7 @@
+[package]
+name = "fltk_template"
+version = "0.1.0"
+
+[dependencies]
+fltk = "1.4.26"
+

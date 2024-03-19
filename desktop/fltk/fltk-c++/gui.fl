@@ -1,0 +1,38 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0308
+header_name {.h}
+code_name {.cxx}
+class Gui {open
+} {
+  Function {Gui()} {open
+  } {
+    Fl_Window mainWnd {
+      label {Template FLTK} open
+      xywh {559 562 170 70} type Single visible
+    } {
+      Fl_Pack mainHBox {open
+        xywh {-5 0 175 75}
+      } {
+        Fl_Button btnMsg {
+          label Message
+          callback onBtnMsg
+          xywh {0 10 170 25}
+        }
+        Fl_Button btnQuit {
+          label Quit
+          callback onBtnQuit
+          xywh {0 40 170 25}
+        }
+      }
+    }
+  }
+  Function {show(int argc, char** argv)} {open
+  } {
+    code {mainWnd->show(argc,argv);} {}
+  }
+  Function {close()} {open
+  } {
+    code {mainWnd->hide();} {selected
+    }
+  }
+}
