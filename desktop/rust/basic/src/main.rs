@@ -236,6 +236,7 @@ fn strobj_ret() -> String {
 // Borrowing
 // Mutable Slice
 // Generic Types
+// Generic/Templates
 // Panic/Error
 // I/O
 // Box Pointer
