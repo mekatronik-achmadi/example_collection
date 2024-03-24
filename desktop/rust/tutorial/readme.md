@@ -4,6 +4,7 @@
 
 - https://www.tutorialspoint.com/rust/
 - https://stevedonovan.github.io/rust-gentle-intro/
+- https://google.github.io/comprehensive-rust/
 
 ## Install Rust
 
