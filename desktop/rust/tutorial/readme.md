@@ -60,13 +60,13 @@ cargo build --release
 Run using Cargp
 
 ```sh
-cargo run --release
+cargo run --release | less
 ```
 
 or binary directly
 
 ```sh
-./target/release/learn
+./target/release/learn | less
 ```
 
 ## Editing

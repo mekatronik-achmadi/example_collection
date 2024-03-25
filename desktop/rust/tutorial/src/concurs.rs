@@ -24,7 +24,7 @@ pub fn thds_test() {
 
     // concurrency in main thread
     // must be the last thread
-    print!("thread Main:");
+    print!("thread Main: ");
     for i in 0..10  {
         print!("{} ",i);
         thread::sleep(Duration::from_millis(10));
