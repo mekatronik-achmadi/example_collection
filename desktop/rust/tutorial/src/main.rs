@@ -9,6 +9,7 @@ mod strcts;
 mod strings;
 mod vars;
 mod vecs;
+mod class;
 
 fn main() {
     println!("Hello, world!");
@@ -64,6 +65,13 @@ fn main() {
 
     println!("===== Fibonacci ====");
     println!("Fib: {}", fibs::fibs(10));
+
+    println!("===== Class ====");
+    let var_kotak = class::Kotak{wid: 4, hig: 3};
+    println!("Kotak Area: {}",var_kotak.area());
+
+    let var_val = class::GenVal{val: "Nilai"};
+    println!("Value: {}",var_val.value());
 
     // threading should be the last calls
     println!("===== Threading ====");

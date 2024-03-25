@@ -10,6 +10,9 @@ pub fn print_ifs() {
     } else {
         println!("Var is undefined");
     }
+
+    let var_size: &str = if var_u16 < 10 { "low" } else { "big" };
+    println!("Var also {}", var_size);
 }
 
 pub fn print_loops() {
