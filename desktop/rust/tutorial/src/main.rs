@@ -3,6 +3,7 @@ mod strings;
 mod ifloop;
 mod arrays;
 mod funcs;
+mod concurs;
 
 fn main() {
     println!("Hello, world!");
@@ -33,4 +34,12 @@ fn main() {
     let mut in_val: u16 = 45;
     funcs::fn_zero(&mut in_val);
     println!("Fn Zero: {}",in_val);
+
+    println!("Fn Str: {}",funcs::fn_strlet());
+    println!("Fn StrMut: {}",funcs::fn_strmut());
+
+    // threading should be the last calls
+    println!("===== Threading ====");
+    concurs::thds_test();
+    println!();
 }

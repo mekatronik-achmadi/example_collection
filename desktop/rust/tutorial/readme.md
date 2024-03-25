@@ -69,5 +69,32 @@ or binary directly
 ./target/release/learn
 ```
 
+## Editing
 
+### Install Analyzer Plugins
 
+CoC Plugins
+
+```sh
+vim -c "CocInstall coc-rust-analyzer"
+```
+
+Change Language Server
+
+```sh
+jq '
+."rust-analyzer.server.path"="~/.cargo/bin/rust-analyzer"
+' ~/.vim/coc-settings.json > ~/.vim/temp.json
+
+mv ~/.vim/temp.json ~/.vim/coc-settings.json
+
+bat ~/.vim/coc-settings.json
+```
+
+### Open Editor
+
+Open Rust source folder in Vim
+
+```sh
+vim src/
+```
