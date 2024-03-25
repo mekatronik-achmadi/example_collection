@@ -1,6 +1,6 @@
 // example of declaring and print variables
 
-pub fn print_vars(){
+pub fn print_vars() {
     // immutable variables
     let var_int = -5;
     let var_float = 4.5;
@@ -20,16 +20,16 @@ pub fn print_vars(){
     // some compilation checking
     assert_eq!(var_u16, 45);
 
-     // printing
-    println!("Var Int: {}",var_int);
-    println!("Var Uint16: {}",var_u16);
-    println!("Var Float: {}",var_float);
-    println!("Var Pointer: {:p}",var_ptr);
-    println!("Var Char: {}",var_chr);
-    println!("Var String: {}",var_str);
+    // printing
+    println!("Var Int: {}", var_int);
+    println!("Var Uint16: {}", var_u16);
+    println!("Var Float: {}", var_float);
+    println!("Var Pointer: {:p}", var_ptr);
+    println!("Var Char: {}", var_chr);
+    println!("Var String: {}", var_str);
 
     mut_u16 = mut_u16 + 10;
-    println!("Mut Uint16: {}",mut_u16);
+    println!("Mut Uint16: {}", mut_u16);
 
-    println!("Const Uint16: {}",VAL_U16);
+    println!("Const Uint16: {}", VAL_U16);
 }

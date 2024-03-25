@@ -1,20 +1,20 @@
 // example of main module
 
-mod vars;
-mod strings;
-mod ifloop;
 mod arrays;
-mod funcs;
-mod strcts;
-mod vecs;
 mod concurs;
+mod funcs;
+mod ifloop;
+mod strcts;
+mod strings;
+mod vars;
+mod vecs;
 
 fn main() {
     println!("Hello, world!");
 
     println!("App arguments:");
-    for arg in std::env::args(){
-        print!("{}",arg);
+    for arg in std::env::args() {
+        print!("{}", arg);
     }
     println!();
 
@@ -33,19 +33,19 @@ fn main() {
 
     println!("==== Functions ===");
 
-    println!("Fn Power: {}",funcs::fn_power(4,3));
+    println!("Fn Power: {}", funcs::fn_power(4, 3));
 
     let mut in_val: u16 = 45;
     funcs::fn_zero(&mut in_val);
-    println!("Fn Zero: {}",in_val);
+    println!("Fn Zero: {}", in_val);
 
-    println!("Fn Str: {}",funcs::fn_strlet());
-    println!("Fn StrMut: {}",funcs::fn_strmut());
+    println!("Fn Str: {}", funcs::fn_strlet());
+    println!("Fn StrMut: {}", funcs::fn_strmut());
 
     println!("===== Structs ====");
-    let mut f103c = strcts::Stm32{
-        pin_num : 64,
-        cpu_arch : String::from("Cortex-M4"),
+    let mut f103c = strcts::Stm32 {
+        pin_num: 64,
+        cpu_arch: String::from("Cortex-M4"),
     };
     strcts::print_struct(&f103c);
     strcts::modify_struct(&mut f103c);
@@ -53,6 +53,11 @@ fn main() {
 
     println!("===== Vector ====");
     let mut var_vec: Vec<u8> = Vec::new();
+    var_vec.push(7);
+
+    // can't move value before borrowed
+    //vecs::print_vec(var_vec);
+
     vecs::modify_vec(&mut var_vec);
     vecs::print_vec(var_vec);
 
@@ -77,4 +82,3 @@ fn main() {
 // Move
 // Module
 // Package Manager
-
