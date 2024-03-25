@@ -1,6 +1,7 @@
 // example of main module
 
 mod arrays;
+mod class;
 mod concurs;
 mod fibs;
 mod funcs;
@@ -9,7 +10,6 @@ mod strcts;
 mod strings;
 mod vars;
 mod vecs;
-mod class;
 
 fn main() {
     println!("Hello, world!");
@@ -67,11 +67,11 @@ fn main() {
     println!("Fib: {}", fibs::fibs(10));
 
     println!("===== Class ====");
-    let var_kotak = class::Kotak{wid: 4, hig: 3};
-    println!("Kotak Area: {}",var_kotak.area());
+    let var_kotak = class::Kotak { wid: 4, hig: 3 };
+    println!("Kotak Area: {}", var_kotak.area());
 
-    let var_val = class::GenVal{val: "Nilai"};
-    println!("Value: {}",var_val.value());
+    let var_val = class::GenVal { val: "Nilai" };
+    println!("Value: {}", var_val.value());
 
     // threading should be the last calls
     println!("===== Threading ====");
@@ -80,14 +80,11 @@ fn main() {
 }
 
 ////////////////// Untested ///////////////////////
-// Class/Impl
 // Macro
 // Tuple
 // Ownership
 // Borrowing
 // Mutable Slice
-// Generic Types
-// Generic/Templates
 // Panic/Error
 // I/O
 // Box Pointer
@@ -95,3 +92,4 @@ fn main() {
 // Unwrap
 // Workspace
 // Package Manager
+
