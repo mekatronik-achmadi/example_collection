@@ -2,6 +2,7 @@
 
 mod arrays;
 mod concurs;
+mod fibs;
 mod funcs;
 mod ifloop;
 mod strcts;
@@ -61,6 +62,9 @@ fn main() {
     vecs::modify_vec(&mut var_vec);
     vecs::print_vec(var_vec);
 
+    println!("===== Fibonacci ====");
+    println!("Fib: {}", fibs::fibs(10));
+
     // threading should be the last calls
     println!("===== Threading ====");
     concurs::thds_test();
@@ -80,5 +84,6 @@ fn main() {
 // I/O
 // Box Pointer
 // Move
-// Module
+// Unwrap
+// Workspace
 // Package Manager

@@ -1,6 +1,11 @@
 // example of declaring and print variables
 
 pub fn print_vars() {
+    // ignored variable started with '_'
+    // everything with '_' is ignored
+    let _var_ign = 0;
+    let _cpu_hz = 16_000_000; // same as 16000000
+
     // immutable variables
     let var_int = -5;
     let var_float = 4.5;
@@ -16,9 +21,6 @@ pub fn print_vars() {
 
     // constant
     const VAL_U16: u16 = 35;
-
-    // some compilation checking
-    assert_eq!(var_u16, 45);
 
     // printing
     println!("Var Int: {}", var_int);
