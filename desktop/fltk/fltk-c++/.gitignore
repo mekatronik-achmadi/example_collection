@@ -1,8 +1,0 @@
-*~
-.dep/
-.cache/
-build/
-gui.cxx
-gui.h
-compile_commands.json
-
