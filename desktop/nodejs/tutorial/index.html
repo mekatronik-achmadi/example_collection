@@ -8,6 +8,12 @@
     <body>
         <h1>HTML/NodeJS Example</h1>
         <button id="btnClick">Click Me</button>
+
+        <script charset="utf-8">
+            const btnClick = document.getElementById("btnClick");
+            btnClick.addEventListener('click',() => {
+                alert('Test HTML NodeJS');
+            });
+        </script>
    </body>
-   <script type="text/javascript" src="./index.js"></script>
 </html>

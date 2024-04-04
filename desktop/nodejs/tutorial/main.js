@@ -5,7 +5,7 @@ let Arrs = require('./array');
 let Clss = require('./class');
 let Srv = require('./serve');
 
-console.log('NodeJS Example');
+console.log(`NodeJS ${process.version}`);
 
 console.log('===== Variables ========');
 Var.print_vars();
