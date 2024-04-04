@@ -4,6 +4,8 @@ import {fn_power,var_power,fn_arrow} from './funcs.js';
 import {print_array} from './array.js';
 import {Car} from './class.js';
 
+import {runserver} from './server/server.js';
+
 console.log('NodeJS Example');
 
 console.log('===== Variables ========');
@@ -25,5 +27,6 @@ console.log('==== Class =====');
 let jepp = new Car('Jepp',2010);
 jepp.print_car();
 
-
+console.log('==== Server =====');
+runserver();
 
