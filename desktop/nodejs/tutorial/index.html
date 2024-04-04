@@ -8,11 +8,18 @@
     <body>
         <h1>HTML/NodeJS Example</h1>
         <button id="btnClick">Click Me</button>
+        <button id="btnReload">Reload Page</button>
 
         <script charset="utf-8">
-            const btnClick = document.getElementById("btnClick");
+            const btnClick = document.getElementById('btnClick');
+            const btnReload = document.getElementById('btnReload');
+
             btnClick.addEventListener('click',() => {
                 alert('Test HTML NodeJS');
+            });
+
+            btnReload.addEventListener('click',() => {
+                location.reload();
             });
         </script>
    </body>
