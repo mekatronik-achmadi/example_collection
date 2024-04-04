@@ -3,6 +3,7 @@ let IfLoop = require('./ifloops');
 let Func = require('./funcs');
 let Arrs = require('./array');
 let Clss = require('./class');
+let Srv = require('./serve');
 
 console.log('NodeJS Example');
 
@@ -24,4 +25,8 @@ Arrs.print_array();
 console.log('==== Class =====');
 let jepp = new Clss.Car('Jepp',2010);
 jepp.print_car();
+
+console.log('==== Server =====');
+console.log(`localhost:${Srv.port}`);
+Srv.runserver();
 
