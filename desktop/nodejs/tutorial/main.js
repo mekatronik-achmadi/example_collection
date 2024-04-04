@@ -1,32 +1,27 @@
-import {print_vars} from './vars.js';
-import {print_ifs,print_loops} from './ifloops.js';
-import {fn_power,var_power,fn_arrow} from './funcs.js';
-import {print_array} from './array.js';
-import {Car} from './class.js';
-
-import {runserver} from './server/server.js';
+let Var = require('./vars');
+let IfLoop = require('./ifloops');
+let Func = require('./funcs');
+let Arrs = require('./array');
+let Clss = require('./class');
 
 console.log('NodeJS Example');
 
 console.log('===== Variables ========');
-print_vars();
+Var.print_vars();
 
 console.log('====  Ifs/Loop =====');
-print_ifs();
-print_loops();
+IfLoop.print_ifs();
+IfLoop.print_loops();
 
 console.log('==== Function =====');
-console.log(`Power Fn: ${fn_power(4,3)}`);
-console.log(`Power Var: ${var_power()}`);
-fn_arrow(4);
+console.log(`Power Fn: ${Func.fn_power(4,3)}`);
+console.log(`Power Var: ${Func.var_power()}`);
+Func.fn_arrow(4);
 
 console.log('==== Array =====');
-print_array();
+Arrs.print_array();
 
 console.log('==== Class =====');
-let jepp = new Car('Jepp',2010);
+let jepp = new Clss.Car('Jepp',2010);
 jepp.print_car();
-
-console.log('==== Server =====');
-runserver();
 

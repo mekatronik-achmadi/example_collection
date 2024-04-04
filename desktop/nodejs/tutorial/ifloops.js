@@ -1,6 +1,6 @@
 let var_int = 9;
 
-export function print_ifs() {
+function print_ifs() {
     let var_mod = var_int % 2;
 
     if(var_mod === 0){
@@ -14,7 +14,7 @@ export function print_ifs() {
     }
 }
 
-export function print_loops() {
+function print_loops() {
     for(let i=0;i<var_int;i++){
         process.stdout.write(`${i} `);
     }
@@ -27,3 +27,8 @@ export function print_loops() {
     }
     process.stdout.write('\n');
 }
+
+module.exports = {
+    print_ifs,
+    print_loops,
+};

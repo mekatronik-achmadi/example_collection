@@ -1,4 +1,4 @@
-export class Car{
+class Car{
     // constructor method
     constructor(name,year){
         this.name = name;
@@ -9,3 +9,7 @@ export class Car{
         console.log(`Name: ${this.name} and Year: ${this.year}`);
     }
 }
+
+module.exports = {
+    Car,
+};
